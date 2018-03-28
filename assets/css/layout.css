@@ -1,0 +1,203 @@
+.carousel-item {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
+.navbar-brand {
+    margin-top: -15px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 90px;
+    margin-left: 0px;
+    padding: -2px;
+}
+.font-clr{
+    color: #f5f5f5;
+}
+.top-nav{
+    background-color:#333;
+    height: 44px;
+
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+li {
+    float: left;
+
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 18px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+
+}
+
+
+footer{
+    background:#212121;
+}
+
+.footer-top{
+    padding: 1em 0;
+    border-bottom: 1px solid #2f2f2f;
+}
+
+.footer-top-left p{
+    color:#FFFFFF;
+    font-size:.9em;
+    margin:0;
+}
+
+.footer-top-left:nth-child(2){
+    text-align:right;
+}
+
+.footer-top-left p a{
+    color:#F44336;
+    text-decoration:none;
+}
+
+.footer-top-left p a:hover{
+    color:#FFFFFF;
+}
+
+footer-bottom{
+    padding: 2em 0;
+}
+.footer-bottom-left h5,.footer-bottom-right h5{
+    color:#FFFFFF;
+    font-size:1em;
+    font-weight:600;
+    margin:0 0 1em 0;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+.footer-img{
+    float:left;
+    width:30%;
+}
+.footer-img img{
+    width:100%;
+}
+.footer-img-info{
+    float: right;
+    width: 67%;
+}
+.footer-img-info p,.footer-bottom-right p{
+    color: #999999;
+    font-size: .9em;
+    margin: 0;
+    line-height: 1.8em;
+}
+.footer-bottom-right input[type="text"] {
+    display: inline-block;
+    background: #FFFFFF;
+    border: none;
+    width: 100%;
+    margin: 1em 0 0 0;
+    outline: none;
+    padding: .5em;
+    font-size: .9em;
+    color: #999999;
+}
+.footer-bottom-right input[type="submit"] {
+    outline: none;
+    color: #FFFFFF;
+    padding: .4em 1em;
+    font-size: .9em;
+    margin: 1em 0 0 0;
+    -webkit-appearance: none;
+    background: #F44336;
+    border: 2px solid #F44336;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+.footer-bottom-right input[type="submit"]:hover{
+    background: none;;
+}
+.agileinfo-social-grids ul {
+    padding: 0;
+    margin: 0;
+}
+.agileinfo-social-grids ul li {
+    display: inline-block;
+    margin: 0 .5em 0 0;
+}
+.agileinfo-social-grids ul li a {
+    color: #FFFFFF;
+    text-align: center;
+}
+.agileinfo-social-grids ul li a i.fa.fa-facebook, .agileinfo-social-grids ul li a i.fa.fa-twitter, .agileinfo-social-grids ul li a i.fa.fa-rss, .agileinfo-social-grids ul li a i.fa.fa-vk {
+    height: 30px;
+    width: 30px;
+    border: solid 2px #FFFFFF;
+    line-height: 29px;
+    background: none;
+    color: #FFFFFF;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.agileinfo-social-grids ul li a i.fa.fa-facebook:hover {
+    border: solid 2px #3b5998;
+    background:#3b5998;
+    color: #FFFFFF;
+}
+.agileinfo-social-grids ul li a i.fa.fa-twitter:hover{
+    border: solid 2px #55acee;
+    background:#55acee;
+    color: #FFFFFF;
+}
+.agileinfo-social-grids ul li a i.fa.fa-rss:hover{
+    border: solid 2px #f26522;
+    background:#f26522;
+    color: #FFFFFF;
+}
+.agileinfo-social-grids ul li a i.fa.fa-vk:hover{
+    border: solid 2px #45668e;
+    background:#45668e;
+    color: #FFFFFF;
+}
+
+.copyright p{
+    color: #999999;
+    font-size: .9em;
+    margin: 0;
+    line-height: 1.8em;
+    text-align:center;
+}
+.copyright p a{
+    color:#999999;
+    text-decoration:none;
+}
+.copyright p a:hover{
+    color:#FFFFFF;
+}
