@@ -8,6 +8,9 @@
     <link href="<?php echo base_url().'assets/css/vendor.css';?>" rel="stylesheet" type="text/css" media="all">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--    <link href="--><?php //echo base_url().'assets/css/layout.css';?><!--" rel="stylesheet" type="text/css" media="all">-->
+
+
 
 
 </head>
