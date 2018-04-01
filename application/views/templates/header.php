@@ -32,14 +32,27 @@
                 <li class="nav-item">
                     <a class="nav-link font-clr" href="contact.html">Special Offers</a>
                 </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <?php
+                    if($this->session->userdata('logged')==1){
+                    ?>
+                    <li class="nav-item">
+                        <a class="nav-link font-clr" href="<?php echo base_url() . 'login/logout'; ?>">Logout <i class="fa fa-sign-out" ></i></a>
+                    </li>
+                    <?php
 
-                <li class="nav-item">
-                    <a class="nav-link font-clr" href="contact.html">Sign In</a>
-                </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                }
+                    else {
+                        ?>
+                        <li class="nav-item">
+                            <a class="nav-link font-clr" href="<?php echo base_url() . 'login'; ?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
+                        </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                <li class="nav-item">
-                    <a class="nav-link font-clr" href="contact.html">Sign Up</a>
-                </li>
+                        <li class="nav-item">
+                            <a class="nav-link font-clr" href="contact.html">Sign Up</a>
+                        </li>
+                        <?php
+                    }
+                ?>
 
             </ul>
 
