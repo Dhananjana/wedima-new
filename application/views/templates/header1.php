@@ -13,21 +13,36 @@
             /*!*z-index:1002;*!*/
 
         /*}*/
-        ul.cls {
-             width: 300px;
-             margin: 0px;
-             padding-left: 0px;
-            }
-
-            ul.cls li {
-             list-style: none;
-             background-color: lightgray;
-             margin: 1px;
-             padding: 1px;
-             -moz-border-radius: 3px;
-             -webkit-border-radius: 3px;
-             border-radius: 3px;
-            }
+        .ui-menu {  
+                list-style:none;  
+                padding: 2px;  
+                margin: 0;  
+                display:block;  
+            }  
+            .ui-menu .ui-menu {  
+                margin-top: -3px;  
+            }  
+            .ui-menu .ui-menu-item {  
+                margin:0;  
+                padding: 0;  
+                zoom: 1;  
+                float: left;  
+                clear: left;  
+                width: 100%;  
+                font-size:80%;  
+            }  
+            .ui-menu .ui-menu-item a {  
+                text-decoration:none;  
+                display:block;  
+                padding:.2em .4em;  
+                line-height:1.5;  
+                zoom:1;  
+            }  
+            .ui-menu .ui-menu-item a.ui-state-hover,  
+            .ui-menu .ui-menu-item a.ui-state-active {  
+                font-weight: normal;  
+                margin: -1px;  
+            } 
         .sticky {
             position: -webkit-sticky;
             position: sticky;

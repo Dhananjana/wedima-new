@@ -7,14 +7,12 @@ class Vendor_model extends CI_Model
 		parent::__construct();
 	}
  
-	function hsearch($search){		
-		$this->db->select('vendorName');
-		$this->db->from('allvendor');
-		//$whereCondition = array('vendorName' =>$search);
-		//$this->db->where('vendorName',$search);
-		$this->db->like('vendorName',$search,'both');
-		$query = $this->db->get();
-		return $query->result();
-	}
+	function lookup($keyword){ 
+        $this->db->select('*')->from('allvendor'); 
+        $this->db->like('vendorName',$keyword,'both'); 
+        //$this->db->or_like('iso',$keyword,'after'); 
+        $query = $this->db->get();     
+        return $query->result(); 
+    } 
 }
 ?>

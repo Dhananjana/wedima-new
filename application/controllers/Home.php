@@ -30,13 +30,32 @@ class home extends CI_Controller
 
 
     }
-    public function hsearch(){
-      $search=  $this->input->post('search');
-      // $search = "Nishi   ";
+    public function lookup(){  
       $this->load->model('Vendor_model');
-      $query = $this->Vendor_model->hsearch($search);
-      echo json_encode ($query);
-      
-      //var_dump($query);
-     }
+        // process posted form data  
+        $keyword = $this->input->post('term');
+        $data['response'] = 'false'; //Set default response  
+        $query = $this->Vendor_model->lookup($keyword); //Search DB  
+        if( ! empty($query) )  
+        {  
+            $data['response'] = 'true'; //Set response  
+            $data['message'] = array(); //Create array  
+            foreach( $query as $row )  
+            {  
+                $data['message'][] = array(   
+                                        'id'=>$row->id,  
+                                        'value' => $row->vendorName,  
+                                        '' 
+                                     );  //Add a row to array  
+            }  
+        }  
+        if('IS_AJAX')  
+        {  
+            echo json_encode($data); //echo json string if ajax request  
+        }  
+        else 
+        {  
+            $this->load->view('home',$data); //Load html view of search results  
+        }  
+    }
 }
