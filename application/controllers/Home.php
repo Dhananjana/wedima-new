@@ -30,4 +30,13 @@ class home extends CI_Controller
 
 
     }
+    public function hsearch(){
+      $search=  $this->input->post('search');
+      // $search = "Nishi   ";
+      $this->load->model('Vendor_model');
+      $query = $this->Vendor_model->hsearch($search);
+      echo json_encode ($query);
+      
+      //var_dump($query);
+     }
 }

@@ -9,7 +9,8 @@
                 <div class="row">
                     <div class="col  topC" style="padding-top: 10px">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+                            <input type="email" class="form-control" name="search" id="search" aria-describedby="emailHelp" placeholder="Name">
+                            <ul id="finalResult" class="cls"></ul>
                         </div>
                     </div>
                     <div class="col  topC" style="padding-top: 10px">
@@ -266,17 +267,17 @@
 
 <style></style>
 <!--about us -->
-<div id="AboutUs" >
+<div id="section4" >
     <div class="welcome">
         <div class="container" >
             <div class="space"></div>
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="mt-4 mb-3" >About us
             </h1>
-            <br>
             <div class="welcome-grids">
                 <div class="col-md-6 w3ls-welcome-left">
                     <div class="w3ls-welcome-left-img">
+
                     </div>
                 </div>
                 <div class="col-md-6 w3ls-welcome-right">
@@ -294,12 +295,45 @@
                 </div>
                 <div class="clearfix"> </div>
             </div>
-            <br>
         </div>
     </div>
-
-
-
-
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20160511/json2.js"></script>
+<script>
+ $(document).ready(function(){
+   $("#search").keyup(function(){
+  if($("#search").val().length>2){
+  $.ajax({
+   type: "post",
+   url: "http://localhost/wedima-n/home/hsearch",
+   cache: false,    
+   data:'search='+$("#search").val(),
+   success: function(response){
+    $('#finalResult').html("");
+    var obj = JSON.parse(response);
+    if(obj.length>0){
+     try{
+      var items=[];  
+      $.each(obj, function(i,val){           
+          items.push($('<li/>').text(val.vendorName));
+      }); 
+      $('#finalResult').append.apply($('#finalResult'), items);
+     }catch(e) {  
+      alert('Exception while request..');
+     }  
+    }else{
+     $('#finalResult').html($('<li/>').text("No Data Found"));  
+    }  
+    
+   },
+   error: function(){      
+    alert('Error while request..');
+   }
+  });
+  }
+  return false;
+   });
+ });
+</script>

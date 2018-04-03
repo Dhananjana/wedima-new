@@ -13,6 +13,21 @@
             /*!*z-index:1002;*!*/
 
         /*}*/
+        ul.cls {
+             width: 300px;
+             margin: 0px;
+             padding-left: 0px;
+            }
+
+            ul.cls li {
+             list-style: none;
+             background-color: lightgray;
+             margin: 1px;
+             padding: 1px;
+             -moz-border-radius: 3px;
+             -webkit-border-radius: 3px;
+             border-radius: 3px;
+            }
         .sticky {
             position: -webkit-sticky;
             position: sticky;
