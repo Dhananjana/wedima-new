@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 02, 2018 at 04:49 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: Apr 04, 2018 at 08:00 PM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `wedima`
+-- Database: `wedima1`
 --
 
 -- --------------------------------------------------------
@@ -33,6 +33,29 @@ CREATE TABLE `admin` (
   `email` int(11) NOT NULL,
   `adminLevel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `allvendor`
+--
+
+CREATE TABLE `allvendor` (
+  `id` int(200) NOT NULL,
+  `vendorName` varchar(1000) NOT NULL,
+  `vendorTypeID` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `allvendor`
+--
+
+INSERT INTO `allvendor` (`id`, `vendorName`, `vendorTypeID`) VALUES
+(1, 'Saloon Nishi', 7),
+(2, 'Cinnamon Grand Colombo', 1),
+(3, 'thimathi studio', 2),
+(4, 'Darshana Perera', 4),
+(5, 'Salon Bhagya', 7);
 
 -- --------------------------------------------------------
 
@@ -306,7 +329,8 @@ CREATE TABLE `photographers` (
   `vision` varchar(1000) NOT NULL,
   `address` varchar(200) NOT NULL,
   `telephone` varchar(15) NOT NULL,
-  `description` varchar(1000) NOT NULL
+  `description` varchar(1000) NOT NULL,
+  `serviceArea` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -324,7 +348,8 @@ CREATE TABLE `stationary` (
   `vision` varchar(200) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `telephone` varchar(15) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL
+  `address` varchar(200) DEFAULT NULL,
+  `serviceArea` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -342,7 +367,8 @@ CREATE TABLE `traditionalteams` (
   `vision` varchar(200) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `telephone` varchar(15) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL
+  `address` varchar(200) DEFAULT NULL,
+  `serviceArea` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -360,7 +386,8 @@ CREATE TABLE `transporters` (
   `vision` varchar(200) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
   `telephone` varchar(15) DEFAULT NULL,
-  `address` varchar(200) NOT NULL
+  `address` varchar(200) NOT NULL,
+  `serviceArea` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -404,7 +431,7 @@ CREATE TABLE `vendor` (
 --
 
 INSERT INTO `vendor` (`id`, `vendorType`, `description`, `user_id`) VALUES
-(1, 'locations', 'tharinduta epa wela', 0),
+(1, 'locations', 'Places to success their wedding day', 0),
 (2, 'photographers', '', 0),
 (3, 'transporters\r\n', '', 0),
 (4, 'entertainment', '', 0),
@@ -444,7 +471,8 @@ CREATE TABLE `weddingcake` (
   `vision` varchar(200) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `telephone` varchar(15) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL
+  `address` varchar(200) DEFAULT NULL,
+  `serviceArea` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -455,6 +483,12 @@ CREATE TABLE `weddingcake` (
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `allvendor`
+--
+ALTER TABLE `allvendor`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -586,106 +620,133 @@ ALTER TABLE `weddingcake`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `allvendor`
+--
+ALTER TABLE `allvendor`
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `beautician`
 --
 ALTER TABLE `beautician`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `bridalwear`
 --
 ALTER TABLE `bridalwear`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `entertainment`
 --
 ALTER TABLE `entertainment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `flowerworks`
 --
 ALTER TABLE `flowerworks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `groomwear`
 --
 ALTER TABLE `groomwear`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `jewellary`
 --
 ALTER TABLE `jewellary`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `orderdetail`
 --
 ALTER TABLE `orderdetail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `package1`
 --
 ALTER TABLE `package1`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `photographers`
 --
 ALTER TABLE `photographers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `stationary`
 --
 ALTER TABLE `stationary`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `traditionalteams`
 --
 ALTER TABLE `traditionalteams`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `transporters`
 --
 ALTER TABLE `transporters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `vendor`
 --
 ALTER TABLE `vendor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `vendornotificatiom`
 --
 ALTER TABLE `vendornotificatiom`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `weddingcake`
 --
 ALTER TABLE `weddingcake`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
