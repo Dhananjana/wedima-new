@@ -2,14 +2,15 @@
 <?=$nav1?>
 <br><br>
 <?=$sli?>
-<form style="">
+<form action="<?php base_url();?>home/finalResult" method="post">
     <div class="container">
         <div class="border border-secondary">
             <div class="container bg-secondary ">
                 <div class="row">
                     <div class="col  topC" style="padding-top: 10px">
                         <div class="form-group">
-                            <?php  
+                            <?php 
+                                 
                                 echo form_input('vendorName','','id="id"');  
                             ?> 
                             <ul>  
@@ -19,7 +20,7 @@
                     </div>
                     <div class="col  topC" style="padding-top: 10px">
                         <div class="form-group">
-                            <select class="form-control" id="exampleSelect1">
+                            <select class="form-control" name="loc" id="exampleSelect1">
                                 <option selected value="Island_wide">Select Area</option>
                                 <option value='Island_wide' >Island wide</option>
                                 <option value='Ampara'>Ampara</option>
@@ -52,18 +53,25 @@
                     </div>
                     <div class="col  topC" style="padding-top: 10px">
                         <div class="form-group" >
-                            <select class="form-control"  id="exampleSelect1">
+                            <select class="form-control" name="cat"  id="exampleSelect1">
                                 <option>Select Category</option>
-<!--                                <option *ngFor="let vendorT of vendorTypes">{{vendorT.vendorType}}</option>-->
-                                <!--<option>2</option>-->
-                                <!--<option>3</option>-->
-                                <!--<option>4</option>-->
-                                <!--<option>5</option>-->
+                                <option value="locations">Locations</option>
+                                <option value="photographers">Photographers</option>
+                                <option value="transporters">Transporters</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="bridalWear">Bridal Wear</option>
+                                <option value="stationary">Stationary</option>
+                                <option value="beautician">Beautician</option>
+                                <option value="weddingCake">Wedding Cake</option>
+                                <option value="jewellary">Jewellary</option>
+                                <option value="flowerWorks">Flower Works</option>
+                                <option value="traditionalTeams">Traditional Teams</option>
+                                <option value="groomsWear">Grooms Wear</option>
                             </select>
                         </div>
                     </div>
                     <div class="col topC" style="padding-top: 10px">
-                        <button type="button" class="btn btn-outline-info btnw"> Search </button>
+                        <button type="submit" class="btn btn-outline-info btnw"> Search </button>
                     </div>
                 </div>
             </div>
