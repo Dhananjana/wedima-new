@@ -68,9 +68,12 @@ class home extends CI_Controller
         $tableName = $this->input->post('cat');
         $location = $this->input->post('loc');
         $name = $this->input->post('vendorName');
+        $tableName = 'select';
+        $location = 'gampaha';
+        $name = 'Salon Bhagya ';
         $data1['sres'] = $this->Vendor_model->finalResult($tableName,$location,$name);
        // var_dump($data);
-         $this->load->model('Vendor_model');
+         //$this->load->model('Vendor_model');
         $data1['nav1'] = $this->load->view('templates/header1',NULL,TRUE);
         $data1['sli'] = $this->load->view('slider',NULL,TRUE);
         if($this->session->userdata('logged')==0){
@@ -89,5 +92,5 @@ class home extends CI_Controller
             $this->load->view('searchPage',$data1);
             $this->load->view('templates/footer');
         }
-    }
+     }
 }
