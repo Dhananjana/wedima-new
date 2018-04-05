@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2018 at 08:00 PM
+-- Generation Time: Apr 05, 2018 at 09:35 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -268,9 +268,19 @@ CREATE TABLE `orderdetail` (
 
 CREATE TABLE `package` (
   `id` int(20) NOT NULL,
-  `vendorId` int(20) NOT NULL,
-  `packageId` int(20) NOT NULL
+  `allvendorId` int(20) NOT NULL,
+  `packageId` int(20) NOT NULL,
+  `packageType` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `package`
+--
+
+INSERT INTO `package` (`id`, `allvendorId`, `packageId`, `packageType`) VALUES
+(1, 5, 1, 'pacakge1'),
+(2, 5, 1, 'package2'),
+(3, 5, 1, 'package3');
 
 -- --------------------------------------------------------
 
@@ -286,6 +296,13 @@ CREATE TABLE `package1` (
   `packageImage` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `package1`
+--
+
+INSERT INTO `package1` (`id`, `packageName`, `description`, `price`, `packageImage`) VALUES
+(1, 'basic', 'Upper Lip Threading\r\nHair Cut (any) + Wash\r\nConditioner Treatment+power dose', 12000, '');
+
 -- --------------------------------------------------------
 
 --
@@ -294,11 +311,18 @@ CREATE TABLE `package1` (
 
 CREATE TABLE `package2` (
   `id` int(11) NOT NULL,
-  `packageName` varchar(200) NOT NULL,
+  `pcakageName` varchar(1000) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `price` int(20) NOT NULL,
-  `packageImage` varchar(200) NOT NULL
+  `packageImage` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `package2`
+--
+
+INSERT INTO `package2` (`id`, `pcakageName`, `description`, `price`, `packageImage`) VALUES
+(1, 'standard', 'Normal Head Massage+ tonic\r\nRe-Bonding-Sholder Length\r\nClean up Jovees\r\nEye Treatment\r\nOil Treatment For Body', 20000, '');
 
 -- --------------------------------------------------------
 
@@ -308,11 +332,18 @@ CREATE TABLE `package2` (
 
 CREATE TABLE `package3` (
   `id` int(11) NOT NULL,
-  `packageName` varchar(200) NOT NULL,
+  `packageName` varchar(1000) NOT NULL,
   `description` varchar(1000) NOT NULL,
   `price` int(20) NOT NULL,
-  `packageImage` varchar(200) NOT NULL
+  `packageImage` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `package3`
+--
+
+INSERT INTO `package3` (`id`, `packageName`, `description`, `price`, `packageImage`) VALUES
+(1, 'Premium', 'Upper Lip Threading\r\nChin Threding\r\nHair Cut (any) + Wash\r\nConditioner Treatment+power dose\r\nHair Perm\r\nMake-up\r\nMenicure\r\nHair Straightning', 35000, '');
 
 -- --------------------------------------------------------
 
@@ -564,6 +595,18 @@ ALTER TABLE `package1`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `package2`
+--
+ALTER TABLE `package2`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `package3`
+--
+ALTER TABLE `package3`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `photographers`
 --
 ALTER TABLE `photographers`
@@ -691,13 +734,25 @@ ALTER TABLE `orderdetail`
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `package1`
 --
 ALTER TABLE `package1`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `package2`
+--
+ALTER TABLE `package2`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `package3`
+--
+ALTER TABLE `package3`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `photographers`
