@@ -2,6 +2,24 @@
 <?=$nav1?>
 <br><br>
 <?=$sli?>
+<style >
+    .space{
+        height: 60px;
+    }
+    .rounded1{
+    height:90%;
+    max-height: 175px;
+    width:100%;
+}
+.animate {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+</style>
 <form style="">
     <div class="container">
         <div class="border border-secondary">
@@ -68,7 +86,7 @@
 
 
 
-<div id="section5" class="container-fluid" >
+<div id="Services" class="container-fluid" >
     <div class="container" >
         <div class="space"></div>
         <!-- Page Heading/Breadcrumbs -->
@@ -117,7 +135,7 @@
 </div>
 
 <!-- Page Content -->
-<div id="section1" class="container-fluid">
+<div id="Gallery" class="container-fluid">
     <div class="container">
         <div class="space"></div>
         <!-- Page Heading/Breadcrumbs -->
@@ -205,7 +223,7 @@
 </div>
 <hr>
 <!--Testimonials -->
-<div id="section3" class="container-fluid" >
+<div id="Testinomials" class="container-fluid" >
     <div class="container" >
         <div class="space"></div>
         <!-- Page Heading/Breadcrumbs -->
@@ -213,7 +231,7 @@
         </h1>
         <!-- Project One -->
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <a href="#">
                     <img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url().'assets/images/images/glry/ancient.jpg';?>" alt="">
                 </a>
@@ -274,12 +292,13 @@
             <h1 class="mt-4 mb-3" >About us
             </h1>
             <br>
-            <div class="welcome-grids">
+            <div class="welcome-grids row">
                 <div class="col-md-6 w3ls-welcome-left">
                     <div class="w3ls-welcome-left-img">
                     </div>
                 </div>
                 <div class="col-md-6 w3ls-welcome-right">
+                <br><br>
                     <div class="w3ls-welcome-right-info">
                         <h2>Some Words <span>About Us</span></h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque libero justo, mollis et elementum eget, mollis sit amet justo. Praesent aliquet nibh quis massa dapibus, eu volutpat ligula rutrum. Phasellus consectetur orci at cursus pellentesque. Fusce accumsan eros et eros pretium volutpat. <span>Nullam metus lorem, interdum at nisi nec, gravida accumsan ante. Ut dolor lectus, consectetur in rutrum a, eleifend quis est. Quisque eu porta dui. Praesent sit amet pulvinar velit. Quisque eget metus ac velit interdum laoreet.</span></p>
