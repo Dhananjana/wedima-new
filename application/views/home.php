@@ -2,6 +2,7 @@
 <?=$nav1?>
 <br><br>
 <?=$sli?>
+
 <style >
     .space{
         height: 60px;
@@ -20,19 +21,27 @@
 }
 
 </style>
-<form style="">
+
+<form action="<?php base_url();?>home/finalResult" method="post">
+
     <div class="container">
         <div class="border border-secondary">
             <div class="container bg-secondary ">
                 <div class="row">
                     <div class="col  topC" style="padding-top: 10px">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+                            <?php 
+                                 
+                                echo form_input('vendorName','','id="id"');  
+                            ?> 
+                            <ul>  
+                                <div class="well" id="result"></div>  
+                            </ul>
                         </div>
                     </div>
                     <div class="col  topC" style="padding-top: 10px">
                         <div class="form-group">
-                            <select class="form-control" id="exampleSelect1">
+                            <select class="form-control" name="loc" id="exampleSelect1">
                                 <option selected value="Island_wide">Select Area</option>
                                 <option value='Island_wide' >Island wide</option>
                                 <option value='Ampara'>Ampara</option>
@@ -65,18 +74,25 @@
                     </div>
                     <div class="col  topC" style="padding-top: 10px">
                         <div class="form-group" >
-                            <select class="form-control"  id="exampleSelect1">
-                                <option>Select Category</option>
-<!--                                <option *ngFor="let vendorT of vendorTypes">{{vendorT.vendorType}}</option>-->
-                                <!--<option>2</option>-->
-                                <!--<option>3</option>-->
-                                <!--<option>4</option>-->
-                                <!--<option>5</option>-->
+                            <select class="form-control" name="cat"  id="exampleSelect1">
+                                <option value="select">Select Category</option>
+                                <option value="locations">Locations</option>
+                                <option value="photographers">Photographers</option>
+                                <option value="transporters">Transporters</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="bridalWear">Bridal Wear</option>
+                                <option value="stationary">Stationary</option>
+                                <option value="beautician">Beautician</option>
+                                <option value="weddingCake">Wedding Cake</option>
+                                <option value="jewellary">Jewellary</option>
+                                <option value="flowerWorks">Flower Works</option>
+                                <option value="traditionalTeams">Traditional Teams</option>
+                                <option value="groomsWear">Grooms Wear</option>
                             </select>
                         </div>
                     </div>
                     <div class="col topC" style="padding-top: 10px">
-                        <button type="button" class="btn btn-outline-info btnw"> Search </button>
+                        <button type="submit" class="btn btn-outline-info btnw"> Search </button>
                     </div>
                 </div>
             </div>
@@ -284,17 +300,21 @@
 
 <style></style>
 <!--about us -->
-<div id="AboutUs" >
+<div id="section4" >
     <div class="welcome">
         <div class="container" >
             <div class="space"></div>
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="mt-4 mb-3" >About us
             </h1>
+
             <br>
             <div class="welcome-grids row">
+            
+
                 <div class="col-md-6 w3ls-welcome-left">
                     <div class="w3ls-welcome-left-img">
+
                     </div>
                 </div>
                 <div class="col-md-6 w3ls-welcome-right">
@@ -313,12 +333,33 @@
                 </div>
                 <div class="clearfix"> </div>
             </div>
-            <br>
         </div>
     </div>
-
-
-
-
 </div>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript"></script>  
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript">  
+        $(this).ready( function() {  
+            $("#id").autocomplete({  
+                minLength: 1,  
+                source:   
+                function(req, add){  
+                    $.ajax({  
+                        url: "http://localhost/wedima-n/home/lookup",  
+                        dataType: 'json',  
+                        type: 'POST',  
+                        data: req,  
+                        success:      
+                        function(data){  
+                            if(data.response =="true"){  
+                                add(data.message);  
+                                console.log(data);
+                            }  
+                        },  
+                    });  
+                },  
+                     
+            });  
+        });  
+        </script>

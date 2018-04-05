@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: thari
- * Date: 2018-03-29
- * Time: PM 7.36
- */
 
 class Vendor extends CI_Controller
 {
@@ -14,4 +8,5 @@ class Vendor extends CI_Controller
         $this->load->view('vendor/profile',$data);
         $this->load->view('templates/footer');
     }
+    
 }
