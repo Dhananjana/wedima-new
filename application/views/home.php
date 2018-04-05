@@ -54,7 +54,7 @@
                     <div class="col  topC" style="padding-top: 10px">
                         <div class="form-group" >
                             <select class="form-control" name="cat"  id="exampleSelect1">
-                                <option>Select Category</option>
+                                <option value="select">Select Category</option>
                                 <option value="locations">Locations</option>
                                 <option value="photographers">Photographers</option>
                                 <option value="transporters">Transporters</option>
