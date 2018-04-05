@@ -68,9 +68,9 @@ class home extends CI_Controller
         $tableName = $this->input->post('cat');
         $location = $this->input->post('loc');
         $name = $this->input->post('vendorName');
-        $tableName = 'select';
-        $location = 'gampaha';
-        $name = 'Salon Bhagya ';
+        // $tableName = 'select';
+        // $location = 'gampaha';
+        // $name = 'Salon Bhagya ';
         $data1['sres'] = $this->Vendor_model->finalResult($tableName,$location,$name);
        // var_dump($data);
          //$this->load->model('Vendor_model');

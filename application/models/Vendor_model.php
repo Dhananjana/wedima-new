@@ -35,20 +35,18 @@ class Vendor_model extends CI_Model
             }
             echo $tableName;
         }
-        if($location!='Island_wide'){
-            $this->db->select('*');
-            $this->db->where('name', $name);
-            $this->db->like('serviceArea', $location ,'both');
-            $this->db->from($tableName);
-            $query = $this->db->get();
-            
-         }else{
+        if($location=='Island_wide'){
            $this->db->select('*');
            $this->db->where('name', $name);
            $this->db->from($tableName);
            $query = $this->db->get();
-           
          } 
+         $this->db->select('*');
+        $this->db->where('name', $name);
+        $this->db->like('serviceArea', $location ,'both');
+        $this->db->from($tableName);
+        $query = $this->db->get();
+
          return $query->result();  
         
     } 
