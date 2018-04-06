@@ -29,17 +29,17 @@ li a {
     padding: 13px 16px;
     text-decoration: none;
 }
-
+li a:hover:not(.active) {
+    color: white;
+     height: 44px;
+    background-color: #222;
+}
 .list a:hover:not(.active) {
     background-color:#111;
     color: white;
-    height: 45px;
+    height: 44px;
 }
-li a:hover:not(.active) {
-    color: white;
-     height: 45px;
-    background-color: #222;
-}
+
 .list{
     float:right;
     align-content: center;
@@ -56,8 +56,8 @@ li a:hover:not(.active) {
 </head>
 <body>
 <ul class="fixed-top sticky top-nav" style="margin-top: 43px;z-index: 500; background-color: #222;">
-              <li class="list"> <a class="nav-link font-clr" href="<?php echo base_url().'home';?>#Services">Services</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <li class="list"><a class="nav-link font-clr" href="<?php echo base_url().'home';?>#Gallery">Gallery</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <li class="list"> <a class="nav-link font-clr" href="<?php echo base_url().'home';?>#Services">Services</a></li>
+              <li class="list"><a class="nav-link font-clr" href="<?php echo base_url().'home';?>#Gallery">Gallery</a></li>
               <li class="list"><a class="nav-link font-clr" href="<?php echo base_url().'home';?>#Testinomials">Testinomials</a></li>
               <li class="list"> <a class="nav-link font-clr" href="<?php echo base_url().'home';?>#AboutUs">About Us</a></li>
               <li class="list"> <a class="nav-link font-clr" href="<?php echo base_url().'home';?>#contactUs">Contact Us</a></li>

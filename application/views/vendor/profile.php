@@ -1,10 +1,8 @@
 
 <br><br>
-<div class="cover--header pt--80 text-center bg--img" data-overlay="0.6" data-overlay-color="white" data-rjs="2" style="background-image: url(<?php echo base_url().'assets/images/v1.jpg';?>);background-repeat: no-repeat">
+<div class="cover--header pt--80 text-center bg--img" data-overlay="0.6" data-overlay-color="white" data-rjs="2">
     <div class="container">
-        <div class="cover--avatar online" data-overlay="0.3" data-overlay-color="primary">
-            <img src="<?php echo base_url().'assets/images/images/7.jpg';?>" alt="">
-        </div>
+        <img src='<?php echo base_url().'assets/images/v1.jpg';?>'>
 
         <div class="cover--user-name">
             <h2 class="h3 fw--600">Bridal Deressing</h2>

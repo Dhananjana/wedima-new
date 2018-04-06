@@ -13,6 +13,33 @@
 
 </head>
 <body>
+<style>
+    
+li {
+    float: left;
+    border-left:1px solid #bbb;
+    margin-left: 10px;
+    height: 45px;
+}
+
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 13px 16px;
+    text-decoration: none;
+}
+li a:hover:not(.active) {
+    color: white;
+     height: 44px;
+    background-color: #222;
+}
+</style>
 <nav class="navbar navbar-expand-lg  fixed-top top-nav">
     <div class="container">
         <a class="navbar-brand" href="<?php echo base_url().'home';?>"><img src="<?php echo base_url().'assets/images/images/logo4.png';?>" style="height: 120px;"></a>
