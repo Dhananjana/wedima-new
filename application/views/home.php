@@ -159,14 +159,52 @@
         width: 100%;
         height: 5px;
     }
+
+    #navbar {
+  overflow: hidden;
+  background-color: #333;
+  z-index:500;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky1 {
+  position: fixed;
+  top:83px;
+  width: 100%;
+}
+
 </style>
 
 
 <form action="<?php base_url();?>home/finalResult" method="post">
 
-    <div class="">
+    <div id="navbar">
         <div class=" border-secondary">
-            <div style="background-color:#111;border-color:#111;border-width: 5px;height: 55px;">
+            <div style="background-color:#333;border-color:#333;border-width: 5px;height: 55px;">
                 <div class="row">
                <div class="col-md-2"></div>
                  <div class="col-md-2">
@@ -254,9 +292,9 @@
     
 </div>
 
-<div id="Services" class="container-fluid">
+<div id="Services" class="container-fluid" style="z-index:499;">
     <div class="">
-       
+        <div class="space"></div>
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">Services
         </h1>
@@ -297,7 +335,7 @@
     </div>
     
     
-    <div class="clearfix"></div>
+    
     <br>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-8 wow animated animated2 fadeInLeft">
         <div class="project-hover">
@@ -367,7 +405,7 @@
         </div>
     </div>
     <br>
-   
+   <div class="clearfix"></div>
    
   </div>
 
@@ -587,4 +625,17 @@
                      
             });  
         });  
-        </script>
+
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky1")
+  } else {
+    navbar.classList.remove("sticky1");
+  }
+}
+</script>
