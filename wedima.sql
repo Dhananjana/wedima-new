@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 06, 2018 at 01:16 PM
+-- Generation Time: Apr 06, 2018 at 01:46 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -149,8 +149,9 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`id`, `weddingName`, `date`, `description`, `image`) VALUES
-(1, 'Tharindu & Primali', '', 'Dear Dhananjana,\r\n\r\nMany thanks for an awesome job. here are our thoughts..\r\n\r\nPlanning out the event right from the outset was methodical, time bound and practical. Its success was reflected in the numerous positive comments about the smooth flow and organization of the proceedings. Above all, as the groom and bride, our lives were made awesomely easy. We had faith on Lasantha’s abilities and he lived beyond our expectations. We were relaxed both before and during the event, enjoyed it to the fullest, and never did the stress of ‘what’s next?’ creep in, as we knew that plan was in safe hands. He knew our desires and tastes and made sure everything fell in the right place at the right time.\r\n\r\nWish you all the best', 'ancient.jpg'),
-(2, 'Dhananjana and Thilini', '2018.04.06', 'Thank You Weima amazing work', 'clr.jpg'),
+(1, 'Tharindu & Primali', '2108.04.07', 'Dear Dhananjana,\r\n\r\nMany thanks for an awesome job. here are our thoughts..\r\n\r\nPlanning out the event right from the outset was methodical, time bound and practical. Its success was reflected in the numerous positive comments about the smooth flow and organization of the proceedings. Above all, as the groom and bride, our lives were made awesomely easy. We had faith on Lasantha’s abilities and he lived beyond our expectations. We were relaxed both before and during the event, enjoyed it to the fullest, and never did the stress of ‘what’s next?’ creep in, as we knew that plan was in safe hands. He knew our desires and tastes and made sure everything fell in the right place at the right time.\r\n\r\nWish you all the best', 'ancient.jpg'),
+(2, 'Dhananjana and Thilini', '2018.04.06', 'wedima Wedding planners were very helpful in planning and organizing our wedding and the homecoming. Itineraries for both days were created in detail after listening to our needs by Lasantha who was friendly and at the same time professional. On the function day Lasantha and Prasad took care of the timing and made sure everything goes in order. It was a big relief as they were always there to back us up anytime and to guide the whole function from planning stage to the end. Thank you very much for your support and will always recommend you guys in the future.', 'clr.jpg'),
+
 (3, 'Shiran and Nayomi', '2018.03.09', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio', 'red1.jpg'),
 (4, 'Bandara and Nisansala', '2018.04.15', 'Thanks a lot', NULL);
 

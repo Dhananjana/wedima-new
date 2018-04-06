@@ -298,7 +298,6 @@
     
     
     <div class="clearfix"></div>
-    <br>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-8 wow animated animated2 fadeInLeft">
         <div class="project-hover">
             <h2>Jwellaries</h2>
@@ -331,7 +330,7 @@
             <h6>1.Cake Structures<br>2.Cake Pieces</h6>
         </div>
     </div>
-  
+
     <br>
      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-9 wow animated animated5 fadeInLeft">
         <div class="project-hover">
@@ -366,8 +365,7 @@
             <a href="#">See More</a>
         </div>
     </div>
-    <br>
-   
+        <div class="clearfix"></div>
    
   </div>
 
@@ -471,54 +469,34 @@
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">Testinominals
         </h1>
-        <!-- Project One -->
-        <div class="row">
-            <div class="col-md-3">
-                <a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url().'assets/images/images/glry/ancient.jpg';?>" alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h3>Angelo and Sheril</h3>2018.03.19
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
+        <?php
+        if( !empty($testinominals) ) {
+            foreach ($testinominals as $testinominal) {
+                ?>
+                <!-- Project One -->
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="#">
+                            <img class="img-fluid rounded mb-3 mb-md-0"
+                                 src="<?php echo base_url() . 'uploads/testinominals/' . $testinominal->image; ?>"
+                                 alt="">
+                        </a>
+                    </div>
+                    <div class="col-md-7">
+                        <h3><?php echo $testinominal->weddingName; ?></h3><?php echo $testinominal->date; ?>
+                        <p><?php echo $testinominal->description; ?></p>
 
-            </div>
-        </div>
-        <!-- /.row -->
+                    </div>
+                </div>
 
-        <hr>
+                <!-- /.row -->
 
-        <!-- Project Two -->
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url().'assets/images/images/glry/clr.jpg';?>" alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h3>Shiran and Nayomi</h3>2018.03.09
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
+                <hr>
+                <?php
+            }
+        }
+        ?>
 
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
-        <!-- Project Three -->
-        <div class="row">
-            <div class="col-md-4">
-                <a href="#">
-                    <img class="img-fluid rounded mb-3 mb-md-0" src="<?php echo base_url().'assets/images/images/glry/red1.jpg';?>" alt="">
-                </a>
-            </div>
-            <div class="col-md-7">
-                <h3>Tharka and Nimali</h3>2018.02.20
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-
-            </div>
-        </div>
-        <!-- /.row -->
-        <br><br>
     </div>
     <!-- /.container -->
 
