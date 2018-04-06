@@ -12,7 +12,7 @@ class home extends CI_Controller
     {
       parent::__construct();
       $this->load->model('Vendor_model');
-      $this->load->model('Home_model');
+        $this->load->model('Home_model');
     }
     public  function index(){
         $data1['testinominals']=$this->Home_model->get_testinominals();
@@ -77,21 +77,11 @@ class home extends CI_Controller
          //$this->load->model('Vendor_model');
         $data1['nav1'] = $this->load->view('templates/header1',NULL,TRUE);
         $data1['sli'] = $this->load->view('slider',NULL,TRUE);
-        if($this->session->userdata('logged')==0){
+
             $this->load->view('templates/header');
             $this->load->view('searchPage', $data1);
             $this->load->view('templates/footer');
-    }
-        if(($this->session->userdata('logged')==1)&& ($this->session->userdata('utype')=='vendor')){
-            $this->load->view('templates/vheader');
-            $this->load->view('searchPage',$data1);
-            $this->load->view('templates/footer');
-        }
 
-        if(($this->session->userdata('logged')==1)&& ($this->session->userdata('utype')=='customer')){
-            $this->load->view('templates/header');
-            $this->load->view('searchPage',$data1);
-            $this->load->view('templates/footer');
-        }
+
      }
 }
