@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2018 at 09:35 AM
--- Server version: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Generation Time: Apr 06, 2018 at 01:46 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `wedima1`
+-- Database: `wedima`
 --
 
 -- --------------------------------------------------------
@@ -139,15 +139,20 @@ INSERT INTO `entertainment` (`id`, `name`, `pp`, `locationLat`, `locationLang`, 
 CREATE TABLE `feedback` (
   `id` int(11) NOT NULL,
   `weddingName` varchar(200) NOT NULL,
-  `description` varchar(1000) NOT NULL
+  `date` varchar(1000) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  `image` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `feedback`
 --
 
-INSERT INTO `feedback` (`id`, `weddingName`, `description`) VALUES
-(1, 'Tharindu & Primali', 'Dear Dhananjana,\r\n\r\nMany thanks for an awesome job. here are our thoughts..\r\n\r\nPlanning out the event right from the outset was methodical, time bound and practical. Its success was reflected in the numerous positive comments about the smooth flow and organization of the proceedings. Above all, as the groom and bride, our lives were made awesomely easy. We had faith on Lasantha’s abilities and he lived beyond our expectations. We were relaxed both before and during the event, enjoyed it to the fullest, and never did the stress of ‘what’s next?’ creep in, as we knew that plan was in safe hands. He knew our desires and tastes and made sure everything fell in the right place at the right time.\r\n\r\nWish you all the best');
+INSERT INTO `feedback` (`id`, `weddingName`, `date`, `description`, `image`) VALUES
+(1, 'Tharindu & Primali', '2108.04.07', 'Dear Dhananjana,\r\n\r\nMany thanks for an awesome job. here are our thoughts..\r\n\r\nPlanning out the event right from the outset was methodical, time bound and practical. Its success was reflected in the numerous positive comments about the smooth flow and organization of the proceedings. Above all, as the groom and bride, our lives were made awesomely easy. We had faith on Lasantha’s abilities and he lived beyond our expectations. We were relaxed both before and during the event, enjoyed it to the fullest, and never did the stress of ‘what’s next?’ creep in, as we knew that plan was in safe hands. He knew our desires and tastes and made sure everything fell in the right place at the right time.\r\n\r\nWish you all the best', 'ancient.jpg'),
+(2, 'Dhananjana and Thilini', '2018.04.06', 'wedima Wedding planners were very helpful in planning and organizing our wedding and the homecoming. Itineraries for both days were created in detail after listening to our needs by Lasantha who was friendly and at the same time professional. On the function day Lasantha and Prasad took care of the timing and made sure everything goes in order. It was a big relief as they were always there to back us up anytime and to guide the whole function from planning stage to the end. Thank you very much for your support and will always recommend you guys in the future.', 'clr.jpg'),
+(3, 'Shiran and Nayomi', '2018.03.09', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio', 'red1.jpg'),
+(4, 'Bandara and Nisansala', '2018.04.15', 'Thanks a lot', NULL);
 
 -- --------------------------------------------------------
 
@@ -663,145 +668,121 @@ ALTER TABLE `weddingcake`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `allvendor`
 --
 ALTER TABLE `allvendor`
   MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `beautician`
 --
 ALTER TABLE `beautician`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `bridalwear`
 --
 ALTER TABLE `bridalwear`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `entertainment`
 --
 ALTER TABLE `entertainment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `flowerworks`
 --
 ALTER TABLE `flowerworks`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `groomwear`
 --
 ALTER TABLE `groomwear`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `jewellary`
 --
 ALTER TABLE `jewellary`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `orderdetail`
 --
 ALTER TABLE `orderdetail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `package`
 --
 ALTER TABLE `package`
   MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `package1`
 --
 ALTER TABLE `package1`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `package2`
 --
 ALTER TABLE `package2`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `package3`
 --
 ALTER TABLE `package3`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `photographers`
 --
 ALTER TABLE `photographers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `stationary`
 --
 ALTER TABLE `stationary`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `traditionalteams`
 --
 ALTER TABLE `traditionalteams`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `transporters`
 --
 ALTER TABLE `transporters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `vendor`
 --
 ALTER TABLE `vendor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
 --
 -- AUTO_INCREMENT for table `vendornotificatiom`
 --
 ALTER TABLE `vendornotificatiom`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `weddingcake`
 --
 ALTER TABLE `weddingcake`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
