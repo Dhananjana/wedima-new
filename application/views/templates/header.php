@@ -15,7 +15,7 @@
 <body>
 <style>
     
-li {
+.list1{
     float: left;
     border-left:1px solid #bbb;
     margin-left: 10px;
@@ -23,18 +23,18 @@ li {
 }
 
 
-li:last-child {
+.list1:last-child {
     border-right: none;
 }
 
-li a {
+.list1 a {
     display: block;
     color: white;
     text-align: center;
     padding: 13px 16px;
     text-decoration: none;
 }
-li a:hover:not(.active) {
+.list1 a:hover:not(.active) {
     color: white;
      height: 44px;
     background-color: #222;
@@ -50,14 +50,14 @@ li a:hover:not(.active) {
         <div class="collapse navbar-collapse" id="navbarResponsive">
 
             <ul class="navbar-nav ml-auto" >
-                <li class="nav-item ">
+                <li class="nav-item list1">
                     <a class="nav-link font-clr" href="<?php echo base_url().'home';?>" id="navbarDropdownPortfolio">Home</a>
                 </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <li class="nav-item" >
+                <li class="nav-item list1" >
                     <a class="nav-link font-clr" href="contact.html">Vendors</a>
                 </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                <li class="nav-item">
+                <li class="nav-item list1">
                     <a class="nav-link font-clr" href="contact.html">Special Offers</a>
                 </li>&nbsp;&nbsp;
                 <?php
@@ -88,11 +88,11 @@ li a:hover:not(.active) {
                 else{
 
                     ?>
-                    <li class="nav-item">
+                    <li class="nav-item list1">
                         <a class="nav-link font-clr" href="<?php echo base_url() . 'login'; ?>"><i class="fa fa-sign-in" aria-hidden="true"></i> Sign In</a>
                     </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <li class="nav-item">
+                    <li class="nav-item list1">
                         <a class="nav-link font-clr" href="contact.html">Sign Up</a>
                     </li>
                     <?php
