@@ -422,6 +422,10 @@
         <h1 class="mt-4 mb-3">Gallery
         </h1>
         <!-- Project One -->
+<!--        --><?php
+//        if( !empty($images) ) {
+//        foreach ($images as $image) {
+//        ?>
         <div class="row" >
             <div class="col-md-3 doc-item">
                 <a href="#">
@@ -496,7 +500,14 @@
             </div>
         </div>
         <!-- /.row -->
-
+<!--        --><?php
+//        if($image->id%4==0) {
+//            ?>
+<!--            <br>-->
+<!--            --><?php
+//        }
+//        }}
+//        ?>
 
     </div>
     <!-- /.container -->
@@ -541,6 +552,8 @@
     <!-- /.container -->
 
 </div>
+
+
 
 <!--about us -->
 <div id="AboutUs" >
