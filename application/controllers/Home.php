@@ -16,6 +16,7 @@ class home extends CI_Controller
     }
     public  function index(){
         $data1['testinominals']=$this->Home_model->get_testinominals();
+        $data1['images']=$this->Home_model->get_images();
         $data1['nav1'] = $this->load->view('templates/header1',NULL,TRUE);
         $data1['sli'] = $this->load->view('slider',NULL,TRUE);
             $this->load->view('templates/header');
