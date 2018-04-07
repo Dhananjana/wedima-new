@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css" type="text/css" media="all" />  
-    <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/   css" media="all" /> 
+    <link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/   css" media="all" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Roboto+Slab" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
 
 </head>
 <body>
@@ -67,7 +72,7 @@
                     if($this->session->userdata('utype')=='vendor') {
                         ?>
 
-                        <li class="nav-item" style="color: white">
+                        <li class="nav-item list1">
                             <a href="<?php echo base_url() . 'vendor'; ?>" style="text-decoration: none">
                                 <img src="<?php echo base_url() . 'assets/images/v1.jpg' ?>" alt="Avatar" class="avatar"
                                      style="vertical-align: middle;width: 25px;height: 25px;border-radius: 50%;">&nbsp;&nbsp;<?php
@@ -78,7 +83,7 @@
                         <?php
                     }
                         ?>
-                    <li class="nav-item">
+                    <li class="nav-item list1">
                         <a class="nav-link font-clr" href="<?php echo base_url().'login/logout';?>"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
 
                     </li>
