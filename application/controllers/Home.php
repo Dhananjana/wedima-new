@@ -85,4 +85,14 @@ class home extends CI_Controller
 
 
      }
+
+     public function vendorList(){
+        $category= $this->uri->segment(3);
+        $data["vendors"]=$this->Home_model->get_vendor_list($category);
+         $this->load->view('templates/header');
+         $this->load->view('vendorList', $data);
+         $this->load->view('templates/footer');
+
+
+     }
 }

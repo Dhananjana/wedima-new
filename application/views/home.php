@@ -52,6 +52,9 @@
             letter-spacing: 2px;
             text-transform: uppercase;
         }
+
+
+
     .project {
         width: 100%;
         height: 500px;
@@ -62,10 +65,34 @@
         float:left;
     }
 
+/*.actions {*/
+    /*display: table-cell;*/
+    /*position: absolute;*/
+    /*bottom: 0px;*/
+    /*top: 50%;*/
+    /*left:0;*/
+    /*right:0;*/
+    /*z-index: 1;*/
+    /*opacity: 500;*/
+    /*background-color: rgba(29,29,29,.5);*/
+    /*-ms-transition: all .2s ease-out;*/
+    /*-webkit-transition: all .2s ease-out;*/
+    /*-moz-transition: all .2s ease-out;*/
+    /*-o-transition: all .2s ease-out;*/
+    /*transition: all .2s ease-out;*/
+    /*color:#fff;*/
+    /*font-size:2em;*/
+    /*padding:2%;*/
+    /*font-weight:400;*/
+    /*text-align:center;*/
+    /*vertical-align: middle;*/
+/*}*/
+
+
     .project-2 {
        background-image: url(<?php echo base_url().'assets/images/images/bride1.jpg';?>);
     }
-    
+
 
     .project-4 {
             background-image: url(<?php echo base_url().'assets/images/images/saloon.jpg';?>);
@@ -87,7 +114,7 @@
              background-image: url(<?php echo base_url().'assets/images/images/jwel.jpg';?>);
 
     }
-    
+
     .project-9 {
             background-image: url(<?php echo base_url().'assets/images/images/cards.jpg';?>);
 
@@ -104,11 +131,11 @@
             background-image: url(<?php echo base_url().'assets/images/images/dj.jpg';?>);
 
     }
-        
+
     .project-15 {
        background-image: url(<?php echo base_url().'assets/images/images/groom.jpg';?>);
     }
-    
+
 
     .project-hover {
         width: 100%;
@@ -298,42 +325,48 @@
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">Services
         </h1>
-        <!-- Project One -->
+
+
+<!--         Project One-->
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project wow animated animated4 fadeInLeft">
+<!--        <span class="actions">-->
+<!--                        <span class="project-details">Mélamine Tafisa</span>-->
+<!--        </span>-->
         <div class="project-hover">
             <h2>Locations</h2>
             <hr />
             <h6>1.Locations <br>2.Hotels <br>3.Honeymoon <br>4.Destinations</h6>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/1';?>">See More</a>
         </div>
+
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-2 wow animated animated3 fadeInLeft">
         <div class="project-hover">
             <h2>Bridal Boutique</h2>
             <hr />
             <h6>1.Bridal Dress<br>2.bridesmaid Dress<br>2.Dress Designers </h6>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/2';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-15 wow animated fadeInLeft">
         <div class="project-hover">
             <h2>Groom Boutique</h2>
-            
+
             <hr />
             <h6>1.Grooms Dress<br>2.groomsmaid Dress<br>2.Dress Designers </h6>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/3';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-4 wow animated fadeInLeft">
         <div class="project-hover">
             <h2>Beauticiens</h2>
-            
+
             <hr />
             <h6>1.Bridal <br>2.Groom<br>3.Hair & Beauty care</h6>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/4';?>">See More</a>
         </div>
     </div>
-    
+
     <br>
 
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-8 wow animated animated2 fadeInLeft">
@@ -341,16 +374,16 @@
             <h2>Jwellaries</h2>
             <hr />
             <h6>1.Earings <br>2.Necklace<br>3.Bangle<br>4.Bracelet<br>5.Wedding & Engagement Rings</h6>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/5';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-5 wow animated animated5 fadeInLeft">
         <div class="project-hover">
         <h2>Photographers</h2>
-        
+
             <hr />
             <h6>1.Wedding photography<br>2.Pre-Wedding/Post-wedding Shoots<br>3.Videography</h6>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/6';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-6 wow animated animated3 fadeInLeft">
@@ -358,7 +391,7 @@
                 <h2>Cars</h2>
             <hr />
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/7';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-7 wow animated animated2 fadeInLeft">
@@ -366,6 +399,7 @@
             <h2>Wedding Cakes</h2>
             <hr />
             <h6>1.Cake Structures<br>2.Cake Pieces</h6>
+            <a href="<?php echo base_url().'home/vendorList/8';?>">See More</a>
         </div>
     </div>
 
@@ -375,7 +409,7 @@
             <h2>Stationaries</h2>
             <hr />
        <h6>1.Invitation Cards<br>2.Cake Boxes</h6>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/9';?>">See More</a>
         </div>
     </div>
 
@@ -384,7 +418,7 @@
             <h2>Flower Works</h2>
             <hr />
             <h6>1.Florists<br>2.Flower Boquets</h6>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/10';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-11 wow animated animated2 fadeInLeft">
@@ -392,7 +426,7 @@
             <h2>Traditional Terms</h2>
             <hr />
            <h6>1.Ashtaka<br>2.Jayamangala Gatha<br>3.Welcome Songs<br>4.Kandyan dance</h6>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/11';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-12 wow animated fadeInLeft">
@@ -400,7 +434,7 @@
             <h2>Entertainment</h2>
             <hr />
            <h6>1.DJ<br>2.Musical Groups<br>3.Dancing Groups</h6>
-            <a href="#">See More</a>
+            <a href="<?php echo base_url().'home/vendorList/12';?>">See More</a>
         </div>
     </div>
     <br>
