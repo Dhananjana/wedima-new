@@ -6,13 +6,13 @@ class Vendor_model extends CI_Model
 	{
 		parent::__construct();
 	}
- 
-	function lookup($keyword){ 
-        $this->db->select('*')->from('allvendor'); 
-        $this->db->like('vendorName',$keyword,'both'); 
-        //$this->db->or_like('iso',$keyword,'after'); 
-        $query = $this->db->get();     
-        return $query->result(); 
+
+    function lookup($keyword){
+        $this->db->select('*')->from('allvendor');
+        $this->db->like('vendorName',$keyword,'both');
+        //$this->db->or_like('iso',$keyword,'after');
+        $query = $this->db->get();
+        return $query->result();
     }
     function finalResult($tableName, $location, $name){
         if($tableName=='select'){
@@ -20,11 +20,11 @@ class Vendor_model extends CI_Model
             $this->db->from('allvendor');
             $this->db->where('vendorName',$name);
             $id = $this->db->get();
-            $row = $id->result();    
+            $row = $id->result();
             foreach($row as $res){
-                $id1 = $res->vendorTypeID; 
-            } 
-            
+                $id1 = $res->vendorTypeID;
+            }
+
             $this->db->select('vendorType');
             $this->db->from('vendor');
             $this->db->where('id',$id1);
@@ -36,19 +36,78 @@ class Vendor_model extends CI_Model
             echo $tableName;
         }
         if($location=='Island_wide'){
-           $this->db->select('*');
-           $this->db->where('name', $name);
-           $this->db->from($tableName);
-           $query = $this->db->get();
-         } 
-         $this->db->select('*');
-        $this->db->where('name', $name);
+            $this->db->select('*');
+            $this->db->where('name', $name);
+            $this->db->from($tableName);
+            $query = $this->db->get();
+        } else{
+            $this->db->select('*');
+            $this->db->where('name', $name);
+            $this->db->like('serviceArea', $location ,'both');
+            $this->db->from($tableName);
+            $query = $this->db->get();
+        }
+        return $query->result();
+
+    }
+
+    function searchByPrice($fromvalue, $tovalue, $vendorName){
+        $this->db->select('*');
+        $this->db->from('allvendor');
+        $this->db->where('vendorName',$vendorName);
+        $vid = $this->db->get();
+        $vid1 = $vid->result();
+        foreach($vid1 as $res){
+            $vendorID = $res->id;
+        }
+        $this->db->select('*');
+        $this->db->from('package');
+        $this->db->where('allvendorId',$vendorID);
+        $p1 = $this->db->get();
+        $p2 = $p1->result();
+        foreach($p2 as $res1){
+            $packTable = $res1->packageType;
+            $this->db->select('*');
+            $this->db->from($packTable);
+            $val1 = $this->db->get();
+            $val2 = $val1->result();
+            foreach($val2 as $res2){
+                $valu1 = $res2->price;
+                if ($valu1>$fromvalue && $valu1<$tovalue){
+                    return True;
+                }else{
+                    return False;
+                }
+            }
+        }
+
+    }
+    function withoutName($tableName,$location){
+        $this->db->select('*');
+        $this->db->from($tableName);
         $this->db->like('serviceArea', $location ,'both');
+        $query = $this->db->get();
+        return $query->result();
+    }
+    function onlyCategory($tableName){
+        $this->db->select('*');
         $this->db->from($tableName);
         $query = $this->db->get();
-
-         return $query->result();  
-        
+        return $query->result();
+    }
+    function onlyLocation($location){
+        $this->db->select('vendorType');
+        $this->db->from('vendor');
+        $query = $this->db->get();
+        $resutl = $query->result();
+        foreach($resutl as $row){
+            $tableName = $row->vendorType;
+            $this->db->select('*');
+            $this->db->from($tableName);
+            $this->db->like('serviceArea', $location ,'both');
+            $que = $this->db->get();
+            return $que->result();//there was an issue only search and give only one table.
+        }
     }
 
     public function get_details(){

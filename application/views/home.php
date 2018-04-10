@@ -233,78 +233,78 @@
         <div class=" border-secondary">
             <div style="background-color:#333;border-color:#333;border-width: 5px;height: 55px;">
                 <div class="row">
-               <div class="col-md-2"></div>
-                 <div class="col-md-2">
-                    <div  style="padding-top: 10px;">
-                        <div class="form-group">
-                            <?php 
-                                 
-                                echo form_input('vendorName','','id="id"');  
-                            ?> 
-                            <ul>  
-                                <div class="well" id="result"></div>  
-                            </ul>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2">
+                        <div  style="padding-top: 10px;">
+                            <div class="form-group">
+                                <?php
+
+                                echo form_input('vendorName','','id="id",onkeyup = "enab();"');
+                                ?>
+                                <ul>
+                                    <div class="well" id="result"></div>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
-                    <div style="padding-top: 10px">
-                        <div class="form-group" >
-                            <select class="form-control" name="loc" id="exampleSelect1">
-                                <option selected value="Island_wide">Select Area</option>
-                                <option value='Island_wide' >Island wide</option>
-                                <option value='Ampara'>Ampara</option>
-                                <option value='Anuradhapura'  >Anuradhapura</option>
-                                <option value='Badulla'  >Badulla</option>
-                                <option value='Batticaloa'  >Batticaloa</option>
-                                <option value='Colombo'>Colombo</option>
-                                <option value='Galle'  >Galle</option>
-                                <option value='Gampaha'  >Gampaha</option>
-                                <option value='Hambantota'  >Hambantota</option>
-                                <option value='Jaffna'  >Jaffna</option>
-                                <option value='Kalutara'  >Kalutara</option>
-                                <option value='Kandy'  >Kandy</option>
-                                <option value='Kegalle'  >Kegalle</option>
-                                <option value='Kilinochchi'  >Kilinochchi</option>
-                                <option value='Kurunegala'  >Kurunegala</option>
-                                <option value='Mannar'  >Mannar</option>
-                                <option value='Matale'  >Matale</option>
-                                <option value='Matara'  >Matara</option>
-                                <option value='Moneragala'  >Moneragala</option>
-                                <option value='Mullativu'  >Mullativu</option>
-                                <option value='Nuwara_Eliya'  >Nuwara Eliya</option>
-                                <option value='Polonnaruwa'  >Polonnaruwa</option>
-                                <option value='Puttalam'  >Puttalam</option>
-                                <option value='Rathnapura'  >Rathnapura</option>
-                                <option value='Trincomalee'  >Trincomalee</option>
-                                <option value='Vavuniya'  >Vavuniya</option>
-                            </select>
+                    <div class="col-md-3">
+                        <div style="padding-top: 10px">
+                            <div class="form-group" >
+                                <select class="form-control" name="loc" id="locate">
+                                    <option selected value="Island_wide">Select Area</option>
+                                    <option value='Island_wide' >Island wide</option>
+                                    <option value='Ampara'>Ampara</option>
+                                    <option value='Anuradhapura'  >Anuradhapura</option>
+                                    <option value='Badulla'  >Badulla</option>
+                                    <option value='Batticaloa'  >Batticaloa</option>
+                                    <option value='Colombo'>Colombo</option>
+                                    <option value='Galle'  >Galle</option>
+                                    <option value='Gampaha'  >Gampaha</option>
+                                    <option value='Hambantota'  >Hambantota</option>
+                                    <option value='Jaffna'  >Jaffna</option>
+                                    <option value='Kalutara'  >Kalutara</option>
+                                    <option value='Kandy'  >Kandy</option>
+                                    <option value='Kegalle'  >Kegalle</option>
+                                    <option value='Kilinochchi'  >Kilinochchi</option>
+                                    <option value='Kurunegala'  >Kurunegala</option>
+                                    <option value='Mannar'  >Mannar</option>
+                                    <option value='Matale'  >Matale</option>
+                                    <option value='Matara'  >Matara</option>
+                                    <option value='Moneragala'  >Moneragala</option>
+                                    <option value='Mullativu'  >Mullativu</option>
+                                    <option value='Nuwara_Eliya'  >Nuwara Eliya</option>
+                                    <option value='Polonnaruwa'  >Polonnaruwa</option>
+                                    <option value='Puttalam'  >Puttalam</option>
+                                    <option value='Rathnapura'  >Rathnapura</option>
+                                    <option value='Trincomalee'  >Trincomalee</option>
+                                    <option value='Vavuniya'  >Vavuniya</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3">
+                    <div class="col-md-3">
+                        <div  style="padding-top: 10px">
+                            <div class="form-group" >
+                                <select class="form-control" name="cat"  id="categ">
+                                    <option value="select">Select Category</option>
+                                    <option value="locations">Locations</option>
+                                    <option value="photographers">Photographers</option>
+                                    <option value="transporters">Transporters</option>
+                                    <option value="entertainment">Entertainment</option>
+                                    <option value="bridalWear">Bridal Wear</option>
+                                    <option value="stationary">Stationary</option>
+                                    <option value="beautician">Beautician</option>
+                                    <option value="weddingCake">Wedding Cake</option>
+                                    <option value="jewellary">Jewellary</option>
+                                    <option value="flowerWorks">Flower Works</option>
+                                    <option value="traditionalTeams">Traditional Teams</option>
+                                    <option value="groomsWear">Grooms Wear</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     <div  style="padding-top: 10px">
-                        <div class="form-group" >
-                            <select class="form-control" name="cat"  id="exampleSelect1">
-                                <option value="select">Select Category</option>
-                                <option value="locations">Locations</option>
-                                <option value="photographers">Photographers</option>
-                                <option value="transporters">Transporters</option>
-                                <option value="entertainment">Entertainment</option>
-                                <option value="bridalWear">Bridal Wear</option>
-                                <option value="stationary">Stationary</option>
-                                <option value="beautician">Beautician</option>
-                                <option value="weddingCake">Wedding Cake</option>
-                                <option value="jewellary">Jewellary</option>
-                                <option value="flowerWorks">Flower Works</option>
-                                <option value="traditionalTeams">Traditional Teams</option>
-                                <option value="groomsWear">Grooms Wear</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                    <div  style="padding-top: 10px">
-                        <button type="submit" class="btn btn-outline-info btnw"> Search </button>
+                        <button type="submit" id="sub1" class="btn btn-outline-info btnw"> Search </button>
                     </div>
                 </div>
             </div>
