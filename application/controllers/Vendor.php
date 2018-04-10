@@ -2,8 +2,17 @@
 
 class Vendor extends CI_Controller
 {
-    private $upload_path ="./uploads";
+    private $upload_path ="./uploads/profile";
+    private $upload_path1 ="./uploads/cover";
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Vendor_model');
+        $this->load->model('Home_model');
+    }
+
     public function index(){
+        $data['details']=$this->Vendor_model->get_details();
         $data['nav1']=$this->load->view('templates/header1', NULL, TRUE);
         $this->load->view('templates/header');
         $this->load->view('vendor/profile',$data);
@@ -16,6 +25,10 @@ class Vendor extends CI_Controller
             $config["allowed_types"]="gif|png|jpg";
             $this->load->library('upload',$config);
             $this->upload->do_upload("file");
+            $upload_data = $this->upload->data();
+            $file_name = $upload_data['file_name'];
+            $this->Vendor_model->ppUp($file_name);
+
         }
     }
 
@@ -25,5 +38,27 @@ class Vendor extends CI_Controller
             unlink($this->upload_path."/".$file);
         }
     }
-    
+
+
+    public function coverUp(){
+        if(! empty($_FILES)){
+            $config["upload_path"]= $this->upload_path1;
+            $config["allowed_types"]="gif|png|jpg";
+            $this->load->library('upload',$config);
+            $this->upload->do_upload("file");
+            $upload_data = $this->upload->data();
+            $file_name = $upload_data['file_name'];
+            $this->Vendor_model->coverUp($file_name);
+
+        }
+    }
+
+    public function Cremove(){
+        $file =$this->input->post("file");
+        if($file && file_exists($this->upload_path1."/".$file)){
+            unlink($this->upload_path1."/".$file);
+        }
+    }
+
+
 }

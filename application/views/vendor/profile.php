@@ -15,6 +15,7 @@
         font-size: 25px;
         padding: 15px;
         border-radius: 0px !important;
+
     }
 
     .well:hover {
@@ -41,7 +42,7 @@
 
     .bg_blur
     {
-        background-image:url('<?php echo base_url().'assets/images/images/dress.jpg'?>');
+
         height: 300px;
         background-size: cover;
     }
@@ -98,34 +99,160 @@
         }
     }
 
+    .dropzone{
+        background: #fff;
+        border: 2px dashed #ddd;
+        border-radius: 5px;
+    }
+
+    .dz-message{
+        color: #999;
+        font-family: 'Montserrat',sans-serif;
+    }
+
+    .dz-message:hover {
+        color: #464646;
+    }
+
+    .dz-message h3{
+        font-size: 200%;
+        font-weight: 100;
+        margin-bottom: 15px;
+    }
+
 
 </style>
 
-<div class="container col-lg-12 hed" style="margin-top: 20px; margin-bottom: 20px;">
-    <div class="row panel">
-        <div class="col-md-4 bg_blur ">
-        </div>
-        <div class="col-md-8  col-xs-12">
-            <img src="<?php echo base_url().'assets/images/images/bride.jpg'?>" class="img-thumbnail picture hidden-xs" />
+<?php foreach ($details as $detail) {
+    ?>
+    <div class="container col-lg-12 hed" style="margin-top: 20px; margin-bottom: 20px;">
+        <div class="row panel">
+            <div class="col-md-4 bg_blur "
+                 style="background-image:url('<?php echo base_url() . 'uploads/cover/' . $detail->cover ?>');"><button type="button" class="btn btn-info" style="margin-top: 260px;" data-toggle="modal" data-target="#coverModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>change cover</button>
+            </div>
+            <div class="col-md-8  col-xs-12">
+                <img src="<?php echo base_url() . 'uploads/profile/' . $detail->pp ?>"
+                     class="img-responsive img-thumbnail picture hidden-xs"/>
 
-            <div class="header">
-                <h1>Lorem Ipsum</h1>
-                <h4>Web Developer</h4>
-                <span>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
-"There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</span>
+                <div class="header">
+                    <h1><?php echo $detail->name; ?></h1>
+<!--                    <h4>Web Developer</h4>-->
+                    <span><?php echo $detail->description ?></span>
+                </div>
+                <button class="btn btn-info" style="margin-top: 8%;" data-toggle="modal" data-target="#ppModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <br>
+        <div class="row nav">
+            <div class="col-md-3"></div>
+            <div class="col-md-3 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
+            <div class="col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
+            <div class="col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
+        </div>
+    </div>
+    <?php
+}
+?>
+<br>
+
+<br>
+
+<!-- Modal1 -->
+<div class="modal fade" id="ppModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Profile Picture</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="content">
+                    <div id="my-dropzone" class="dropzone">
+                        <div class="dz-message">
+                            <h3>Drop files here</h3> or <strong>click</strong> to upload
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" data-dismiss="modal" href="<?php echo base_url().'vendor';?>">Upload</button>
             </div>
         </div>
     </div>
-    <br>
-    <div class="row nav">
-        <div class="col-md-3"></div>
-        <div class="col-md-3 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
-        <div class="col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
-        <div class="col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
+</div>
+
+<div class="modal fade" id="coverModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cover Picture</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="content">
+                    <div id="my-dropzone1" class="dropzone">
+                        <div class="dz-message">
+                            <h3>Drop files here</h3> or <strong>click</strong> to upload
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" data-dismiss="modal" href="<?php echo base_url().'vendor';?>">Upload</button>
+            </div>
+        </div>
     </div>
 </div>
-<br>
-gdyugysdgvesgjcacauchuhccucuchuchucuchuahcuchhcc
-<br>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.js"></script>
+<script>
+    Dropzone.autoDiscover =false;
+    var myDropzone =new Dropzone("#my-dropzone",{
+        url : "<?php echo site_url('vendor/ppUp')?>",
+        addRemoveLinks:true,
+        removedfile: function (file) {
+            var name=file.name;
+
+            $.ajax({
+                type: "post",
+                url: "<?php echo site_url('vendor/remove')?>",
+                data: {file: name},
+                dataType: 'html'
+
+            });
+
+            // remove the thubnail
+            var previewElement;
+            return (previewElement=file.previewElement) !=null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
+
+        }
+    });
+</script>
+<script>
+    Dropzone.autoDiscover =false;
+    var myDropzone =new Dropzone("#my-dropzone1",{
+        url : "<?php echo site_url('vendor/coverUp')?>",
+        addRemoveLinks:true,
+        removedfile: function (file) {
+            var name=file.name;
+
+            $.ajax({
+                type: "post",
+                url: "<?php echo site_url('vendor/Cremove')?>",
+                data: {file: name},
+                dataType: 'html'
+
+            });
+
+            // remove the thubnail
+            var previewElement;
+            return (previewElement=file.previewElement) !=null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
+
+        }
+    });
+</script>
 
