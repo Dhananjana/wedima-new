@@ -49,6 +49,113 @@ class Vendor_model extends CI_Model
 
          return $query->result();  
         
-    } 
+    }
+
+    public function get_details(){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $category=$row->vendorTypeID;
+            $name= $row->vendorName;
+
+
+        }
+
+        $this->db->select('vendorType');
+        $this->db->where('id',$category);
+        $query=$this->db->get('vendor');
+        foreach ($query->result() as $row)
+        {
+            $table= $row->vendorType;
+        }
+
+        $this->db->where('name',$name);
+        $query=$this->db->get($table);
+        return $query->result();
+    }
+
+    public function  ppUp($file_name){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $category=$row->vendorTypeID;
+            $name= $row->vendorName;
+
+
+        }
+
+        $this->db->select('vendorType');
+        $this->db->where('id',$category);
+        $query=$this->db->get('vendor');
+        foreach ($query->result() as $row)
+        {
+            $table= $row->vendorType;
+        }
+
+        $this->db->set('pp', $file_name);
+        $this->db->where('name',$name);
+        $this->db->update($table);
+        return;
+    }
+
+    public function  coverUp($file_name){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $category=$row->vendorTypeID;
+            $name= $row->vendorName;
+
+
+        }
+
+        $this->db->select('vendorType');
+        $this->db->where('id',$category);
+        $query=$this->db->get('vendor');
+        foreach ($query->result() as $row)
+        {
+            $table= $row->vendorType;
+        }
+
+        $this->db->set('cover', $file_name);
+        $this->db->where('name',$name);
+        $this->db->update($table);
+        return;
+    }
 }
 ?>
