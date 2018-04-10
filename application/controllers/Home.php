@@ -85,6 +85,7 @@ class home extends CI_Controller
 
             }else{
                 $data1['sres']=$this->Vendor_model->onlyLocation($location);//name,category empty... location not empty
+
             }
         }else{
             $data1['sres'] = $this->Vendor_model->finalResult($tableName,$location,$name);
@@ -92,7 +93,7 @@ class home extends CI_Controller
             //$this->load->model('Vendor_model');
 
         }
-        $data1['nav1'] = $this->load->view('templates/header1',NULL,TRUE);
+       $data1['nav1'] = $this->load->view('templates/header1',NULL,TRUE);
         $data1['sli'] = $this->load->view('slider',NULL,TRUE);
 
         $this->load->view('templates/header');

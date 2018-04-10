@@ -100,14 +100,21 @@ class Vendor_model extends CI_Model
         $this->db->from('vendor');
         $query = $this->db->get();
         $resutl = $query->result();
+        $i = 0;
         foreach($resutl as $row){
             $tableName = $row->vendorType;
             $this->db->select('*');
             $this->db->from($tableName);
             $this->db->like('serviceArea', $location ,'both');
-            $que = $this->db->get();
-            return $que->result();//there was an issue only search and give only one table.
+            $query = $this->db->get();
+            if($query->num_rows()>0){
+            	foreach($query->result() as $rows){
+            		$data[] = $rows;
+				}
+			}
+            //there was an issue only search and give only one table.
         }
+		return $data;
     }
 
     public function get_details(){
