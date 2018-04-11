@@ -456,92 +456,21 @@
         <h1 class="mt-4 mb-3">Gallery
         </h1>
         <!-- Project One -->
-<!--        --><?php
-//        if( !empty($images) ) {
-//        foreach ($images as $image) {
-//        ?>
+
         <div class="row" >
+            <?php
+            if( !empty($images) ) {
+            foreach ($images as $image) {
+            ?>
             <div class="col-md-3 doc-item">
                 <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/beauty.jpg';?>" alt="">
+                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'uploads/gallery/'.$image->folder.'/'.$image->imageName;?>" alt="">
                 </a>
             </div>
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/pre6.jpg';?>" alt="">
-                </a>
-            </div>
-
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/yellow.jpg';?>" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/clr.jpg';?>" alt="">
-                </a>
-            </div>
-
+                <?php
+            }}
+            ?>
         </div>
-        <div class="row">
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/child.jpg';?>" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/grl.jpg';?>" alt="">
-                </a>
-            </div>
-
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/pre2.jpg';?>" alt="">
-                </a>
-            </div>
-
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/red.jpg';?>" alt="">
-                </a>
-            </div>
-        </div>
-
-        <!-- /.row -->
-        <div class="row">
-
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/run.jpg';?>" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/cakez.jpg';?>" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/prasadi.jpg';?>" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 doc-item">
-                <a href="#">
-                    <img class="img-fluid rounded rounded1 mb-3 mb-md-0 doc-img animate attachment-gallery-post-single wp-post-image" src="<?php echo base_url().'assets/images/images/glry/pre9.jpg';?>" alt="">
-                </a>
-            </div>
-        </div>
-        <!-- /.row -->
-<!--        --><?php
-//        if($image->id%4==0) {
-//            ?>
-<!--            <br>-->
-<!--            --><?php
-//        }
-//        }}
-//        ?>
 
     </div>
     <!-- /.container -->
@@ -636,7 +565,7 @@
                 source:   
                 function(req, add){  
                     $.ajax({  
-                        url: "http://localhost/wedima-new/wedima-new/home/lookup",
+                        url: "http://localhost/wedima-new/home/lookup",
                         dataType: 'json',  
                         type: 'POST',  
                         data: req,  

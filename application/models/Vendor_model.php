@@ -223,5 +223,77 @@ class Vendor_model extends CI_Model
         $this->db->update($table);
         return;
     }
+
+    public function  remove($file){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $category=$row->vendorTypeID;
+            $name= $row->vendorName;
+
+
+        }
+
+        $this->db->select('vendorType');
+        $this->db->where('id',$category);
+        $query=$this->db->get('vendor');
+        foreach ($query->result() as $row)
+        {
+            $table= $row->vendorType;
+        }
+
+        $this->db->set('pp', 'null');
+        $this->db->where('name',$name);
+        $this->db->update($table);
+        return;
+    }
+
+    public function  removeC($file){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $category=$row->vendorTypeID;
+            $name= $row->vendorName;
+
+
+        }
+
+        $this->db->select('vendorType');
+        $this->db->where('id',$category);
+        $query=$this->db->get('vendor');
+        foreach ($query->result() as $row)
+        {
+            $table= $row->vendorType;
+        }
+
+        $this->db->set('cover', 'null');
+        $this->db->where('name',$name);
+        $this->db->update($table);
+        return;
+    }
 }
 ?>
