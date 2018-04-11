@@ -455,8 +455,6 @@
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">Gallery
         </h1>
-        <!-- Project One -->
-
         <div class="row" >
             <?php
             if( !empty($images) ) {
