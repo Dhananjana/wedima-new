@@ -243,18 +243,18 @@ CREATE TABLE `gallery` (
 --
 
 INSERT INTO `gallery` (`id`, `vendorId`, `imageName`, `folder`) VALUES
-(1, 1, 'beauty.jpg', 'user1'),
-(2, 1, 'pre6.jpg', 'user1'),
-(3, 1, 'yellow.jpg', 'user1'),
-(4, 1, 'clr.jpg', 'user1'),
-(5, 1, 'child.jpg', 'user1'),
-(6, 1, 'grl.jpg', 'user1'),
-(7, 1, 'pre2.jpg', 'user1'),
-(8, 1, 'red.jpg', 'user1'),
-(9, 1, 'run.jpg', 'user1'),
-(10, 1, 'cakez.jpg', 'user1'),
-(11, 1, 'prasadi.jpg', 'user1'),
-(12, 1, 'pre9.jpg', 'user1');
+(1, 1, 'beauty.jpg', 'Duritha'),
+(2, 1, 'pre6.jpg', 'Duritha'),
+(3, 1, 'yellow.jpg', 'Duritha'),
+(4, 1, 'clr.jpg', 'Duritha'),
+(5, 1, 'child.jpg', 'Duritha'),
+(6, 1, 'grl.jpg', 'Duritha'),
+(7, 1, 'pre2.jpg', 'Duritha'),
+(8, 1, 'red.jpg', 'Duritha'),
+(9, 1, 'run.jpg', 'Duritha'),
+(10, 1, 'cakez.jpg', 'Duritha'),
+(11, 1, 'prasadi.jpg', 'Duritha'),
+(12, 1, 'pre9.jpg', 'Duritha');
 
 -- --------------------------------------------------------
 
