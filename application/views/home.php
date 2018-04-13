@@ -224,6 +224,19 @@
   width: 100%;
 }
 
+.btn-round{
+    border-radius: 17px;
+    background-color: rgba(255, 180,00, 0.7);
+    border-color: #FAC606;
+    margin-left: 4%;
+}
+.btn-round:hover{
+    background-color: white;
+    border-color: #FAC606;
+    color:#FAC606 ;
+}
+
+
 </style>
 
 
@@ -319,7 +332,7 @@
     
 </div>
 
-<div id="Services" class="container-fluid" style="z-index:499;">
+<div id="" class="container-fluid" style="z-index:499;">
     <div class="">
         <div class="space"></div>
         <!-- Page Heading/Breadcrumbs -->
@@ -472,6 +485,10 @@
 
     </div>
     <!-- /.container -->
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <button type="button" class="btn btn-primary btn-round"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>View All</button>
+    </div>
 </div>
 <hr>
 <!--Testimonials -->
@@ -511,6 +528,12 @@
 
     </div>
     <!-- /.container -->
+    <div class="row">
+    <div class="col-lg-5"></div>
+        <button type="button" class="btn btn-primary btn-round"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>View All</button>
+    </div>
+
+    <br>
 
 </div>
 

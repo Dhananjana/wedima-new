@@ -60,5 +60,15 @@ class Vendor extends CI_Controller
         }
     }
 
+    public function profileView(){
+        $name= $this->uri->segment(3);
+        $Name=urldecode($name);
+        $data['details']=$this->Vendor_model->view_profile($Name);
+        $this->load->view('templates/header');
+        $this->load->view('profileView',$data);
+        $this->load->view('templates/footer');
+
+    }
+
 
 }

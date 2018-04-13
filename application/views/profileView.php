@@ -99,25 +99,44 @@
         }
     }
 
-    .dropzone{
-        background: #fff;
-        border: 2px dashed #ddd;
-        border-radius: 5px;
+    .row2{border-bottom:1px solid;}
+    .row2{color:#888888; background-color:#FFFFFF; border-color:#F3F3F3;}
+    #breadcrumb a{color:inherit; background-color:inherit;}
+    #breadcrumb li:last-child a{color:#11b3e0;}
+    #breadcrumb{
+        line-height:normal;
+    }
+    #breadcrumb li a::after, .sidebar nav a::after{position:absolute; font-family:"FontAwesome"; font-size:10px; line-height:10px;}
+    #breadcrumb{padding:15px 0;}
+    #breadcrumb ul{margin:0; padding:0; list-style:none; text-transform:uppercase;}
+    #breadcrumb li{display:inline-block; margin:0 6px 0 0; padding:0;}
+    #breadcrumb li a{display:block; position:relative; margin:0; padding:0 12px 0 0; font-size:12px;}
+    #breadcrumb li a::after{top:3px; right:0; content:"\f101";}
+    #breadcrumb li:last-child a{margin:0; padding:0;}
+    #breadcrumb li:last-child a::after{display:none;}
+
+    .btn-round{
+        border-radius: 17px;
+        background-color: rgba(255, 180,00, 0.7);
+        border-color: #FAC606;
+        margin-left: 4%;
+    }
+    .btn-round:hover{
+        background-color: white;
+        border-color: #FAC606;
+        color:#FAC606 ;
     }
 
-    .dz-message{
-        color: #999;
-        font-family: 'Montserrat',sans-serif;
+    .more, .less {
+        font-weight: 600;
+        color: #8ba8af;
+        text-decoration:none;
     }
 
-    .dz-message:hover {
-        color: #464646;
-    }
-
-    .dz-message h3{
-        font-size: 200%;
-        font-weight: 100;
-        margin-bottom: 15px;
+    .more, .less :hover{
+        font-weight: 600;
+        color: #8ba8af;
+        text-decoration:none;
     }
 
     .br-red{
@@ -180,14 +199,27 @@
     }
 
 
+
 </style>
+<br>
+<div class="wrapper row2">
+    <div id="breadcrumb" class="clear">
+        <ul style="margin-left: 15%">
+            <!--            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+
+            <li><a href="<?php echo base_url().'home'?>#Services">Home</a></li>
+            <li><a href="">Vendors</a></li>
+            <li><a href="">Profile View</a></li>
+
+        </ul>
+    </div>
+</div>
 
 <?php foreach ($details as $detail) {
     ?>
-    <div class="container col-lg-12 hed" style="margin-top: 20px; margin-bottom: 20px;">
+    <div class="container col-lg-12 hed" style="">
         <div class="row panel">
-            <div class="col-md-4 bg_blur "
-                 style="background-image:url('<?php echo base_url() . 'uploads/cover/' . $detail->cover ?>');"><button type="button" class="btn btn-info" style="margin-top: 260px;" data-toggle="modal" data-target="#coverModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>change cover</button>
+            <div class="col-md-4 bg_blur " style="background-image:url('<?php echo base_url() . 'uploads/cover/' . $detail->cover ?>');">
             </div>
             <div class="col-md-8  col-xs-12">
                 <img src="<?php echo base_url() . 'uploads/profile/' . $detail->pp ?>"
@@ -195,10 +227,9 @@
 
                 <div class="header">
                     <h1><?php echo $detail->name; ?></h1>
-<!--                    <h4>Web Developer</h4>-->
-                    <span><?php echo $detail->description ?></span>
+                    <!--                    <h4>Web Developer</h4>-->
+                    <p class="text-viewer"><span><?php echo $detail->description ?></span></p>
                 </div>
-                <button class="btn btn-info" style="margin-top: 8%;" data-toggle="modal" data-target="#ppModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
             </div>
         </div>
         <br>
@@ -227,109 +258,42 @@
 
         </div> <!--/ Footer widget end -->
     </div>
+
     <?php
 }
 ?>
 <br>
 
 <br>
-
-<!-- Modal1 -->
-<div class="modal fade" id="ppModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Profile Picture</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div id="content">
-                    <div id="my-dropzone" class="dropzone">
-                        <div class="dz-message">
-                            <h3>Drop files here</h3> or <strong>click</strong> to upload
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success" data-dismiss="modal" href="<?php echo base_url().'vendor';?>">Upload</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="coverModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cover Picture</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div id="content">
-                    <div id="my-dropzone1" class="dropzone">
-                        <div class="dz-message">
-                            <h3>Drop files here</h3> or <strong>click</strong> to upload
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success" data-dismiss="modal" href="<?php echo base_url().'vendor';?>">Upload</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.js"></script>
 <script>
-    Dropzone.autoDiscover =false;
-    var myDropzone =new Dropzone("#my-dropzone",{
-        url : "<?php echo site_url('vendor/ppUp')?>",
-        addRemoveLinks:true,
-        removedfile: function (file) {
-            var name=file.name;
+    $(function(){
+        // here the code for text minimiser and maxmiser by faisal khan
+        var minimized_elements = $('p.text-viewer');
 
-            $.ajax({
-                type: "post",
-                url: "<?php echo site_url('vendor/remove')?>",
-                data: {file: name},
-                dataType: 'html'
+        minimized_elements.each(function(){
+            var t = $(this).text();
+            if(t.length < 500) return;
 
-            });
+            $(this).html(
+                t.slice(0,500)+'<span>... </span><a href="#" class="more"> Read More>> </a>'+
+                '<span style="display:none;">'+ t.slice(500,t.length)+' <a href="#" class="less"> << </a></span>'
+            );
+        });
 
-            // remove the thubnail
-            var previewElement;
-            return (previewElement=file.previewElement) !=null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
+        $('a.more', minimized_elements).click(function(event){
+            event.preventDefault();
+            $(this).hide().prev().hide();
+            $(this).next().show();
+        });
 
-        }
+        $('a.less', minimized_elements).click(function(event){
+            event.preventDefault();
+            $(this).parent().hide().prev().show().prev().show();
+        });
     });
 </script>
-<script>
-    Dropzone.autoDiscover =false;
-    var myDropzone =new Dropzone("#my-dropzone1",{
-        url : "<?php echo site_url('vendor/coverUp')?>",
-        addRemoveLinks:true,
-        removedfile: function (file) {
-            var name=file.name;
 
-            $.ajax({
-                type: "post",
-                url: "<?php echo site_url('vendor/Cremove')?>",
-                data: {file: name},
-                dataType: 'html'
 
-            });
 
-            // remove the thubnail
-            var previewElement;
-            return (previewElement=file.previewElement) !=null ? (previewElement.parentNode.removeChild(file.previewElement)) : (void 0);
 
-        }
-    });
-</script>
 
