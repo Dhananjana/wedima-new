@@ -295,5 +295,30 @@ class Vendor_model extends CI_Model
         $this->db->update($table);
         return;
     }
+
+
+    public function view_profile($Name){
+        $this->db->select('vendorTypeID');
+        $this->db->where('vendorName',$Name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $category=$row->vendorTypeID;
+        }
+
+        $this->db->select('vendorType');
+        $this->db->where('id',$category);
+        $query=$this->db->get('vendor');
+        foreach ($query->result() as $row)
+        {
+            $table= $row->vendorType;
+        }
+
+
+        $this->db->where('name',$Name);
+        $query=$this->db->get($table);
+        return $query->result();
+
+    }
 }
 ?>

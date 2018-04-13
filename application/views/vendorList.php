@@ -16,6 +16,18 @@
     #breadcrumb li:last-child a{margin:0; padding:0;}
     #breadcrumb li:last-child a::after{display:none;}
 
+    .btn-round{
+        border-radius: 17px;
+        background-color: rgba(255, 180,00, 0.7);
+        border-color: #FAC606;
+        margin-left: 4%;
+    }
+    .btn-round:hover{
+        background-color: white;
+        border-color: #FAC606;
+        color:#FAC606 ;
+    }
+
 </style>
 <div class="wrapper row2">
     <div id="breadcrumb" class="clear">
@@ -77,7 +89,7 @@
 </div>
 <br>
 <div class="container">
-    <div class="row">
+    <div class="row " >
         <?php foreach($vendors as $vendor){?>
         <div class="col-lg-4 col-sm-6 col-xs-3 portfolio-item">
             <div class="card h-100">
@@ -91,14 +103,16 @@
                         echo $limited_word;
 
                         ?></p>
-                    <a href="#" class="btn btn-primary">Look In</a>
+                    <a href="<?php echo base_url().'vendor/profileView/'.urlencode($vendor->name)?>" class="btn btn-primary btn-round">>>Look In</a>
                 </div>
             </div>
         </div>
         <?php
         }
         ?>
+        <div class="clear-fix"></div>
     </div>
+
 </div>
 
 <br>
