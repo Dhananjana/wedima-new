@@ -236,6 +236,16 @@
     color:#FAC606 ;
 }
 
+    .btn-round a{
+        color: white;
+        text-decoration: none;
+    }
+
+    .btn-round a:hover{
+        color: #FAC606 ;
+    }
+
+
 
 </style>
 
@@ -332,7 +342,7 @@
     
 </div>
 
-<div id="" class="container-fluid" style="z-index:499;">
+<div id="Services" class="container-fluid" style="z-index:499;">
     <div class="">
         <div class="space"></div>
         <!-- Page Heading/Breadcrumbs -->
@@ -487,7 +497,7 @@
     <!-- /.container -->
     <div class="row">
         <div class="col-lg-5"></div>
-        <button type="button" class="btn btn-primary btn-round"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>View All</button>
+        <button  type="button" class="btn btn-primary btn-round" > <i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="<?php echo base_url().'home/gallery'?>" >View All</a></button >
     </div>
 </div>
 <hr>
@@ -530,7 +540,7 @@
     <!-- /.container -->
     <div class="row">
     <div class="col-lg-5"></div>
-        <button type="button" class="btn btn-primary btn-round"> <i class="fa fa-angle-double-right" aria-hidden="true"></i>View All</button>
+        <button  type="button" class="btn btn-primary btn-round" > <i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="<?php echo base_url().'home/allTestinominals'?>" >View All</a></button >
     </div>
 
     <br>
@@ -561,7 +571,13 @@
                 <br><br>
                     <div class="w3ls-welcome-right-info">
                         <h2>Some Words <span>About Us</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque libero justo, mollis et elementum eget, mollis sit amet justo. Praesent aliquet nibh quis massa dapibus, eu volutpat ligula rutrum. Phasellus consectetur orci at cursus pellentesque. Fusce accumsan eros et eros pretium volutpat. <span>Nullam metus lorem, interdum at nisi nec, gravida accumsan ante. Ut dolor lectus, consectetur in rutrum a, eleifend quis est. Quisque eu porta dui. Praesent sit amet pulvinar velit. Quisque eget metus ac velit interdum laoreet.</span></p>
+                        <p>Before two hearts unite in celebration, a lot goes into preparations. Before the love is declared in public, there are many defining moments of choosing and picking. We at Wdima Wedding Planner will create the dream wedding you have always wished for, without a single detail missing.
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It’s not easy turning your dream wedding into a reality. With today’s hectic lifestyle, many couples and their families do not have time for the detailed planning and work a beautiful wedding of their dream.
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We at Wedima Wedding Planner, as the pioneers in Sri Lanka wedding planning work together with you at any stage of the planning process to ensure that your wedding is planned to a perfect, totally enjoyable, stress free and memorable one. After all, it is your wedding. We are there to help you – and to make your day perfect.
+                            <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Our counseling alone would provide you the crème de la crème of the industry specialists within your stipulated options and budget. We will give you the freedom and peace of mind to simply enjoy your magnificent day in complete bliss.</span></p>
                     </div>
                     <div class="agileits-border">
                         <div class="agileinfo-red"> </div>

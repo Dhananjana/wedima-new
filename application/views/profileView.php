@@ -235,11 +235,12 @@
         <br>
         <div class="row nav">
             <div class="col-md-3"></div>
-            <div class="col-md-3 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
-            <div class="col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
+            <div class="col-md-3 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> </div>
+            <div class="col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i></div>
             <div class="col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
         </div>
     </div>
+    <div class="row">
     <div class="col-lg-3 col-sm-4 card">
         <div class="footer-widget">
             <h4 style="margin-left: 30%;margin-top: 3%"><i class="fa fa-globe br-blue" aria-hidden="true"></i>&nbsp; Intro</h4>
@@ -257,6 +258,11 @@
             <!-- Social media icon -->
 
         </div> <!--/ Footer widget end -->
+    </div>
+    <div class="col-lg-9 col-sm-8 card">
+        <h1>Our Servicess</h1>
+    </div>
+
     </div>
 
     <?php

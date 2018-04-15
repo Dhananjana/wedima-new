@@ -19,7 +19,7 @@
                     <div class="col-md-3 footer-bottom-right">
                         <h5 style="text-align: center;">Contact Us</h5>
 
-                        <p style="text-align: center;">Suspendisse potenti. Pellentesque pulvinar tellus at est ullamcorper, at elementum nibh laoreet.</p>
+                        <p style="text-align: center;">We’d love to hear from you</p>
                     </div>
                     <div class="col-lg-1"></div>
                     <div class="col-md-4 footer-bottom-right">
