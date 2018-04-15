@@ -83,4 +83,28 @@ class Home_model extends CI_Model
             return $query->result();
         }
     }
+
+    public function record_count(){
+        return $this->db->count_all("feedback");
+    }
+
+
+    public function allTestinominals($limit, $start){
+        $this->db->limit($limit, $start);
+        $this->db->order_by("id", "desc");
+        $query = $this->db->get("feedback");
+
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return false;
+    }
+
+    public function gallery(){
+        $query=$this->db->get('gallery');
+        return $query->result();
+    }
 }

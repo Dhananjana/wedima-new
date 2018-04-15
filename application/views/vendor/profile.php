@@ -215,8 +215,7 @@
             <hr>
             <div class="contact-details">
                 <i class="fa fa-map-marker br-red"></i><div style="margin-left: 8%">&nbsp;&nbsp;Address: <span><?php echo $detail->address; ?></span></div>
-                <div class="clearfix"></div>
-                <br>
+khixvhi                <br>
                 <i class="fa fa-phone br-green"></i><div style="margin-left: 8%">&nbsp;&nbsp;Telephone: <span><?php echo $detail->telephone; ?></span></div>
                 <div class="clearfix"></div>
                 <br>
@@ -227,6 +226,8 @@
 
         </div> <!--/ Footer widget end -->
     </div>
+
+
     <?php
 }
 ?>
