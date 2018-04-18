@@ -133,8 +133,8 @@
 		<!-- Sidebar Column -->
 		<div class="col-lg-3 mb-4">
 			<div class="list-group">
-				<a href="index.html" class="list-group-item">Chat List</a>
-				<a href="about.html" class="list-group-item">About</a>
+				<div class="list-group-item">Chat List</div>
+				<a href="#" class="list-group-item"><img class="bot__image" src="http://pix10.agoda.net/hotelImages/597/59736/59736_15080317360033556912.jpg?s=1024x768"/>  Cinnamon Grand </a>
 				<a href="services.html" class="list-group-item">Services</a>
 				<a href="contact.html" class="list-group-item">Contact</a>
 				<a href="portfolio-1-col.html" class="list-group-item">1 Column Portfolio</a>
