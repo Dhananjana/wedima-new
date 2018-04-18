@@ -206,7 +206,7 @@
 
                 </div>
                 <br>
-                <div class="row">
+                <div class="row " style="margin-top: 2.8%">
                     <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
                     <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
                     <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
@@ -298,6 +298,7 @@
                                     <h3><?php echo $package->packageName; ?></h3> &nbsp;&nbsp;
                                     <h5><i class="fa fa-pencil-square-o" style="margin-top:38%" aria-hidden="true"></i></h5>
                                 </div>
+                                    <p><?php echo $package->description ?></p>
                                     <h5>Rs.<?php echo $package->price ?></h5>
                                 </div>
 
