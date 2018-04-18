@@ -180,6 +180,7 @@
     }
 
 
+
 </style>
 
 <?php foreach ($details as $detail) {
@@ -192,30 +193,37 @@
             <div class="col-md-8  col-xs-12">
                 <img src="<?php echo base_url() . 'uploads/profile/' . $detail->pp ?>"
                      class="img-responsive img-thumbnail picture hidden-xs"/>
-
                 <div class="header">
                     <h1><?php echo $detail->name; ?></h1>
 <!--                    <h4>Web Developer</h4>-->
+                <div class="row">
                     <span><?php echo $detail->description ?></span>
+                     <button type="button" class="btn btn-info" style="margin-top:24px;margin-left: -50px;z-index:999" data-toggle="modal" data-target="#ppModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                    
+                                    
                 </div>
-                <button class="btn btn-info" style="margin-top: 8%;" data-toggle="modal" data-target="#ppModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
+                    <div class="col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
+                    <div class="col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
+                </div>
             </div>
         </div>
         <br>
-        <div class="row nav">
-            <div class="col-md-3"></div>
-            <div class="col-md-3 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
-            <div class="col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
-            <div class="col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
-        </div>
+        
     </div>
+    <div class="row">
     <div class="col-lg-3 col-sm-4 card">
         <div class="footer-widget">
             <h4 style="margin-left: 30%;margin-top: 3%"><i class="fa fa-globe br-blue" aria-hidden="true"></i>&nbsp; Intro</h4>
             <hr>
             <div class="contact-details">
                 <i class="fa fa-map-marker br-red"></i><div style="margin-left: 8%">&nbsp;&nbsp;Address: <span><?php echo $detail->address; ?></span></div>
-khixvhi                <br>
+                <br>
                 <i class="fa fa-phone br-green"></i><div style="margin-left: 8%">&nbsp;&nbsp;Telephone: <span><?php echo $detail->telephone; ?></span></div>
                 <div class="clearfix"></div>
                 <br>
@@ -226,11 +234,84 @@ khixvhi                <br>
 
         </div> <!--/ Footer widget end -->
     </div>
-
-
-    <?php
+<?php
 }
 ?>
+ <div class="col-lg-8 card" style="margin-left:50px;">
+ <div class="row">
+     <h2 class="col-lg-10">Package Details</h2>
+</div>
+            <div class="row">
+
+                <?php foreach ($package1 as $package) {
+                    ?>
+                    <div class="col-lg-4 " style="margin-top: 20px; margin-bottom: 20px;">
+                        <div class=" panel">
+                           
+                                <div class="container">
+                                <div class="row">
+                                    <h3><?php echo $package->packageName; ?></h3> &nbsp;&nbsp;
+                                    <h5><i class="fa fa-pencil-square-o" style="margin-top:38%" aria-hidden="true"></i></h5>
+                                </div>
+                                    <p><?php echo $package->description ?></p>
+                                    <h5>Rs.<?php echo $package->price ?></h5>
+                                </div>
+
+                        </div>
+                        
+                    </div>
+                  
+                <?php
+                }
+                ?>
+
+                 <?php foreach ($package2 as $package) {
+                    ?>
+                    <div class="col-lg-4 " style="margin-top: 20px; margin-bottom: 20px;">
+                        <div class=" panel">
+                           
+                                <div class="container">
+                                   <div class="row">
+                                    <h3><?php echo $package->packageName; ?></h3> &nbsp;&nbsp;
+                                    <h5><i class="fa fa-pencil-square-o" style="margin-top:38%" aria-hidden="true"></i></h5>
+                                </div>
+                                    <p><?php echo $package->description ?></p>
+                                    <h5>Rs.<?php echo $package->price ?></h5>
+                                </div>
+
+                        </div>
+                        
+                    </div>
+                  
+                <?php
+                }
+                ?>
+
+
+                 <?php foreach ($package3 as $package) {
+                    ?>
+                    <div class="col-lg-4 " style="margin-top: 20px; margin-bottom: 20px;">
+                        <div class=" panel">
+                           
+                                <div class="container">
+                                   <div class="row">
+                                    <h3><?php echo $package->packageName; ?></h3> &nbsp;&nbsp;
+                                    <h5><i class="fa fa-pencil-square-o" style="margin-top:38%" aria-hidden="true"></i></h5>
+                                </div>
+                                    <h5>Rs.<?php echo $package->price ?></h5>
+                                </div>
+
+                        </div>
+                        
+                    </div>
+                  
+                <?php
+                }
+                ?>
+            </div>
+        </div>
+ </div>
+
 <br>
 
 <br>
@@ -255,7 +336,9 @@ khixvhi                <br>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-success" data-dismiss="modal" href="<?php echo base_url().'vendor';?>">Upload</button>
+                <form action="<?php echo base_url().'vendor';?>">
+                    <button type="submit" class="btn btn-success">Upload</button>
+                </form>
             </div>
         </div>
     </div>
@@ -279,8 +362,10 @@ khixvhi                <br>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-success" data-dismiss="modal" href="<?php echo base_url().'vendor';?>">Upload</button>
+           <div class="modal-footer">
+                <form action="<?php echo base_url().'vendor';?>">
+                    <button type="submit" class="btn btn-success">Upload</button>
+                </form>
             </div>
         </div>
     </div>

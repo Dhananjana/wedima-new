@@ -152,6 +152,84 @@ class Vendor_model extends CI_Model
         return $query->result();
     }
 
+    public function get_package1(){
+         $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $allvendor_id=$row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('allvendorid',$allvendor_id);
+        $query=$this->db->get('package1');
+        return $query->result();
+    }
+
+    public function get_package2(){
+         $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $allvendor_id=$row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('allvendorid',$allvendor_id);
+        $query=$this->db->get('package2');
+        return $query->result();
+    }
+    public function get_package3(){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $allvendor_id=$row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('allvendorid',$allvendor_id);
+        $query=$this->db->get('package3');
+        return $query->result();
+    }
+
+
     public function  ppUp($file_name){
         $username=$this->session->userdata('username');
         $this->db->select('id');
