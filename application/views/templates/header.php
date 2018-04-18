@@ -18,7 +18,7 @@
 
 </head>
 <body>
-<a href="javascript:" id="return-to-top"><b><i class="fa fa-angle-up custom" ></i></b></a>
+<a href="javascript:" id="return-to-top" style="z-index: 1500"><b><i class="fa fa-angle-up custom" ></i></b></a>
 <style>
     
 .list1{
