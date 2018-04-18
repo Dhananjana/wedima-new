@@ -14,9 +14,13 @@ class Vendor extends CI_Controller
     public function index(){
         $data['details']=$this->Vendor_model->get_details();
         $data['nav1']=$this->load->view('templates/header1', NULL, TRUE);
+        $data['package1']=$this->Vendor_model->get_package1();
+        $data['package2']=$this->Vendor_model->get_package2();
+        $data['package3']=$this->Vendor_model->get_package3();
         $this->load->view('templates/header');
         $this->load->view('vendor/profile',$data);
         $this->load->view('templates/footer');
+
     }
 
     public function ppUp(){
