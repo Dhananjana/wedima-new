@@ -15,7 +15,7 @@
         font-size: 25px;
         padding: 5px;
         border-radius: 0px !important;
-        width: 20%;
+        width:20%;
 
     }
 
