@@ -59,6 +59,7 @@ if( !empty($testinominals1) ) {
 }
 ?>
 
-</div>
 
-<div class="container" style="margin-left: 50%"><center><?php echo "<p>".$links."</p>"; ?></center></div>
+
+<div class="container" ><center><?php echo "<p>".$links."</p>"; ?></center></div>
+</div>

@@ -65,28 +65,6 @@
         float:left;
     }
 
-/*.actions {*/
-    /*display: table-cell;*/
-    /*position: absolute;*/
-    /*bottom: 0px;*/
-    /*top: 50%;*/
-    /*left:0;*/
-    /*right:0;*/
-    /*z-index: 1;*/
-    /*opacity: 500;*/
-    /*background-color: rgba(29,29,29,.5);*/
-    /*-ms-transition: all .2s ease-out;*/
-    /*-webkit-transition: all .2s ease-out;*/
-    /*-moz-transition: all .2s ease-out;*/
-    /*-o-transition: all .2s ease-out;*/
-    /*transition: all .2s ease-out;*/
-    /*color:#fff;*/
-    /*font-size:2em;*/
-    /*padding:2%;*/
-    /*font-weight:400;*/
-    /*text-align:center;*/
-    /*vertical-align: middle;*/
-/*}*/
 
 
     .project-2 {
@@ -339,7 +317,7 @@
 
 <div class="container-fluid">
 <div class="title-arch">The Wedima<p> “If you can’t stop dreaming about it, don’t stop planing  for it.”</p></div>
-    
+
 </div>
 
 <div id="Services" class="container-fluid" style="z-index:499;">
@@ -463,7 +441,7 @@
     <br>
    <div class="clearfix"></div>
 
-   
+
   </div>
 
     <!-- /.container -->
@@ -593,31 +571,31 @@
     </div>
 </div>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript"></script>  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" type="text/javascript"></script>
-<script type="text/javascript">  
-        $(this).ready( function() {  
-            $("#id").autocomplete({  
-                minLength: 1,  
-                source:   
-                function(req, add){  
-                    $.ajax({  
+<script type="text/javascript">
+        $(this).ready( function() {
+            $("#id").autocomplete({
+                minLength: 1,
+                source:
+                function(req, add){
+                    $.ajax({
                         url: "http://localhost/wedima-new/home/lookup",
-                        dataType: 'json',  
-                        type: 'POST',  
-                        data: req,  
-                        success:      
-                        function(data){  
-                            if(data.response =="true"){  
-                                add(data.message);  
+                        dataType: 'json',
+                        type: 'POST',
+                        data: req,
+                        success:
+                        function(data){
+                            if(data.response =="true"){
+                                add(data.message);
                                 console.log(data);
-                            }  
-                        },  
-                    });  
-                },  
-                     
-            });  
-        });  
+                            }
+                        },
+                    });
+                },
+
+            });
+        });
 
 window.onscroll = function() {myFunction()};
 
