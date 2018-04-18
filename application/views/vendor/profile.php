@@ -285,7 +285,7 @@ khixvhi                <br>
         </div>
     </div>
 </div>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/min/dropzone.min.js"></script>
 <script>
     Dropzone.autoDiscover =false;
