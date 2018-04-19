@@ -398,5 +398,56 @@ class Vendor_model extends CI_Model
         return $query->result();
 
     }
+
+    public function pacakge1($Name){
+        $this->db->select('*');
+        $this->db->where('vendorName',$Name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $allvendor_id=$row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('allvendorid',$allvendor_id);
+        $query=$this->db->get('package1');
+        return $query->result();
+    }
+
+    public function package2($Name){
+
+        $this->db->select('*');
+        $this->db->where('vendorName',$Name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $allvendor_id=$row->id;
+
+        }
+
+
+        $this->db->select('*');
+        $this->db->where('allvendorid',$allvendor_id);
+        $query=$this->db->get('package2');
+        return $query->result();
+    }
+    public function package3($Name){
+        $this->db->select('*');
+        $this->db->where('vendorName',$Name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $allvendor_id=$row->id;
+
+        }
+
+
+        $this->db->select('*');
+        $this->db->where('allvendorid',$allvendor_id);
+        $query=$this->db->get('package3');
+        return $query->result();
+    }
+
 }
 ?>
