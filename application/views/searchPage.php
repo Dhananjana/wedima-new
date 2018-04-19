@@ -49,7 +49,7 @@
           
           <h3><?php echo $row->name;?></h3>
           <p><?php echo $row->description;?></p>
-          <a class="btn btn-primary" href="#">More...
+          <a class="btn btn-primary" href="<?php echo base_url().'vendor/profileView/'.urlencode($row->name)?>">More...
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
           
