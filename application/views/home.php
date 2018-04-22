@@ -227,7 +227,6 @@
 
 </style>
 
-
 <form action="<?php base_url();?>home/finalResult" method="post">
 
     <div id="navbar">
@@ -584,7 +583,7 @@
                 source:
                 function(req, add){
                     $.ajax({
-                        url: "http://localhost/wedima-new/wedima-new/home/lookup",
+                        url: "http://localhost/wedima-new/home/lookup",
                         dataType: 'json',
                         type: 'POST',
                         data: req,

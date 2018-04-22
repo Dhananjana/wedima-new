@@ -17,14 +17,94 @@ class Vendor extends CI_Controller
             $data['package1'] = $this->Vendor_model->get_package1();
             $data['package2'] = $this->Vendor_model->get_package2();
             $data['package3'] = $this->Vendor_model->get_package3();
+            // $data['albums']=$this->Vendor_model->get_albums();
             $this->load->view('templates/header');
             $this->load->view('vendor/profile', $data);
             $this->load->view('templates/footer');
 
-
-
+    }
+    public function ajax_edit($id)
+    {
+        $data = $this->Vendor_model->get_by_id($id);
+        echo json_encode($data);
+    }
+    
+    public function mobile_update()
+    {
+        $data = array(
+                'description' => $this->input->post('description'),
+                'price' => $this->input->post('price'),
+            );
+       
+        $this->Vendor_model->mobile_update(array('id' => $this->input->post('id')), $data);
+           echo json_encode(array("status" => TRUE));
     }
 
+     public function ajax_edit1($id)
+    {
+        $data = $this->Vendor_model->get_by_id1($id);
+        echo json_encode($data);
+    }
+    
+    public function mobile_update1()
+    {
+        $data = array(
+                'description' => $this->input->post('description'),
+                'price' => $this->input->post('price'),
+            );
+       
+        $this->Vendor_model->mobile_update1(array('id' => $this->input->post('id')), $data);
+           echo json_encode(array("status" => TRUE));
+       
+        
+    }
+    public function add_package1(){
+
+        $this->Vendor_model->add_package1();
+        redirect('vendor');
+    }
+    public function add_package2(){
+
+        $this->Vendor_model->add_package2();
+        redirect('vendor');
+    }
+    public function add_package3(){
+
+        $this->Vendor_model->add_package3();
+        redirect('vendor');
+    }
+    public function delete_package($id){
+
+        $this->Vendor_model->delete_package($id);
+        echo json_encode(array("status" => TRUE));
+    }
+    public function delete_package2($id){
+
+        $this->Vendor_model->delete_package2($id);
+        echo json_encode(array("status" => TRUE));
+    }
+    public function delete_package3($id){
+
+        $this->Vendor_model->delete_package3($id);
+        echo json_encode(array("status" => TRUE));
+    }
+
+     public function ajax_edit2($id)
+    {
+        $data = $this->Vendor_model->get_by_id2($id);
+        echo json_encode($data);
+    }
+    
+    public function mobile_update2()
+    {
+        $data = array(
+                'description' => $this->input->post('description'),
+                'price' => $this->input->post('price'),
+            );
+       
+        $this->Vendor_model->mobile_update2(array('id' => $this->input->post('id')), $data);
+           echo json_encode(array("status" => TRUE));
+    }
     public function ppUp(){
         if(! empty($_FILES)){
             $config["upload_path"]= $this->upload_path;
@@ -34,7 +114,6 @@ class Vendor extends CI_Controller
             $upload_data = $this->upload->data();
             $file_name = $upload_data['file_name'];
             $this->Vendor_model->ppUp($file_name);
-
         }
     }
 
@@ -79,6 +158,21 @@ class Vendor extends CI_Controller
         $this->load->view('templates/footer');
 
     }
+    public function create_album(){
+        $json = array();
 
+        $directory = FCPATH . 'albums/' . $this->input->get('Album_Name');
+
+        if (is_dir($directory)) {
+           mkdir($directory . '/' . $this->input->post('Album_Name'), 0777);
+           $json['success'] = 'The folder ' . $this->input->post('Album_Name') . 'was created!';
+        } else {
+           $json['error'] = 'The folder ' . $this->input->post('Album_Name') . 'was not created!';
+        }
+
+        $this->output->set_content_type('Content-Type: application/json');
+        $this->output->set_output(json_encode($json));
+        $this->Vendor_model->create_album();
+        }
 
 }
