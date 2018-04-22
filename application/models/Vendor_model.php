@@ -172,7 +172,7 @@ class Vendor_model extends CI_Model
 
         }
 
-        $this->db->select('*');
+        $this->db->select('id,description,price');
         $this->db->where('allvendorid',$allvendor_id);
         $query=$this->db->get('package1');
         return $query->result();
@@ -198,7 +198,7 @@ class Vendor_model extends CI_Model
 
         }
 
-        $this->db->select('*');
+        $this->db->select('id,description,price');
         $this->db->where('allvendorid',$allvendor_id);
         $query=$this->db->get('package2');
         return $query->result();
@@ -223,12 +223,24 @@ class Vendor_model extends CI_Model
 
         }
 
-        $this->db->select('*');
+        $this->db->select('id,description,price');
         $this->db->where('allvendorid',$allvendor_id);
         $query=$this->db->get('package3');
         return $query->result();
-    }
+        }
 
+        public function delete_package($id){
+            $this->db->where('id',$id);
+            $this->db->delete('package1');
+        }
+        public function delete_package2($id){
+            $this->db->where('id',$id);
+            $this->db->delete('package2');
+        }
+        public function delete_package3($id){
+            $this->db->where('id',$id);
+            $this->db->delete('package3');
+        }
 
     public function  ppUp($file_name){
         $username=$this->session->userdata('username');
@@ -448,6 +460,178 @@ class Vendor_model extends CI_Model
         $query=$this->db->get('package3');
         return $query->result();
     }
+    public function get_by_id($id)
+    {
+        $this->db->from('package1');
+        $this->db->where('id',$id);
+        $query = $this->db->get();
+ 
+        return $query->row();
+    }
 
+    public function mobile_update($where, $data)
+    {
+        $this->db->update('package1', $data, $where);
+        return $this->db->affected_rows();
+    }
+
+     public function get_by_id1($id)
+    {
+        $this->db->from('package2');
+        $this->db->where('id',$id);
+        $query = $this->db->get();
+ 
+        return $query->row();
+    }
+
+    public function mobile_update1($where, $data)
+    {
+        $this->db->update('package2', $data, $where);
+        return $this->db->affected_rows();
+    }
+
+     public function get_by_id2($id)
+    {
+        $this->db->from('package3');
+        $this->db->where('id',$id);
+        $query = $this->db->get();
+ 
+        return $query->row();
+    }
+
+    public function mobile_update2($where, $data)
+    {
+        $this->db->update('package3', $data, $where);
+        return $this->db->affected_rows();
+    }
+    public function add_package1(){
+         $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+        
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $id=$row->id;
+        }
+
+        $data=array(
+            'packageName' => $this->input->post('packageName'),
+            'description'=>$this->input->post('description'),
+            'price'=>$this->input->post('price'),
+            'allvendorid'=>$id,
+
+         );
+
+        $this->db->insert('package1',$data);
+        return;
+
+    }
+    public function add_package2(){
+         $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $id=$row->id;
+        }
+
+        $data=array(
+            'packageName' => $this->input->post('packageName'),
+            'description'=>$this->input->post('description'),
+            'price'=>$this->input->post('price'),
+            'allvendorid'=>$id,
+
+         );
+
+        $this->db->insert('package2',$data);
+        return;
+
+    }
+    public function add_package3(){
+         $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+        
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $id=$row->id;
+        }
+
+        $data=array(
+            'packageName' => $this->input->post('packageName'),
+            'description'=>$this->input->post('description'),
+            'price'=>$this->input->post('price'),
+            'allvendorid'=>$id,
+
+         );
+
+        $this->db->insert('package3',$data);
+        return;
+
+    }
+
+    public function create_album(){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $data=array(
+            'album_name' => $this->input->post('Album_Name'), 
+            'user_id' => $user_id, 
+
+            );
+        $this->db->insert('album',$data);
+    }
+
+    // public function get_albums(){
+    //      $username=$this->session->userdata('username');
+    //     $this->db->select('id');
+    //     $this->db->where('email',$username);
+    //     $query=$this->db->get('user');
+    //     foreach ($query->result() as $row)
+    //     {
+    //         $user_id= $row->id;
+
+    //     }
+
+        
+    // }
 }
 ?>
