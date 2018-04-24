@@ -77,7 +77,7 @@
                             <a href="<?php echo base_url() . 'vendor'; ?>" style="text-decoration: none">
                                 <img src="<?php echo base_url() . 'assets/images/v1.jpg' ?>" alt="Avatar" class="avatar"
                                      style="vertical-align: middle;width: 25px;height: 25px;border-radius: 50%;">&nbsp;&nbsp;<?php
-                                echo $this->session->userdata('username');
+                                echo $this->session->userdata('name');
                                 ?></a>
                         </li>
 
