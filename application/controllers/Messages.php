@@ -12,7 +12,7 @@ class Messages extends CI_Controller
 		parent::__construct();
 	}
 
-	function messagePage(){
+	function  messagePage(){
 		$this->load->view('templates/header1');
 		$this->load->view('templates/header');
 		$this->load->view('messages');
