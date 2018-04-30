@@ -258,13 +258,12 @@
             <?php if ($package1==null) {
                 ?>
                     <div class="col-lg-4 card " style="margin-top: 20px; margin-bottom: 20px;">
-                        <div class="col-lg-12 card">
                     <div class="row">
                     <h3><?php echo 'Basic' ?></h3> &nbsp;&nbsp;
                     <h5><i class="fa fa-plus-square-o" data-toggle="modal" data-target="#myModal1" style="margin-top:38%" aria-hidden="true"></i></h5>
                     </div>
                     <p>No Details</p>
-                    </div>
+
                     </div>
                     <?php
                  }
@@ -272,8 +271,7 @@
                 ?>
                 <?php foreach ($package1 as $package) {
                     ?>
-                    <div class="col-lg-4 container" style="margin-top: 20px; margin-bottom: 20px;">
-                        <div class="col-lg-12 card">
+                    <div class="col-lg-4 container " style="margin-top: 20px; margin-bottom: 20px;">
                         <div class=" panel">
 
                                 <div class="container">
@@ -287,7 +285,6 @@
                                 </div>
 
                         </div>
-                        </div>
                     </div>
 
 
@@ -297,14 +294,12 @@
             <?php if ($package2==null) {
                 ?>
                     <div class="col-lg-4 container" style="margin-top: 20px; margin-bottom: 20px;">
-                        <div class="col-lg-12 card">
                      <div class="row">
-                    <h3><?php echo 'Premium' ?></h3> &nbsp;&nbsp;
+                    <h3><?php echo 'Standard' ?></h3> &nbsp;&nbsp;
                      <h5><i class="fa fa-plus-square-o" data-toggle="modal" data-target="#myModal" style="margin-top:38%" aria-hidden="true"></i></h5>
                     </div>
                     <p>No Details</p>
                             <div class="row1"></div>
-                    </div>
                     </div>
                     <?php
                  }
@@ -313,12 +308,11 @@
                 <?php foreach ($package2 as $package) {
                     ?>
                     <div class="col-lg-4 container" style="margin-top: 20px; margin-bottom: 20px;">
-                        <div class="col-lg-12 card">
                         <div class=" panel">
 
                                 <div class="container">
                                 <div class="row">
-                                    <h3><?php echo 'Premium' ?></h3> &nbsp;&nbsp;
+                                    <h3><?php echo 'Standard' ?></h3> &nbsp;&nbsp;
                                     <h5><i onclick="edit_mobile2(<?php echo $package->id;?>)" class="fa fa-pencil-square-o" style="margin-top:38%" aria-hidden="true"></i></h5>
 
                                 </div>
@@ -327,7 +321,6 @@
                                     <button type="button"  onclick="delete_package2(<?php echo $package->id; ?>)" class="btn btn-danger">Delete</button>
                                 </div>
 
-                        </div>
                         </div>
                     </div>
 
@@ -340,13 +333,11 @@
             <?php if ($package3==null) {
                 ?>
                     <div class="col-lg-4 container" style="margin-top: 20px; margin-bottom: 20px;">
-                        <div class="col-lg-12 card">
                      <div class="row">
-                    <h3><?php echo 'Standard' ?></h3> &nbsp;&nbsp;
+                    <h3><?php echo 'Premium' ?></h3> &nbsp;&nbsp;
                      <h5><i class="fa fa-plus-square-o" data-toggle="modal" data-target="#myModal3" style="margin-top:38%" aria-hidden="true"></i></h5>
                     </div>
                     <p>No Details</p>
-                    </div>
                     </div>
                     <?php
                  }
@@ -355,12 +346,11 @@
                 <?php foreach ($package3 as $package) {
                     ?>
                     <div class="col-lg-4 container" style="margin-top: 20px; margin-bottom: 20px;">
-                        <div class="col-lg-12 card">
                         <div class=" panel">
 
                                 <div class="container">
                                 <div class="row">
-                                    <h3><?php echo 'Standard' ?></h3> &nbsp;&nbsp;
+                                    <h3><?php echo 'Premium' ?></h3> &nbsp;&nbsp;
                                     <h5><i onclick="edit_mobile3(<?php echo $package->id;?>)" class="fa fa-pencil-square-o" style="margin-top:38%" aria-hidden="true"></i></h5>
 
 
@@ -373,7 +363,6 @@
                         </div>
                         </div>
 
-                    </div>
 
 
              <?php
@@ -382,7 +371,7 @@
             </div>
         </div>
  </div>
-</div>
+
 
 <br>
 <div class="container col-lg-12">
@@ -398,7 +387,20 @@
         </div>
             <hr>
             <div class="contact-details">
-
+                <div class="row " >
+                <?php foreach ($albums as $album) {
+                    ?>
+                    <div class="col-lg-4 col-sm-6 col-xs-3 portfolio-item" style="height: 350px;width: 250px">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-text"><a href="" style="text-decoration: none"><?php echo $album->album_name;?></a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                };?>
+                </div>
             </div>
             <!-- Social media icon -->
 
@@ -705,8 +707,9 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title"></h4>
         </div>
-        <div class="modal-body">
-         <form id="folder">
+          <?php
+
+          echo form_open_multipart('vendor/create_album')?>
 
                <div class="form-group">
                   <label class="control-label col-md-4">Album Name</label>
@@ -714,8 +717,16 @@
                     <input name="Album_Name" placeholder="Dinuka & Nayani" class="form-control" type="text">
                   </div>
                 </div>
-        </form>
-          <button type="button" class="btn btn-success" onclick="create_album()">Create Album</button>
+
+             <div class="form-group">
+                 <label class="control-label col-md-4">First Image<small>(only one image)</small></label>
+                 <div class="col-md-8">
+                     <input name="image"  class="form-control" type="file">
+                 </div>
+             </div>
+          <button type="submit" class="btn btn-success" >Create Album</button>
+        <?php echo form_close()?>
+
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>

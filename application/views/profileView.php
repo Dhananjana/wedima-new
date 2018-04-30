@@ -180,6 +180,11 @@
         -webkit-font-smoothing: antialiased;
     }
 
+    .row{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
     .row2{border-bottom:1px solid;}
     .row2{color:#888888; background-color:#FFFFFF; border-color:#F3F3F3;}
     #breadcrumb a{color:inherit; background-color:inherit;}
@@ -341,6 +346,39 @@
     </div>
 </div>
 
+<div class="container col-lg-12">
+
+    <div class="col-lg-12 card">
+        <div class="row">
+            <div class="col-lg-11">
+                <h1 style="margin-top: 3%">Albums</h1>
+            </div>
+            <div class="col-lg-1">
+                            </div>
+        </div>
+        <hr>
+        <div class="contact-details">
+            <div class="row " >
+                <?php foreach ($albums as $album) {
+                    ?>
+                    <div class="col-lg-4 col-sm-6 col-xs-3 portfolio-item" style="height: 350px;width: 250px">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-text"><a href="" style="text-decoration: none"><?php echo $album->album_name;?></a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                };?>
+            </div>
+        </div>
+        <!-- Social media icon -->
+
+    </div>
+
+</div>
+
 <br>
 
 <br>
@@ -371,6 +409,8 @@
             $(this).parent().hide().prev().show().prev().show();
         });
     });
+
+
 </script>
 
 
