@@ -17,10 +17,12 @@ class Vendor extends CI_Controller
             $data['package1'] = $this->Vendor_model->get_package1();
             $data['package2'] = $this->Vendor_model->get_package2();
             $data['package3'] = $this->Vendor_model->get_package3();
-            // $data['albums']=$this->Vendor_model->get_albums();
+            $data['albums']=$this->Vendor_model->get_albums();
             $this->load->view('templates/header');
             $this->load->view('vendor/profile', $data);
             $this->load->view('templates/footer');
+
+
 
     }
     public function ajax_edit($id)
@@ -148,14 +150,21 @@ class Vendor extends CI_Controller
     public function profileView(){
         $name= $this->uri->segment(3);
         $Name=urldecode($name);
-        $data['details']=$this->Vendor_model->view_profile($Name);
-        $data['package1'] = $this->Vendor_model->pacakge1($Name);
-        $data['package2'] = $this->Vendor_model->package2($Name);
-        $data['package3'] = $this->Vendor_model->package3($Name);
+        $data1['vendor']=$this->Vendor_model->get_vendor_name();
+        if($data1['vendor']==$Name){
+            redirect('vendor');
+        }
+        else {
+            $data['details'] = $this->Vendor_model->view_profile($Name);
+            $data['package1'] = $this->Vendor_model->pacakge1($Name);
+            $data['package2'] = $this->Vendor_model->package2($Name);
+            $data['package3'] = $this->Vendor_model->package3($Name);
+            $data['albums']=$this->Vendor_model->get_album_details($Name);
 
-        $this->load->view('templates/header');
-        $this->load->view('profileView',$data);
-        $this->load->view('templates/footer');
+            $this->load->view('templates/header');
+            $this->load->view('profileView', $data);
+            $this->load->view('templates/footer');
+        }
 
     }
     public function create_album(){
@@ -172,7 +181,24 @@ class Vendor extends CI_Controller
 
         $this->output->set_content_type('Content-Type: application/json');
         $this->output->set_output(json_encode($json));
-        $this->Vendor_model->create_album();
+        $data1['id']=$this->Vendor_model->create_album();
+        $data1['user']=$this->Vendor_model->get_user();
+        $config["upload_path"]='albums/' . $this->input->post('Album_Name');
+        $config["allowed_types"]="gif|png|jpg";
+        $this->load->library('upload',$config);
+        $this->upload->do_upload("image");
+        $upload_data = $this->upload->data();
+        $file_name = $upload_data['file_name'];
+        var_dump($file_name);
+        $data=array(
+            'image_name'=>$file_name,
+            'album_id'=>$data1['id'],
+            'user_id'=>$data1['user']
+        );
+
+        $this->Vendor_model->insert_img($data);
+        redirect('vendor');
         }
+
 
 }

@@ -618,20 +618,94 @@ class Vendor_model extends CI_Model
 
             );
         $this->db->insert('album',$data);
+        $insertId = $this->db->insert_id();
+        return $insertId;
     }
 
-    // public function get_albums(){
-    //      $username=$this->session->userdata('username');
-    //     $this->db->select('id');
-    //     $this->db->where('email',$username);
-    //     $query=$this->db->get('user');
-    //     foreach ($query->result() as $row)
-    //     {
-    //         $user_id= $row->id;
+     public function get_albums(){
+          $username=$this->session->userdata('username');
+         $this->db->select('id');
+         $this->db->where('email',$username);
+         $query=$this->db->get('user');
+         foreach ($query->result() as $row)
+         {
+             $user_id= $row->id;
 
-    //     }
+         }
+
+
+
+         $this->db->select('*');
+         $this->db->where('album.user_id',$user_id);
+         $this->db->from('album');
+         $this->db->join('album_images', 'album.id = album_images.album_id');
+         $this->db->group_by('album_name');
+         $query = $this->db->get();
+         return $query->result();
 
         
-    // }
+     }
+
+     public function get_user(){
+         $username=$this->session->userdata('username');
+         $this->db->select('id');
+         $this->db->where('email',$username);
+         $query=$this->db->get('user');
+         foreach ($query->result() as $row)
+         {
+             $user_id= $row->id;
+
+         }
+         return $user_id;
+     }
+
+     public function insert_img($data){
+         $this->db->insert('album_images',$data);
+     }
+
+     public function get_vendor_name(){
+         $username=$this->session->userdata('username');
+         $this->db->select('id');
+         $this->db->where('email',$username);
+         $query=$this->db->get('user');
+         if($query->result()!=null) {
+             foreach ($query->result() as $row) {
+                 $user_id = $row->id;
+
+             }
+
+             $this->db->select('*');
+             $this->db->where('user_id', $user_id);
+             $query = $this->db->get('allvendor');
+             foreach ($query->result() as $row) {
+                 $name = $row->vendorName;
+             }
+
+             return $name;
+         }
+
+         else{
+             return null;
+         }
+     }
+
+
+    public function  get_album_details($Name){
+        $this->db->select('id');
+        $this->db->where('vendorName',$Name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $id=$row->id;
+        }
+
+        $this->db->select('*');
+        $this->db->where('album.allvendorid',$id);
+        $this->db->from('album');
+        $this->db->join('album_images', 'album.id = album_images.album_id');
+        $this->db->group_by('album_name');
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
 ?>
