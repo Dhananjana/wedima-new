@@ -14,9 +14,8 @@ class Vendor extends CI_Controller
     public function index(){
             $data['details'] = $this->Vendor_model->get_details();
             $data['nav1'] = $this->load->view('templates/header1', NULL, TRUE);
-            $data['package1'] = $this->Vendor_model->get_package1();
-            $data['package2'] = $this->Vendor_model->get_package2();
-            $data['package3'] = $this->Vendor_model->get_package3();
+            $data['packages'] = $this->Vendor_model->get_packages();
+            
             $data['albums']=$this->Vendor_model->get_albums();
             $this->load->view('templates/header');
             $this->load->view('vendor/profile', $data);
@@ -34,6 +33,7 @@ class Vendor extends CI_Controller
     public function mobile_update()
     {
         $data = array(
+                'title' => $this->input->post('title'),
                 'description' => $this->input->post('description'),
                 'price' => $this->input->post('price'),
             );
@@ -42,71 +42,38 @@ class Vendor extends CI_Controller
            echo json_encode(array("status" => TRUE));
     }
 
-     public function ajax_edit1($id)
-    {
-        $data = $this->Vendor_model->get_by_id1($id);
-        echo json_encode($data);
-    }
+    //  public function ajax_edit1($id)
+    // {
+    //     $data = $this->Vendor_model->get_by_id1($id);
+    //     echo json_encode($data);
+    // }
     
-    public function mobile_update1()
-    {
-        $data = array(
-                'description' => $this->input->post('description'),
-                'price' => $this->input->post('price'),
-            );
+    // public function mobile_update1()
+    // {
+    //     $data = array(
+    //             'description' => $this->input->post('description'),
+    //             'price' => $this->input->post('price'),
+    //         );
        
-        $this->Vendor_model->mobile_update1(array('id' => $this->input->post('id')), $data);
-           echo json_encode(array("status" => TRUE));
+    //     $this->Vendor_model->mobile_update1(array('id' => $this->input->post('id')), $data);
+    //        echo json_encode(array("status" => TRUE));
        
         
-    }
-    public function add_package1(){
+    // }
+    public function add_packages(){
 
-        $this->Vendor_model->add_package1();
-        redirect('vendor');
-    }
-    public function add_package2(){
+        $this->Vendor_model->add_packages();
 
-        $this->Vendor_model->add_package2();
-        redirect('vendor');
-    }
-    public function add_package3(){
-
-        $this->Vendor_model->add_package3();
-        redirect('vendor');
-    }
-    public function delete_package($id){
-
-        $this->Vendor_model->delete_package($id);
         echo json_encode(array("status" => TRUE));
     }
-    public function delete_package2($id){
+   
+    public function delete_packages($id){
 
-        $this->Vendor_model->delete_package2($id);
+        $this->Vendor_model->delete_packages($id);
         echo json_encode(array("status" => TRUE));
     }
-    public function delete_package3($id){
-
-        $this->Vendor_model->delete_package3($id);
-        echo json_encode(array("status" => TRUE));
-    }
-
-     public function ajax_edit2($id)
-    {
-        $data = $this->Vendor_model->get_by_id2($id);
-        echo json_encode($data);
-    }
-    
-    public function mobile_update2()
-    {
-        $data = array(
-                'description' => $this->input->post('description'),
-                'price' => $this->input->post('price'),
-            );
-       
-        $this->Vendor_model->mobile_update2(array('id' => $this->input->post('id')), $data);
-           echo json_encode(array("status" => TRUE));
-    }
+          
+  
     public function ppUp(){
         if(! empty($_FILES)){
             $config["upload_path"]= $this->upload_path;

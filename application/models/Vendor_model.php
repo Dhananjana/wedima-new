@@ -152,7 +152,7 @@ class Vendor_model extends CI_Model
         return $query->result();
     }
 
-    public function get_package1(){
+    public function get_packages(){
          $username=$this->session->userdata('username');
         $this->db->select('id');
         $this->db->where('email',$username);
@@ -172,75 +172,75 @@ class Vendor_model extends CI_Model
 
         }
 
-        $this->db->select('id,description,price');
+        $this->db->select('title,id,description,price');
         $this->db->where('allvendorid',$allvendor_id);
-        $query=$this->db->get('package1');
+        $query=$this->db->get('packages');
         return $query->result();
     }
 
-    public function get_package2(){
-         $username=$this->session->userdata('username');
-        $this->db->select('id');
-        $this->db->where('email',$username);
-        $query=$this->db->get('user');
-        foreach ($query->result() as $row)
-        {
-            $user_id= $row->id;
+    // public function get_package2(){
+    //      $username=$this->session->userdata('username');
+    //     $this->db->select('id');
+    //     $this->db->where('email',$username);
+    //     $query=$this->db->get('user');
+    //     foreach ($query->result() as $row)
+    //     {
+    //         $user_id= $row->id;
 
-        }
+    //     }
 
-        $this->db->select('*');
-        $this->db->where('user_id',$user_id);
-        $query=$this->db->get('allvendor');
-        foreach ($query->result() as $row)
-        {
-            $allvendor_id=$row->id;
+    //     $this->db->select('*');
+    //     $this->db->where('user_id',$user_id);
+    //     $query=$this->db->get('allvendor');
+    //     foreach ($query->result() as $row)
+    //     {
+    //         $allvendor_id=$row->id;
 
-        }
+    //     }
 
-        $this->db->select('id,description,price');
-        $this->db->where('allvendorid',$allvendor_id);
-        $query=$this->db->get('package2');
-        return $query->result();
-    }
-    public function get_package3(){
-        $username=$this->session->userdata('username');
-        $this->db->select('id');
-        $this->db->where('email',$username);
-        $query=$this->db->get('user');
-        foreach ($query->result() as $row)
-        {
-            $user_id= $row->id;
+    //     $this->db->select('id,description,price');
+    //     $this->db->where('allvendorid',$allvendor_id);
+    //     $query=$this->db->get('package2');
+    //     return $query->result();
+    // }
+    // public function get_package3(){
+    //     $username=$this->session->userdata('username');
+    //     $this->db->select('id');
+    //     $this->db->where('email',$username);
+    //     $query=$this->db->get('user');
+    //     foreach ($query->result() as $row)
+    //     {
+    //         $user_id= $row->id;
 
-        }
+    //     }
 
-        $this->db->select('*');
-        $this->db->where('user_id',$user_id);
-        $query=$this->db->get('allvendor');
-        foreach ($query->result() as $row)
-        {
-            $allvendor_id=$row->id;
+    //     $this->db->select('*');
+    //     $this->db->where('user_id',$user_id);
+    //     $query=$this->db->get('allvendor');
+    //     foreach ($query->result() as $row)
+    //     {
+    //         $allvendor_id=$row->id;
 
-        }
+    //     }
 
-        $this->db->select('id,description,price');
-        $this->db->where('allvendorid',$allvendor_id);
-        $query=$this->db->get('package3');
-        return $query->result();
-        }
+    //     $this->db->select('id,description,price');
+    //     $this->db->where('allvendorid',$allvendor_id);
+    //     $query=$this->db->get('package3');
+    //     return $query->result();
+    //     }
 
-        public function delete_package($id){
+        public function delete_packages($id){
             $this->db->where('id',$id);
-            $this->db->delete('package1');
+            $this->db->delete('packages');
         }
-        public function delete_package2($id){
-            $this->db->where('id',$id);
-            $this->db->delete('package2');
-        }
-        public function delete_package3($id){
-            $this->db->where('id',$id);
-            $this->db->delete('package3');
-        }
+        // public function delete_package2($id){
+        //     $this->db->where('id',$id);
+        //     $this->db->delete('package2');
+        // }
+        // public function delete_package3($id){
+        //     $this->db->where('id',$id);
+        //     $this->db->delete('package3');
+        // }
 
     public function  ppUp($file_name){
         $username=$this->session->userdata('username');
@@ -411,58 +411,27 @@ class Vendor_model extends CI_Model
 
     }
 
-    public function pacakge1($Name){
-        $this->db->select('*');
-        $this->db->where('vendorName',$Name);
-        $query=$this->db->get('allvendor');
-        foreach ($query->result() as $row)
-        {
-            $allvendor_id=$row->id;
+    // public function pacakge1($Name){
+    //     $this->db->select('*');
+    //     $this->db->where('vendorName',$Name);
+    //     $query=$this->db->get('allvendor');
+    //     foreach ($query->result() as $row)
+    //     {
+    //         $allvendor_id=$row->id;
 
-        }
+    //     }
 
-        $this->db->select('*');
-        $this->db->where('allvendorid',$allvendor_id);
-        $query=$this->db->get('package1');
-        return $query->result();
-    }
+    //     $this->db->select('*');
+    //     $this->db->where('allvendorid',$allvendor_id);
+    //     $query=$this->db->get('package1');
+    //     return $query->result();
+    // }
 
-    public function package2($Name){
-
-        $this->db->select('*');
-        $this->db->where('vendorName',$Name);
-        $query=$this->db->get('allvendor');
-        foreach ($query->result() as $row)
-        {
-            $allvendor_id=$row->id;
-
-        }
-
-
-        $this->db->select('*');
-        $this->db->where('allvendorid',$allvendor_id);
-        $query=$this->db->get('package2');
-        return $query->result();
-    }
-    public function package3($Name){
-        $this->db->select('*');
-        $this->db->where('vendorName',$Name);
-        $query=$this->db->get('allvendor');
-        foreach ($query->result() as $row)
-        {
-            $allvendor_id=$row->id;
-
-        }
-
-
-        $this->db->select('*');
-        $this->db->where('allvendorid',$allvendor_id);
-        $query=$this->db->get('package3');
-        return $query->result();
-    }
+    
+    
     public function get_by_id($id)
     {
-        $this->db->from('package1');
+        $this->db->from('packages');
         $this->db->where('id',$id);
         $query = $this->db->get();
  
@@ -471,40 +440,13 @@ class Vendor_model extends CI_Model
 
     public function mobile_update($where, $data)
     {
-        $this->db->update('package1', $data, $where);
+        $this->db->update('packages', $data, $where);
         return $this->db->affected_rows();
     }
 
-     public function get_by_id1($id)
-    {
-        $this->db->from('package2');
-        $this->db->where('id',$id);
-        $query = $this->db->get();
- 
-        return $query->row();
-    }
-
-    public function mobile_update1($where, $data)
-    {
-        $this->db->update('package2', $data, $where);
-        return $this->db->affected_rows();
-    }
-
-     public function get_by_id2($id)
-    {
-        $this->db->from('package3');
-        $this->db->where('id',$id);
-        $query = $this->db->get();
- 
-        return $query->row();
-    }
-
-    public function mobile_update2($where, $data)
-    {
-        $this->db->update('package3', $data, $where);
-        return $this->db->affected_rows();
-    }
-    public function add_package1(){
+    
+    
+    public function add_packages(){
          $username=$this->session->userdata('username');
         $this->db->select('id');
         $this->db->where('email',$username);
@@ -525,82 +467,18 @@ class Vendor_model extends CI_Model
         }
 
         $data=array(
-            'packageName' => $this->input->post('packageName'),
+            
             'description'=>$this->input->post('description'),
+            'title' => $this->input->post('title'),
             'price'=>$this->input->post('price'),
             'allvendorid'=>$id,
 
          );
 
-        $this->db->insert('package1',$data);
-        return;
+        $this->db->insert('packages',$data);
 
     }
-    public function add_package2(){
-         $username=$this->session->userdata('username');
-        $this->db->select('id');
-        $this->db->where('email',$username);
-        $query=$this->db->get('user');
-        foreach ($query->result() as $row)
-        {
-            $user_id= $row->id;
-
-        }
-
-
-        $this->db->select('*');
-        $this->db->where('user_id',$user_id);
-        $query=$this->db->get('allvendor');
-        foreach ($query->result() as $row)
-        {
-            $id=$row->id;
-        }
-
-        $data=array(
-            'packageName' => $this->input->post('packageName'),
-            'description'=>$this->input->post('description'),
-            'price'=>$this->input->post('price'),
-            'allvendorid'=>$id,
-
-         );
-
-        $this->db->insert('package2',$data);
-        return;
-
-    }
-    public function add_package3(){
-         $username=$this->session->userdata('username');
-        $this->db->select('id');
-        $this->db->where('email',$username);
-        $query=$this->db->get('user');
-        foreach ($query->result() as $row)
-        {
-            $user_id= $row->id;
-
-        }
-        
-
-        $this->db->select('*');
-        $this->db->where('user_id',$user_id);
-        $query=$this->db->get('allvendor');
-        foreach ($query->result() as $row)
-        {
-            $id=$row->id;
-        }
-
-        $data=array(
-            'packageName' => $this->input->post('packageName'),
-            'description'=>$this->input->post('description'),
-            'price'=>$this->input->post('price'),
-            'allvendorid'=>$id,
-
-         );
-
-        $this->db->insert('package3',$data);
-        return;
-
-    }
-
+    
     public function create_album(){
         $username=$this->session->userdata('username');
         $this->db->select('id');

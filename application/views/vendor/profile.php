@@ -253,35 +253,22 @@
  <div class="col-lg-12 card"">
  <div class="row ">
      <h2 class="col-lg-10 ">Package Details</h2>
+     <h1><i style="margin-top: 3%; margin-left:40px"  class="fa fa-plus-circle" aria-hidden="true" data-toggle="modal" data-target="#packageModel" style="margin-top:38%" aria-hidden="true"></i></h1>
 </div>
-            <div class="row">
-            <?php if ($package1==null) {
-                ?>
-                    <div class="col-lg-4 card " style="margin-top: 20px; margin-bottom: 20px;">
-                    <div class="row">
-                    <h3><?php echo 'Basic' ?></h3> &nbsp;&nbsp;
-                    <h5><i class="fa fa-plus-square-o" data-toggle="modal" data-target="#myModal1" style="margin-top:38%" aria-hidden="true"></i></h5>
-                    </div>
-                    <p>No Details</p>
-
-                    </div>
-                    <?php
-                 }
-             else{
-                ?>
-                <?php foreach ($package1 as $package) {
+    <div class="row">
+            <?php foreach ($packages as $package) {
                     ?>
                     <div class="col-lg-4 container " style="margin-top: 20px; margin-bottom: 20px;">
                         <div class=" panel">
 
                                 <div class="container">
                                 <div class="row">
-                                    <h3><?php echo 'Basic' ?></h3> &nbsp;&nbsp;
+                                    <h3><?php echo $package->title?></h3> &nbsp;&nbsp;
                                     <h5><i onclick="edit_mobile(<?php echo $package->id;?>)" class="fa fa-pencil-square-o" style="margin-top:38%" aria-hidden="true"></i></h5>
                                 </div>
                                     <p class="text-viewer"><?php echo $package->description ?></p>
                                     <h5>Rs.<?php echo $package->price ?></h5>
-                                    <button type="button"  onclick="delete_package(<?php echo $package->id; ?>)" class="btn btn-danger">Delete</button>
+                                    <button type="button"  onclick="delete_packages(<?php echo $package->id; ?>)" class="btn btn-danger">Delete</button>
                                 </div>
 
                         </div>
@@ -289,86 +276,9 @@
 
 
              <?php
-                }}
+               }
                 ?>
-            <?php if ($package2==null) {
-                ?>
-                    <div class="col-lg-4 container" style="margin-top: 20px; margin-bottom: 20px;">
-                     <div class="row">
-                    <h3><?php echo 'Standard' ?></h3> &nbsp;&nbsp;
-                     <h5><i class="fa fa-plus-square-o" data-toggle="modal" data-target="#myModal" style="margin-top:38%" aria-hidden="true"></i></h5>
-                    </div>
-                    <p>No Details</p>
-                            <div class="row1"></div>
-                    </div>
-                    <?php
-                 }
-             else{
-                ?>
-                <?php foreach ($package2 as $package) {
-                    ?>
-                    <div class="col-lg-4 container" style="margin-top: 20px; margin-bottom: 20px;">
-                        <div class=" panel">
-
-                                <div class="container">
-                                <div class="row">
-                                    <h3><?php echo 'Standard' ?></h3> &nbsp;&nbsp;
-                                    <h5><i onclick="edit_mobile2(<?php echo $package->id;?>)" class="fa fa-pencil-square-o" style="margin-top:38%" aria-hidden="true"></i></h5>
-
-                                </div>
-                                    <p><?php echo $package->description ?></p>
-                                    <h5>Rs.<?php echo $package->price ?></h5>
-                                    <button type="button"  onclick="delete_package2(<?php echo $package->id; ?>)" class="btn btn-danger">Delete</button>
-                                </div>
-
-                        </div>
-                    </div>
-
-
-             <?php
-                }}
-                ?>
-
-
-            <?php if ($package3==null) {
-                ?>
-                    <div class="col-lg-4 container" style="margin-top: 20px; margin-bottom: 20px;">
-                     <div class="row">
-                    <h3><?php echo 'Premium' ?></h3> &nbsp;&nbsp;
-                     <h5><i class="fa fa-plus-square-o" data-toggle="modal" data-target="#myModal3" style="margin-top:38%" aria-hidden="true"></i></h5>
-                    </div>
-                    <p>No Details</p>
-                    </div>
-                    <?php
-                 }
-             else{
-                ?>
-                <?php foreach ($package3 as $package) {
-                    ?>
-                    <div class="col-lg-4 container" style="margin-top: 20px; margin-bottom: 20px;">
-                        <div class=" panel">
-
-                                <div class="container">
-                                <div class="row">
-                                    <h3><?php echo 'Premium' ?></h3> &nbsp;&nbsp;
-                                    <h5><i onclick="edit_mobile3(<?php echo $package->id;?>)" class="fa fa-pencil-square-o" style="margin-top:38%" aria-hidden="true"></i></h5>
-
-
-
-                                </div>
-                                    <p class="text-viewer"><?php echo $package->description ?></p>
-                                    <h5>Rs.<?php echo $package->price ?></h5>
-                                    <button type="button"  onclick="delete_package3(<?php echo $package->id; ?>)" class="btn btn-danger">Delete</button>
-                                </div>
-                        </div>
-                        </div>
-
-
-
-             <?php
-                }}
-                ?>
-            </div>
+</div>
         </div>
  </div>
 
@@ -385,16 +295,22 @@
             <h1><i style="margin-top: 3%; margin-left:40px"  class="fa fa-plus-circle" aria-hidden="true" data-toggle="modal" data-target="#folderModel" style="margin-top:38%" aria-hidden="true"></i></h1>
             </div>
         </div>
-            <hr>
+
             <div class="contact-details">
                 <div class="row " >
+                  <div class="col-lg-2 col-sm-6 col-xs-3 portfolio-item" style="height: 200px;width: 250px">
+                     <div class="card h-100 ">
+                     <h1><i class="fa fa-plus" aria-hidden="true"></i></h1>
+                     </div>
+
+                  </div>
                 <?php foreach ($albums as $album) {
                     ?>
-                    <div class="col-lg-4 col-sm-6 col-xs-3 portfolio-item" style="height: 350px;width: 250px">
+                    <div class="col-lg-2 col-sm-6 col-xs-3 portfolio-item" style="height: 200px;width: 250px">
                         <div class="card h-100">
-                            <img class="card-img-top" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
+                            <img style="max-height: 150px;" class="card-img-top" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-text"><a href="" style="text-decoration: none"><?php echo $album->album_name;?></a></h4>
+                                <h6 class="card-text"><a href="" style="text-decoration: none"><?php echo $album->album_name;?></a></h6>
                             </div>
                         </div>
                     </div>
@@ -403,10 +319,50 @@
                 </div>
             </div>
             <!-- Social media icon -->
-
+<br>
     </div>
 
 </div>
+<div class="modal fade" id="packageModel" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+      </div>
+      <div class="modal-body form">
+        <form action="#" id="Pform" class="form-horizontal">
+          <input type="hidden" value="" name="id"/>
+          <div class="form-body">
+          <div class="form-group">
+              <label class="control-label col-md-3">Title</label>
+              <div class="col-md-9">
+                <input name="title" placeholder="Premium" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Descripton</label>
+              <div class="col-md-9">
+                <input name="description" placeholder="description" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Price</label>
+              <div class="col-md-9">
+                <input name="price" placeholder="5000" class="form-control" type="text">
+              </div>
+            </div>
+
+          </div>
+        </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btnSave" onclick="addP()" class="btn btn-success">Add</button>
+            <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
 <!-- Bootstrap modal for package1-->
   <div class="modal fade" id="modal_form" role="dialog">
   <div class="modal-dialog">
@@ -419,6 +375,12 @@
         <form action="#" id="form" class="form-horizontal">
           <input type="hidden" value="" name="id"/>
           <div class="form-body">
+           <div class="form-group">
+              <label class="control-label col-md-3">Title</label>
+              <div class="col-md-9">
+                <input name="title" placeholder="premium" class="form-control" type="text">
+              </div>
+            </div>
             <div class="form-group">
               <label class="control-label col-md-3">Descripton</label>
               <div class="col-md-9">
@@ -443,80 +405,6 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
   <!-- End Bootstrap modal for package1-->
-<!-- Bootstrap modal for package2-->
-  <div class="modal fade" id="modal_form1" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body form">
-        <form action="#" id="form1" class="form-horizontal">
-          <input type="hidden" value="" name="id"/>
-          <div class="form-body">
-            <div class="form-group">
-              <label class="control-label col-md-3">Descripton</label>
-              <div class="col-md-9">
-                <input name="description" placeholder="description" class="form-control" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3">Price</label>
-              <div class="col-md-9">
-                <input name="price" placeholder="price" class="form-control" type="text">
-              </div>
-            </div>
-
-          </div>
-        </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" id="btnSave" onclick="save1()" class="btn btn-success">Update</button>
-            <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div>
-<!-- End Bootstrap modal for package2-->
-<!-- Bootstrap modal for package3-->
-<div class="modal fade" id="modal_form2" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body form">
-        <form action="#" id="form2" class="form-horizontal">
-          <input type="hidden" value="" name="id"/>
-          <div class="form-body">
-            <div class="form-group">
-              <label class="control-label col-md-3">Descripton</label>
-              <div class="col-md-9">
-                <input name="description" placeholder="description" class="form-control" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3">Price</label>
-              <div class="col-md-9">
-                <input name="price" placeholder="price" class="form-control" type="text">
-              </div>
-            </div>
-
-          </div>
-        </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" id="btnSave" onclick="save2()" class="btn btn-success">Update</button>
-
-            <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-  <!-- End Bootstrap modal for package3-->
-
-
-
 
 <div class="modal fade" id="ppModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -612,91 +500,7 @@
 
     </div>
   </div>
-  <!-- Modal -->
-  <div class="modal fade" id="myModal1" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"></h4>
-        </div>
-        <div class="modal-body">
-          <?php echo form_open("vendor/add_package1");?>
-                <div class="form-group">
-                  <label class="control-label col-md-3">Descripton</label>
-                  <div class="col-md-9">
-                    <textarea name="description" rows="7" placeholder="description" class="form-control"></textarea>
-                  </div>
-                </div>
-               <div class="form-group">
-                  <label class="control-label col-md-3">Price</label>
-                  <div class="col-md-9">
-                    <input name="price" placeholder="price" class="form-control" type="text">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="control-label col-md-3"></label>
-                  <div class="col-md-9">
-                    <input name="packageName" value="Premium" class="form-control" type="hidden">
-                  </div>
-                </div>
-
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Add</button>
-          <?php echo form_close();?><br>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <!-- Modal -->
-  <div class="modal fade" id="myModal3" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"></h4>
-        </div>
-        <div class="modal-body">
-          <?php echo form_open("vendor/add_package3");?>
-                <div class="form-group">
-                  <label class="control-label col-md-3">Descripton</label>
-                  <div class="col-md-9">
-                    <textarea name="description" rows="7" placeholder="description" class="form-control"></textarea>
-                  </div>
-                </div>
-               <div class="form-group">
-                  <label class="control-label col-md-3">Price</label>
-                  <div class="col-md-9">
-                    <input name="price" placeholder="price" class="form-control" type="text">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="control-label col-md-3"></label>
-                  <div class="col-md-9">
-                    <input name="packageName" value="Premium" class="form-control" type="hidden">
-                  </div>
-                </div>
-
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Add</button>
-          <?php echo form_close();?><br>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-    </div>
-<!--     fghjkl -->
+ 
  <!-- Modal -->
   <div class="modal fade" id="folderModel" role="dialog">
     <div class="modal-dialog">
@@ -800,6 +604,7 @@
         {
 
             $('[name="id"]').val(data.id);
+             $('[name="title"]').val(data.title);
             $('[name="description"]').val(data.description);
             $('[name="price"]').val(data.price);
 
@@ -813,64 +618,6 @@
     });
     }
 
-
-
-
-    function edit_mobile2(id)
-    {
-      save_method = 'update';
-      $('#form')[0].reset(); // reset form on modals
-
-      //Ajax Load data from ajax
-      $.ajax({
-        url : "<?php echo site_url('vendor/ajax_edit1/')?>/" + id,
-        type: "GET",
-        dataType: "JSON",
-        success: function(data)
-        {
-
-            $('[name="id"]').val(data.id);
-            $('[name="description"]').val(data.description);
-            $('[name="price"]').val(data.price);
-
-            $('#modal_form1').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Mobile1'); // Set title to Bootstrap modal title
-
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
-    });
-    }
-
-     function edit_mobile3(id)
-    {
-      save_method = 'update';
-      $('#form')[0].reset(); // reset form on modals
-
-      //Ajax Load data from ajax
-      $.ajax({
-        url : "<?php echo site_url('vendor/ajax_edit2/')?>/" + id,
-        type: "GET",
-        dataType: "JSON",
-        success: function(data)
-        {
-
-            $('[name="id"]').val(data.id);
-            $('[name="description"]').val(data.description);
-            $('[name="price"]').val(data.price);
-
-            $('#modal_form2').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Mobile2'); // Set title to Bootstrap modal title
-
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
-    });
-    }
 
 
 
@@ -898,21 +645,21 @@
         });
     }
 
-    function save1()
+    function addP()
     {
       var url;
 
 
        // ajax adding data to database
           $.ajax({
-            url : '<?php echo site_url('vendor/mobile_update1')?>',
+            url : '<?php echo site_url('vendor/add_packages')?>',
             type: "POST",
-            data: $('#form1').serialize(),
+            data: $('#Pform').serialize(),
             dataType: "JSON",
             success: function(data)
             {
                //if success close modal and reload ajax table
-               $('#modal_form1').modal('hide');
+               $('#packageModel').modal('hide');
               location.reload();// for reload a page
             },
             error: function (jqXHR, textStatus, errorThrown)
@@ -922,29 +669,7 @@
         });
     }
 
-    function save2()
-    {
-      var url;
-
-
-       // ajax adding data to database
-          $.ajax({
-            url : '<?php echo site_url('vendor/mobile_update2')?>',
-            type: "POST",
-            data: $('#form2').serialize(),
-            dataType: "JSON",
-            success: function(data)
-            {
-               //if success close modal and reload ajax table
-               $('#modal_form2').modal('hide');
-              location.reload();// for reload a page
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-                alert('Error adding / update data');
-            }
-        });
-    }
+    
 
   function create_album()
     {
@@ -972,7 +697,7 @@
 
   </script>
   <script type="text/javascript">
-            function delete_package(id) {
+            function delete_packages(id) {
 
             console.log(id);
 
@@ -990,7 +715,7 @@
 
                     // ajax delete data to database
                     $.ajax({
-                        url : "<?php echo site_url('vendor/delete_package')?>/"+id,
+                        url : "<?php echo site_url('vendor/delete_packages')?>/"+id,
                         //dataType: "JSON",
                         success: function(data)
                         {
@@ -1016,93 +741,93 @@
             })
         }
 
-         function delete_package2(id) {
+        //  function delete_package2(id) {
 
-            console.log(id);
+        //     console.log(id);
 
-            swal({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!',
-                closeOnConfirm: false,
-            }).then(function(isConfirm) {
-                if (isConfirm) {
+        //     swal({
+        //         title: 'Are you sure?',
+        //         text: "You won't be able to revert this!",
+        //         type: 'warning',
+        //         showCancelButton: true,
+        //         confirmButtonColor: '#3085d6',
+        //         cancelButtonColor: '#d33',
+        //         confirmButtonText: 'Yes, delete it!',
+        //         closeOnConfirm: false,
+        //     }).then(function(isConfirm) {
+        //         if (isConfirm) {
 
-                    // ajax delete data to database
-                    $.ajax({
-                        url : "<?php echo site_url('vendor/delete_package2')?>/"+id,
-                        //dataType: "JSON",
-                        success: function(data)
-                        {
-                            swal(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            );
+        //             // ajax delete data to database
+        //             $.ajax({
+        //                 url : "<?php echo site_url('vendor/delete_package2')?>/"+id,
+        //                 //dataType: "JSON",
+        //                 success: function(data)
+        //                 {
+        //                     swal(
+        //                         'Deleted!',
+        //                         'Your file has been deleted.',
+        //                         'success'
+        //                     );
 
-                            window.setTimeout(function(){
-                                location.reload();
-                            } ,1000);
+        //                     window.setTimeout(function(){
+        //                         location.reload();
+        //                     } ,1000);
 
-                        },
-                        error: function (jqXHR, textStatus, errorThrown)
-                        {
-                            alert('Error adding / update data');
-                        }
-                    });
-
-
-                }
-            })
-        }
-
-         function delete_package3(id) {
-
-            console.log(id);
-
-            swal({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!',
-                closeOnConfirm: false,
-            }).then(function(isConfirm) {
-                if (isConfirm) {
-
-                    // ajax delete data to database
-                    $.ajax({
-                        url : "<?php echo site_url('vendor/delete_package3')?>/"+id,
-                        //dataType: "JSON",
-                        success: function(data)
-                        {
-                            swal(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            );
-
-                            window.setTimeout(function(){
-                                location.reload();
-                            } ,1000);
-
-                        },
-                        error: function (jqXHR, textStatus, errorThrown)
-                        {
-                            alert('Error adding / update data');
-                        }
-                    });
+        //                 },
+        //                 error: function (jqXHR, textStatus, errorThrown)
+        //                 {
+        //                     alert('Error adding / update data');
+        //                 }
+        //             });
 
 
-                }
-            })
-        }
+        //         }
+        //     })
+        // }
+
+        //  function delete_package3(id) {
+
+        //     console.log(id);
+
+        //     swal({
+        //         title: 'Are you sure?',
+        //         text: "You won't be able to revert this!",
+        //         type: 'warning',
+        //         showCancelButton: true,
+        //         confirmButtonColor: '#3085d6',
+        //         cancelButtonColor: '#d33',
+        //         confirmButtonText: 'Yes, delete it!',
+        //         closeOnConfirm: false,
+        //     }).then(function(isConfirm) {
+        //         if (isConfirm) {
+
+        //             // ajax delete data to database
+        //             $.ajax({
+        //                 url : "<?php echo site_url('vendor/delete_package3')?>/"+id,
+        //                 //dataType: "JSON",
+        //                 success: function(data)
+        //                 {
+        //                     swal(
+        //                         'Deleted!',
+        //                         'Your file has been deleted.',
+        //                         'success'
+        //                     );
+
+        //                     window.setTimeout(function(){
+        //                         location.reload();
+        //                     } ,1000);
+
+        //                 },
+        //                 error: function (jqXHR, textStatus, errorThrown)
+        //                 {
+        //                     alert('Error adding / update data');
+        //                 }
+        //             });
+
+
+        //         }
+        //     })
+        // }
 
   </script>
 <script>
