@@ -178,69 +178,30 @@ class Vendor_model extends CI_Model
         return $query->result();
     }
 
-    // public function get_package2(){
-    //      $username=$this->session->userdata('username');
-    //     $this->db->select('id');
-    //     $this->db->where('email',$username);
-    //     $query=$this->db->get('user');
-    //     foreach ($query->result() as $row)
-    //     {
-    //         $user_id= $row->id;
-
-    //     }
-
-    //     $this->db->select('*');
-    //     $this->db->where('user_id',$user_id);
-    //     $query=$this->db->get('allvendor');
-    //     foreach ($query->result() as $row)
-    //     {
-    //         $allvendor_id=$row->id;
-
-    //     }
-
-    //     $this->db->select('id,description,price');
-    //     $this->db->where('allvendorid',$allvendor_id);
-    //     $query=$this->db->get('package2');
-    //     return $query->result();
-    // }
-    // public function get_package3(){
-    //     $username=$this->session->userdata('username');
-    //     $this->db->select('id');
-    //     $this->db->where('email',$username);
-    //     $query=$this->db->get('user');
-    //     foreach ($query->result() as $row)
-    //     {
-    //         $user_id= $row->id;
-
-    //     }
-
-    //     $this->db->select('*');
-    //     $this->db->where('user_id',$user_id);
-    //     $query=$this->db->get('allvendor');
-    //     foreach ($query->result() as $row)
-    //     {
-    //         $allvendor_id=$row->id;
-
-    //     }
-
-    //     $this->db->select('id,description,price');
-    //     $this->db->where('allvendorid',$allvendor_id);
-    //     $query=$this->db->get('package3');
-    //     return $query->result();
-    //     }
 
         public function delete_packages($id){
             $this->db->where('id',$id);
             $this->db->delete('packages');
         }
-        // public function delete_package2($id){
-        //     $this->db->where('id',$id);
-        //     $this->db->delete('package2');
-        // }
-        // public function delete_package3($id){
-        //     $this->db->where('id',$id);
-        //     $this->db->delete('package3');
-        // }
+ 
+
+
+
+        public function vendor_gallery(){
+             $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+        $this->db->select('id,imageName,folder');
+        $this->db->where('vendorId',$user_id);
+        $query=$this->db->get('gallery');
+        return $query->result();
+    }
 
     public function  ppUp($file_name){
         $username=$this->session->userdata('username');
@@ -441,6 +402,96 @@ class Vendor_model extends CI_Model
     public function mobile_update($where, $data)
     {
         $this->db->update('packages', $data, $where);
+        return $this->db->affected_rows();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ public function get_by_id_details()
+    {
+
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $category=$row->vendorTypeID;
+            $name= $row->vendorName;
+
+
+        }
+          $this->db->select('vendorType');
+        $this->db->where('id',$category);
+        $query=$this->db->get('vendor');
+        foreach ($query->result() as $row)
+        {
+            $table= $row->vendorType;
+        }
+
+
+        $this->db->from($table);
+        $this->db->where('name',$name);
+        $query = $this->db->get();
+ 
+        return $query->row();
+    }
+
+    public function mobile_updatedetail($where,$data)
+    {
+        $username=$this->session->userdata('username');        
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $category=$row->vendorTypeID;
+            $name= $row->vendorName;
+
+
+        }
+        $this->db->select('*');
+        $this->db->where('id',$category);
+        $query=$this->db->get('vendor');
+        foreach ($query->result() as $row)
+        {
+            $table= $row->vendorType;
+        }
+    
+        
+
+        // $table=$this->db->query("SELECT vendorType as vnd FROM `vendor` WHERE id = $category")->row()->vnd;
+        $this->db->update($table, $data, $where);
         return $this->db->affected_rows();
     }
 
