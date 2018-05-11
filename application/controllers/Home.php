@@ -167,4 +167,7 @@ class home extends CI_Controller
          $this->load->view('gallery',$data);
          $this->load->view('templates/footer');
      }
+     
+
+
 }

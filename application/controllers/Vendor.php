@@ -15,7 +15,7 @@ class Vendor extends CI_Controller
             $data['details'] = $this->Vendor_model->get_details();
             $data['nav1'] = $this->load->view('templates/header1', NULL, TRUE);
             $data['packages'] = $this->Vendor_model->get_packages();
-            
+            $data['images']=$this->Vendor_model->vendor_gallery();
             $data['albums']=$this->Vendor_model->get_albums();
             $this->load->view('templates/header');
             $this->load->view('vendor/profile', $data);
@@ -39,6 +39,27 @@ class Vendor extends CI_Controller
             );
        
         $this->Vendor_model->mobile_update(array('id' => $this->input->post('id')), $data);
+           echo json_encode(array("status" => TRUE));
+    }
+
+     public function ajax_edit_details()
+    {
+        $data = $this->Vendor_model->get_by_id_details();
+        echo json_encode($data);
+    }
+    
+    public function mobile_updatedetails()
+    {
+        $data = array(
+               
+                'description' =>  $this->input->post('description'),
+                 'address' => $this->input->post('address'),
+                'telephone' => $this->input->post('telephone'),
+                 'serviceArea' => $this->input->post('serviceArea'),
+            );
+
+       
+        $this->Vendor_model->mobile_updatedetail(array('id' => $this->input->post('id')), $data);
            echo json_encode(array("status" => TRUE));
     }
 
