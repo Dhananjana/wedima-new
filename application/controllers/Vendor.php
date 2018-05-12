@@ -143,10 +143,9 @@ class Vendor extends CI_Controller
             redirect('vendor');
         }
         else {
+            $data['isbookmark']=$this->Vendor_model->bookmarkload($Name);
             $data['details'] = $this->Vendor_model->view_profile($Name);
-            $data['package1'] = $this->Vendor_model->pacakge1($Name);
-            $data['package2'] = $this->Vendor_model->package2($Name);
-            $data['package3'] = $this->Vendor_model->package3($Name);
+            $data['packages'] = $this->Vendor_model->pacakges($Name);
             $data['albums']=$this->Vendor_model->get_album_details($Name);
 
             $this->load->view('templates/header');
@@ -187,6 +186,25 @@ class Vendor extends CI_Controller
         $this->Vendor_model->insert_img($data);
         redirect('vendor');
         }
+
+
+    public function bookmark(){
+        $name=$_POST['name'];
+        $this->Vendor_model->bookmark($name);
+        echo json_encode(array("data"=>'Sucsses'));
+
+
+    }
+
+
+    public function unbookmark(){
+        $name=$_POST['name'];
+        $this->Vendor_model->unbookmark($name);
+
+        echo json_encode(array("data"=>'Sucsses'));
+    }
+
+
 
 
 }

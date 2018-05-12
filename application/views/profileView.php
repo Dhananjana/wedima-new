@@ -241,7 +241,34 @@
             <br>
             <div class="row " style="margin-top: 7.4%">
                 <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
-                <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
+                <?php
+                if ($this->session->userdata('utype') == 'customer') {
+                    if($isbookmark=="no") {
+                        ?>
+                        <div id="bookmark" style="display: inline" class="col-lg-3 col-md-3 col-xs-4 well"
+                             onclick="bookmark('<?php echo $detail->name; ?>');"><i class="fa fa-star-o" aria-hidden="true" ></i>
+                        </div>
+                        <?php
+                    }
+                    else {
+                        ?>
+                        <div id="bookmark" style="display: inline" class="col-lg-3 col-md-3 col-xs-4 well"
+                             onclick="unbookmark('<?php echo $detail->name; ?>');"><i class="fa fa-star" aria-hidden="true" style="
+color: #f1d40f;border-color: #f1d40f"></i>
+                        </div>
+                        <?php
+                    }
+                }
+
+
+
+                else{
+                    ?>
+                    <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
+                    <?php
+                }
+                ?>
+
                 <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
             </div>
         </div>
@@ -276,14 +303,14 @@
         </div>
         <div class="row">
 
-            <?php foreach ($package1 as $package) {
+            <?php foreach ($packages as $package) {
                 ?>
                 <div class="col-lg-4 " style="margin-top: 20px; margin-bottom: 20px;">
                     <div class=" panel">
 
                         <div class="container">
                             <div class="row">
-                                <h3><?php echo $package->packageName; ?></h3> &nbsp;&nbsp;
+                                <h3><?php echo $package->title; ?></h3> &nbsp;&nbsp;
                                 <h5></h5>
                             </div>
                             <p><?php echo $package->description ?></p>
@@ -298,53 +325,41 @@
             }
             ?>
 
-            <?php foreach ($package2 as $package) {
-                ?>
-                <div class="col-lg-4 " style="margin-top: 20px; margin-bottom: 20px;">
-                    <div class=" panel">
-
-                        <div class="container">
-                            <div class="row">
-                                <h3><?php echo $package->packageName; ?></h3> &nbsp;&nbsp;
-                                <h5></h5>
-                            </div>
-                            <p><?php echo $package->description ?></p>
-                            <h5>Rs.<?php echo $package->price ?></h5>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <?php
-            }
-            ?>
-
-
-            <?php foreach ($package3 as $package) {
-                ?>
-                <div class="col-lg-4 " style="margin-top: 20px; margin-bottom: 20px;">
-                    <div class=" panel">
-
-                        <div class="container">
-                            <div class="row">
-                                <h3><?php echo $package->packageName; ?></h3> &nbsp;&nbsp;
-                                <h5></h5>
-                            </div>
-                            <p><?php echo $package->description ?></p>
-                            <h5>Rs.<?php echo $package->price ?></h5>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <?php
-            }
-            ?>
         </div>
     </div>
 </div>
+
+<!--<div class="container col-lg-12">-->
+<!---->
+<!--    <div class="col-lg-12 card">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-11">-->
+<!--                <h1 style="margin-top: 3%">Gallery</h1>-->
+<!--            </div>-->
+<!--            <div class="col-lg-1">-->
+<!---->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <br>-->
+<!--        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:520px;height:170px;overflow:hidden;visibility:hidden;">-->
+<!--            <!-- Loading Screen -->-->
+<!---->
+<!--            <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1000px;height:150px;overflow:hidden;">-->
+<!--                --><?php
+//                if( !empty($images) ) {
+//                    foreach ($images as $image) {
+//                        ?>
+<!--                        <div data-p="30.00">-->
+<!--                            <img data-u="image" src="--><?php //echo base_url().'uploads/gallery/'.$image->folder.'/'.$image->imageName;?><!--" alt=" " class="img-responsive" />-->
+<!--                        </div>-->
+<!---->
+<!--                        --><?php
+//                    }}
+//                ?>
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <div class="container col-lg-12">
 
@@ -354,18 +369,20 @@
                 <h1 style="margin-top: 3%">Albums</h1>
             </div>
             <div class="col-lg-1">
-                            </div>
+
+            </div>
         </div>
-        <hr>
+
         <div class="contact-details">
             <div class="row " >
+
                 <?php foreach ($albums as $album) {
                     ?>
-                    <div class="col-lg-4 col-sm-6 col-xs-3 portfolio-item" style="height: 350px;width: 250px">
+                    <div class="col-lg-2 col-sm-6 col-xs-3 portfolio-item" style="height: 200px;width: 250px">
                         <div class="card h-100">
-                            <img class="card-img-top" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
+                            <img style="height: 120px;width: 90s%" class="card-img-top cell" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
                             <div class="card-body">
-                                <h4 class="card-text"><a href="" style="text-decoration: none"><?php echo $album->album_name;?></a></h4>
+                                <h6 class="card-text"><a href="" style="text-decoration: none"><?php echo $album->album_name;?></a></h6>
                             </div>
                         </div>
                     </div>
@@ -374,7 +391,7 @@
             </div>
         </div>
         <!-- Social media icon -->
-
+        <br>
     </div>
 
 </div>
@@ -409,6 +426,59 @@
             $(this).parent().hide().prev().show().prev().show();
         });
     });
+
+
+
+
+</script>
+<script>
+    function bookmark(object)
+    {
+
+
+//        console.log(object);
+
+        //Ajax Load data from ajax
+        $.ajax({
+            type: "POST",
+            url : '<?php echo site_url('Vendor/bookmark')?>',
+            data :{"name":object},
+            dataType: "JSON",
+            success: function(data)
+            {
+                console.log("succes");
+                location.reload();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error making bookmark');
+            }
+        });
+    }
+
+    function unbookmark(object)
+    {
+
+
+//        console.log(object);
+
+        //Ajax Load data from ajax
+        $.ajax({
+            type: "POST",
+            url : '<?php echo site_url('Vendor/unbookmark')?>',
+            data :{"name":object},
+            dataType: "JSON",
+            success: function(data)
+            {
+                console.log("succes");
+                location.reload();
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error removing bookmark');
+            }
+        });
+    }
 
 
 </script>
