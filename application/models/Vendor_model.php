@@ -592,32 +592,34 @@ class Vendor_model extends CI_Model
          $this->db->insert('album_images',$data);
      }
 
-     public function get_vendor_name(){
-         $username=$this->session->userdata('username');
-         $this->db->select('id');
-         $this->db->where('email',$username);
-         $query=$this->db->get('user');
-         if($query->result()!=null) {
-             foreach ($query->result() as $row) {
-                 $user_id = $row->id;
+    public function get_vendor_name(){
+        if($this->session->userdata('utype'=='vendor')) {
+            $username = $this->session->userdata('username');
+            $this->db->select('id');
+            $this->db->where('email', $username);
+            $query = $this->db->get('user');
+            if ($query->result() != null) {
+                foreach ($query->result() as $row) {
+                    $user_id = $row->id;
 
-             }
+                }
 
-             $this->db->select('*');
-             $this->db->where('user_id', $user_id);
-             $query = $this->db->get('allvendor');
-             foreach ($query->result() as $row) {
-                 $name = $row->vendorName;
-             }
+                $this->db->select('*');
+                $this->db->where('user_id', $user_id);
+                $query = $this->db->get('vendor');
+                foreach ($query->result() as $row) {
+                    $name = $row->name;
+                }
 
-             return $name;
-         }
-
-         else{
-             return null;
-         }
-     }
-
+                return $name;
+            } else {
+                return null;
+            }
+        }
+        else{
+            return null;
+        }
+    }
 
     public function  get_album_details($Name){
         $this->db->select('id');
@@ -635,6 +637,131 @@ class Vendor_model extends CI_Model
         $this->db->group_by('album_name');
         $query = $this->db->get();
         return $query->result();
+    }
+
+
+    public function bookmark($name){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('vendorName',$name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $allvendorid=$row->id;
+            $vendor_name=$row->vendorName;
+            $category=$row->vendorTypeID;
+        }
+
+        $this->db->select('vendorType');
+        $this->db->where('id',$category);
+        $query=$this->db->get('vendor');
+        foreach ($query->result() as $row)
+        {
+            $table= $row->vendorType;
+        }
+
+        $data=array(
+            'allvendorid'=> $allvendorid,
+            'user_id'=>$user_id,
+            'vendor_name'=>$vendor_name,
+            'category'=>$table
+        );
+
+        $this->db->insert('bookmark',$data);
+        return;
+
+
+
+    }
+
+    public function unbookmark($name){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('vendorName',$name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $allvendorid=$row->id;
+        }
+
+        $this->db->where('allvendorid',$allvendorid);
+        $this->db->where('user_id',$user_id);
+        $this->db->delete('bookmark');
+        return;
+
+
+
+    }
+
+    public function pacakges($Name){
+        $this->db->select('*');
+        $this->db->where('vendorName',$Name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $allvendor_id=$row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('allvendorid',$allvendor_id);
+        $query=$this->db->get('packages');
+        return $query->result();
+    }
+
+
+    public function  bookmarkload($name){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('vendorName',$name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $allvendorid=$row->id;
+            $vendor_name=$row->vendorName;
+        }
+
+        $this->db->select('id');
+        $this->db->where('allvendorid',$allvendorid);
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('bookmark');
+        if($query->num_rows()>0){
+            return 'yes';
+        }
+
+        else{
+            return 'no';
+        }
+
+
+
     }
 }
 ?>

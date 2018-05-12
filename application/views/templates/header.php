@@ -65,7 +65,31 @@
 
                 <li class="nav-item list1">
                     <a class="nav-link font-clr" href="contact.html">Special Offers</a>
-                </li>&nbsp;&nbsp;
+                </li>&nbsp;
+                <?php
+                if($this->session->userdata('logged')==1){
+                    ?>
+                    <?php
+                    if($this->session->userdata('utype')=='customer') {
+                        ?>
+
+                        <li class="nav-item list1">
+                            <a href="<?php echo base_url() . 'customer/bookmarksview'; ?>" style="text-decoration: none">Bookmarks</a>
+                        </li>
+
+                        <?php
+                    }
+                    ?>
+                    <?php
+                }
+
+                else{
+
+                    ?>
+                    <?php
+                }
+                ?>
+
                 <?php
                 if($this->session->userdata('logged')==1){
                     ?>
@@ -104,6 +128,7 @@
                     <?php
                 }
                 ?>
+
 
 
             </ul>
