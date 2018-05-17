@@ -76,6 +76,9 @@
                         <li class="nav-item list1">
                             <a href="<?php echo base_url() . 'customer/bookmarksview'; ?>" style="text-decoration: none">Bookmarks</a>
                         </li>
+                        <li class="nav-item list1">
+                            <a href="<?php echo base_url() . 'customer/cartshow'; ?>" style="text-decoration: none"><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Cart</a>
+                        </li>
 
                         <?php
                     }

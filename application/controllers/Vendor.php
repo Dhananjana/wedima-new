@@ -12,15 +12,21 @@ class Vendor extends CI_Controller
     }
 
     public function index(){
+        if(($this->session->userdata('logged')==1) &($this->session->userdata('utype')=='vendor')) {
             $data['details'] = $this->Vendor_model->get_details();
             $data['nav1'] = $this->load->view('templates/header1', NULL, TRUE);
             $data['packages'] = $this->Vendor_model->get_packages();
-            $data['images']=$this->Vendor_model->vendor_gallery();
-            $data['albums']=$this->Vendor_model->get_albums();
+            $data['images'] = $this->Vendor_model->vendor_gallery();
+
+            $data['albums'] = $this->Vendor_model->get_albums();
             $this->load->view('templates/header');
             $this->load->view('vendor/profile', $data);
             $this->load->view('templates/footer');
+        }
 
+        else{
+            redirect('login');
+        }
 
 
     }
@@ -147,6 +153,7 @@ class Vendor extends CI_Controller
             $data['details'] = $this->Vendor_model->view_profile($Name);
             $data['packages'] = $this->Vendor_model->pacakges($Name);
             $data['albums']=$this->Vendor_model->get_album_details($Name);
+            $data['images']=$this->Vendor_model->get_gallery($Name);
 
             $this->load->view('templates/header');
             $this->load->view('profileView', $data);
