@@ -2,6 +2,43 @@
 <br>
 
 <style>
+    /*jssor slider loading skin spin css*/
+    .jssorl-009-spin img {
+        animation-name: jssorl-009-spin;
+        animation-duration: 1.6s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes jssorl-009-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /*jssor slider arrow skin 106 css*/
+    .jssora106 {display:block;position:absolute;cursor:pointer;}
+    .jssora106 .c {fill:#fff;opacity:.3;}
+    .jssora106 .a {fill:none;stroke:#000;stroke-width:350;stroke-miterlimit:10;}
+    .jssora106:hover .c {opacity:.5;}
+    .jssora106:hover .a {opacity:.8;}
+    .jssora106.jssora106dn .c {opacity:.2;}
+    .jssora106.jssora106dn .a {opacity:1;}
+    .jssora106.jssora106ds {opacity:.3;pointer-events:none;}
+
+    /*jssor slider thumbnail skin 101 css*/
+    .jssort101 .p {position: absolute;top:0;left:0;box-sizing:border-box;background:#000;}
+    .jssort101 .p .cv {position:relative;top:0;left:0;width:100%;height:100%;border:2px solid #000;box-sizing:border-box;z-index:1;}
+    .jssort101 .a {fill:none;stroke:#fff;stroke-width:400;stroke-miterlimit:10;visibility:hidden;}
+    .jssort101 .p:hover .cv, .jssort101 .p.pdn .cv {border:none;border-color:transparent;}
+    .jssort101 .p:hover{padding:2px;}
+    .jssort101 .p:hover .cv {background-color:rgba(0,0,0,6);opacity:.35;}
+    .jssort101 .p:hover.pdn{padding:0;}
+    .jssort101 .p:hover.pdn .cv {border:2px solid #fff;background:none;opacity:.35;}
+    .jssort101 .pav .cv {border-color:#fff;opacity:.35;}
+    .jssort101 .pav .a, .jssort101 .p:hover .a {visibility:visible;}
+    .jssort101 .t {position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:.6;}
+    .jssort101 .pav .t, .jssort101 .p:hover .t{opacity:1;}
+
     *{
         font-family: 'Open Sans', sans-serif;
     }
@@ -315,7 +352,19 @@ color: #f1d40f;border-color: #f1d40f"></i>
                             </div>
                             <p><?php echo $package->description ?></p>
                             <h5>Rs.<?php echo $package->price ?></h5>
+                            <?php
+                            if ($this->session->userdata('utype') == 'customer') {
+                                ?>
+                                <button type="button"
+                                        onclick="addCart(<?php echo $package->id; ?>)"
+                                        class="btn btn-info"><i class="fa fa-shopping-cart" aria-hidden="true"></i> |
+                                    Add to Cart
+                                </button>
+                                <?php
+                            }
+                        ?>
                         </div>
+
 
                     </div>
 
@@ -329,37 +378,37 @@ color: #f1d40f;border-color: #f1d40f"></i>
     </div>
 </div>
 
-<!--<div class="container col-lg-12">-->
-<!---->
-<!--    <div class="col-lg-12 card">-->
-<!--        <div class="row">-->
-<!--            <div class="col-lg-11">-->
-<!--                <h1 style="margin-top: 3%">Gallery</h1>-->
-<!--            </div>-->
-<!--            <div class="col-lg-1">-->
-<!---->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <br>-->
-<!--        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:520px;height:170px;overflow:hidden;visibility:hidden;">-->
-<!--            <!-- Loading Screen -->-->
-<!---->
-<!--            <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1000px;height:150px;overflow:hidden;">-->
-<!--                --><?php
-//                if( !empty($images) ) {
-//                    foreach ($images as $image) {
-//                        ?>
-<!--                        <div data-p="30.00">-->
-<!--                            <img data-u="image" src="--><?php //echo base_url().'uploads/gallery/'.$image->folder.'/'.$image->imageName;?><!--" alt=" " class="img-responsive" />-->
-<!--                        </div>-->
-<!---->
-<!--                        --><?php
-//                    }}
-//                ?>
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<div class="container col-lg-12">
+
+    <div class="col-lg-12 card">
+        <div class="row">
+            <div class="col-lg-11">
+                <h1 style="margin-top: 3%">Gallery</h1>
+            </div>
+            <div class="col-lg-1">
+
+            </div>
+        </div>
+        <br>
+        <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:520px;height:170px;overflow:hidden;visibility:hidden;">
+            <!-- Loading Screen -->
+
+            <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1000px;height:150px;overflow:hidden;">
+                <?php
+                if( !empty($images) ) {
+                    foreach ($images as $image) {
+                        ?>
+                        <div data-p="30.00">
+                            <img data-u="image" src="<?php echo base_url().'uploads/gallery/'.$image->folder.'/'.$image->imageName;?>" alt=" " class="img-responsive" />
+                        </div>
+
+                        <?php
+                    }}
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container col-lg-12">
 
@@ -400,6 +449,44 @@ color: #f1d40f;border-color: #f1d40f"></i>
 
 <br>
 
+<!-- Bootstrap modal for package1-->
+<div class="modal fade" id="modal_form" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            </div>
+            <div class="modal-body form">
+                <form action="<?php echo base_url().'customer/cart'?>" id="form" class="form-horizontal" method="post">
+                    <input type="hidden" value="" name="id">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Wedding Date</label>
+                            <div class="col-md-9">
+                                <input name="date" placeholder="" class="form-control" type="date">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Time</label>
+                            <div class="col-md-9">
+                                <input name="time" placeholder="9.00-11.00 am" class="form-control" type="text">
+                            </div>
+                        </div>
+
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="btnSave"  class="btn btn-success">Add</button>
+                </form>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Bootstrap modal for package1-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
     $(function(){
         // here the code for text minimiser and maxmiser by faisal khan
@@ -431,6 +518,8 @@ color: #f1d40f;border-color: #f1d40f"></i>
 
 
 </script>
+<!-- <script src="<?php echo base_url().'assets/js/jquery-1.11.3.min.js';?>" type="text/javascript"></script> -->
+<script src="<?php echo base_url().'assets/js/jssor.slider-27.1.0.min.js';?>" type="text/javascript"></script>
 <script>
     function bookmark(object)
     {
@@ -480,6 +569,57 @@ color: #f1d40f;border-color: #f1d40f"></i>
         });
     }
 
+    jQuery(document).ready(function ($) {
+
+        var jssor_1_options = {
+            $AutoPlay: 1,
+            $Idle: 0,
+            $SlideDuration: 5000,
+            $SlideEasing: $Jease$.$Linear,
+            $PauseOnHover: 4,
+            $SlideWidth: 130,
+            $Align: 0
+        };
+
+        var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+        /*#region responsive code begin*/
+
+        var MAX_WIDTH = 1180;
+
+        function ScaleSlider() {
+            var containerElement = jssor_1_slider.$Elmt.parentNode;
+            var containerWidth = containerElement.clientWidth;
+
+            if (containerWidth) {
+
+                var expectedWidth = Math.min(MAX_WIDTH || containerWidth, containerWidth);
+
+                jssor_1_slider.$ScaleWidth(expectedWidth);
+            }
+            else {
+                window.setTimeout(ScaleSlider, 30);
+            }
+        }
+
+        ScaleSlider();
+
+        $(window).bind("load", ScaleSlider);
+        $(window).bind("resize", ScaleSlider);
+        $(window).bind("orientationchange", ScaleSlider);
+        /*#endregion responsive code end*/
+    });
+
+
+    function addCart(id) {
+        console.log(id);
+
+                $('[name="id"]').val(id);
+
+                $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
+
+
+    }
 
 </script>
 

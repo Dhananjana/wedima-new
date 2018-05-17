@@ -639,6 +639,21 @@ class Vendor_model extends CI_Model
         return $query->result();
     }
 
+    public function get_gallery($Name){
+        $this->db->select('*');
+        $this->db->where('vendorName',$Name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $user_id=$row->user_id;
+        }
+
+        $this->db->select('id,imageName,folder');
+        $this->db->where('vendorId',$user_id);
+        $query=$this->db->get('gallery');
+        return $query->result();
+    }
+
 
     public function bookmark($name){
         $username=$this->session->userdata('username');
@@ -729,37 +744,38 @@ class Vendor_model extends CI_Model
 
 
     public function  bookmarkload($name){
-        $username=$this->session->userdata('username');
-        $this->db->select('id');
-        $this->db->where('email',$username);
-        $query=$this->db->get('user');
-        foreach ($query->result() as $row)
-        {
-            $user_id= $row->id;
+        if($this->session->userdata('logged')==1) {
+            $username = $this->session->userdata('username');
+            $this->db->select('id');
+            $this->db->where('email', $username);
+            $query = $this->db->get('user');
+            foreach ($query->result() as $row) {
+                $user_id = $row->id;
 
+            }
+
+            $this->db->select('*');
+            $this->db->where('vendorName', $name);
+            $query = $this->db->get('allvendor');
+            foreach ($query->result() as $row) {
+                $allvendorid = $row->id;
+                $vendor_name = $row->vendorName;
+            }
+
+            $this->db->select('id');
+            $this->db->where('allvendorid', $allvendorid);
+            $this->db->where('user_id', $user_id);
+            $query = $this->db->get('bookmark');
+            if ($query->num_rows() > 0) {
+                return 'yes';
+            } else {
+                return 'no';
+            }
         }
 
-        $this->db->select('*');
-        $this->db->where('vendorName',$name);
-        $query=$this->db->get('allvendor');
-        foreach ($query->result() as $row)
-        {
-            $allvendorid=$row->id;
-            $vendor_name=$row->vendorName;
-        }
-
-        $this->db->select('id');
-        $this->db->where('allvendorid',$allvendorid);
-        $this->db->where('user_id',$user_id);
-        $query=$this->db->get('bookmark');
-        if($query->num_rows()>0){
-            return 'yes';
-        }
-
-        else{
+        else {
             return 'no';
         }
-
 
 
     }
