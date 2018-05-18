@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/sweetalert2/0.4.5/sweetalert2.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/1.3.3/sweetalert2.min.js"></script>
 <style>
     .row{
         margin-left: 0px;
@@ -21,7 +23,7 @@
     #breadcrumb li:last-child a::after{display:none;}
 
 </style>
-<body onload="ifinitial();">
+<body onload="ifinitial();total();" >
 <br><br>
 <div class="wrapper row2">
     <div id="breadcrumb" class="clear">
@@ -37,7 +39,7 @@
 <br>
 <div class="container">
     <div class="row">
-    <div class="card col-lg-4" id="form" style="display: block;margin-left: 2px">
+    <div class="card col-lg-3" id="form" style="display: block;margin-left: 2px;">
         <form action="" id="form" onsubmit="set_initial()">
             <br>
             <h3>Plan By budget</h3>
@@ -52,12 +54,12 @@
         </form><br>
     </div>
     <br>
-    <div class="card col-lg-3" id="initial" style="display: none">
+    <div class="card col-lg-3" id="initial" style="display: none;height: 100px">
         <br>
         <?php if($ammount!=null){
             foreach($ammount as $ammount) {
                 ?>
-               <h4>Your Budget Is <?php echo $ammount->initial_ammount;?> </h4>
+               <h4>Your Budget Is<br> RS: <?php echo $ammount->initial_ammount;?> </h4>
                 <?php
             }
         }?>
@@ -65,10 +67,48 @@
     </div>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="card col-lg-8">
-        
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="text-primary">
+                <th>Vendor Name</th>
+                <th>Package Name</th>
+                <th>Price</th>
+                <th>Vendor Confiremation</th>
+
+                </thead>
+                <tbody>
+                <?php
+                foreach($items as $item) {
+                    ?>
+                    <tr>
+                        <td><?php echo $item->vendor_name?></td>
+                        <td><?php echo $item->package_name?></td>
+                        <td><?php echo $item->price?></td>
+                        <td><?php echo $item->confremation?></td>
+                        <td>
+<!--                            <a href="" class="btn btn-sm btn-info" ><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>-->
+                            <a class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
+
+                </tbody>
+
+            </table>
+            <div class="row">
+                <div class="col-lg-4" id="to" style="background-color: transparent"><h6>Current Total - Rs : <?php echo $total;?></h6></div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4"> <button class="btn btn-sm btn-success" onclick="book()">Book Now</button></div>
+            </div>
+            <br>
+        </div>
     </div>
     </div>
 </div>
+<br>
 </body>
 
 <script>
@@ -105,6 +145,76 @@
             success: function(data)
             {
                 location.reload();// for reload a page
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error adding / update data');
+            }
+        });
+    }
+
+    function total() {
+        var x = document.getElementById("to");
+        $.ajax({
+            url : "<?php echo site_url('Customer/total')?>",
+            type: "GET",
+            dataType: "JSON",
+            success: function(json)
+            {
+                if(json.data=='yes'){
+                    x.style.backgroundColor="red";
+                    swal({
+                        title: "Look!",
+                        text: "You are exceding Your Budget.",
+                        imageUrl: 'https://cdn1.iconfinder.com/data/icons/hawcons/32/700144-icon-61-warning-128.png'
+                    });
+                }
+
+
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error get data from ajax');
+            }
+        });
+    }
+
+    function book() {
+        $.ajax({
+            url : '<?php echo site_url('customer/book')?>',
+            type: "POST",
+            dataType: "JSON",
+            success: function(json)
+            {
+                if(json.data=='yes'){
+                    $.ajax({
+                        url : "<?php echo site_url('Customer/bookconfirm')?>",
+                        type: "POST",
+                        dataType: "JSON",
+                        success: function(json)
+                        {
+                            setTimeout(function(){
+                                location.reload();
+                            }, 1500);
+                            swal("Good job!", "You Have successfully done your booking with Wedima!", "success");
+
+
+
+                        },
+                        error: function (jqXHR, textStatus, errorThrown)
+                        {
+                            alert('Error get data from ajax');
+                        }
+                    });
+
+                }
+
+                else{
+                    swal({
+                        title: "Wait!",
+                        text: "Some of your packages in the cart have not been confiremed by vendors so wait.Or you can remove them."
+                    });
+                }
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
