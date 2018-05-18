@@ -307,12 +307,56 @@ class Customer_model extends CI_Model
             $user_id= $row->id;
 
         }
+        $this->db->where('user_id',$user_id);
+        $this->db->delete('cart1');
+
 
         $data=array(
             'brought'=>'yes'
         );
         $this->db->where('user_id',$user_id);
         $this->db->update('cart',$data);
+
+    }
+
+    public function delete_item($id){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+
+        $this->db->select('*');
+        $this->db->where('id',$id);
+        $query=$this->db->get('cart');
+        foreach ($query->result() as $row)
+        {
+            $price= $row->price;
+
+        }
+
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('cart1');
+            foreach ($query->result() as $row) {
+                $current = $row->current_total;
+            }
+
+            $current = $current - $price;
+            $data = array(
+                'current_total' => $current
+            );
+
+            $this->db->where('user_id', $user_id);
+            $this->db->update('cart1', $data);
+
+        $this->db->where('id',$id);
+        $this->db->delete('cart');
+
 
     }
 }

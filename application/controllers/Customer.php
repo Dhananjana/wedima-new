@@ -74,4 +74,9 @@ class Customer extends CI_Controller
         echo json_encode(array("data"=>'success'));
     }
 
+    public function delete_item($id){
+        $this->Customer_model->delete_item($id);
+        echo json_encode(array("data"=>'success'));
+    }
+
 }
