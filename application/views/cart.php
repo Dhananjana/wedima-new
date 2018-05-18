@@ -50,7 +50,7 @@
                     <input type="text" name="ammount"  placeholder="100000" class="form-control" required>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Plan</button>
+            <button type="submit" class="btn btn-success">Start Plan</button>
         </form><br>
     </div>
     <br>
@@ -87,7 +87,7 @@
                         <td><?php echo $item->confremation?></td>
                         <td>
 <!--                            <a href="" class="btn btn-sm btn-info" ><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>-->
-                            <a class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                            <button class="btn btn-sm btn-danger" onclick="delete_item(<?php echo $item->id?>)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
 
                         </td>
                     </tr>
@@ -221,5 +221,46 @@
                 alert('Error adding / update data');
             }
         });
+    }
+
+    function delete_item(id) {
+        swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            closeOnConfirm: false,
+        }).then(function(isConfirm) {
+            if (isConfirm) {
+
+                // ajax delete data to database
+                $.ajax({
+                    url : "<?php echo site_url('Customer/delete_item')?>/"+id,
+                    //dataType: "JSON",
+                    success: function(data)
+                    {
+                        swal(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        );
+
+                        window.setTimeout(function(){
+                            location.reload();
+                        } ,1000);
+
+                    },
+                    error: function (jqXHR, textStatus, errorThrown)
+                    {
+                        alert('Error adding / update data');
+                    }
+                });
+
+
+            }
+        })
     }
 </script>
