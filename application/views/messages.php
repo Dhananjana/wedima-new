@@ -276,10 +276,12 @@
 				</div>
 			</div>
 			<div class="answer input-group">
-				<input class="form-control" type="text" placeholder="Type Here">
-				<span class="input-group-btn">
-					<button class="btn btn-primary" type="button">SEND!</button>
-				</span>
+				<form id="form" name="form">
+					<input class="form-control" type="text" name="msg" id="msg" placeholder="Type Here">
+					<span class="input-group-btn">
+						<button class="btn btn-primary" id="btn" type="button">SEND!</button>
+					</span>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -287,7 +289,25 @@
 
 </div>
 <!-- /.container -->
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function () {
+		$('#btn').click(function () {
+			var msg = $('#msg').val();
+			console.log(msg);
+			if(msg == ''){
+				alert("Please Type a messgae");
+			}else{
+				$.post('http://localhost/wedima-new/wedima-new/Messages/send', {
+					msg: msg
+				},function () {
+					alert('msg sent');
+					$('#form')[0].reset();
+				});
+			}
+		});
+	});
+</script>
 
 
 <!-- Bootstrap core JavaScript -->
