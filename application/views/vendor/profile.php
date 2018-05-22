@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/sweetalert2/0.4.5/sweetalert2.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/1.3.3/sweetalert2.min.js"></script>
 
+
 <br>
 
 <style>
@@ -344,7 +345,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
             <div class="col-md-4 bg_blur "
                  style="background-image:url('<?php echo base_url() . 'uploads/cover/' . $detail->cover ?>');"><button type="button" class="btn btn-info" style="margin-top: 260px;" data-toggle="modal" data-target="#coverModal"><i class=" fa fa-pencil-square-o" aria-hidden="true"></i>change cover</button>
             </div>
-            <div class="col-md-6  col-xs-12">
+            <div class="col-md-8  col-xs-12">
                 <img src="<?php echo base_url() . 'uploads/profile/' . $detail->pp ?>"
                      class="img-responsive img-thumbnail picture hidden-xs"/>
                 <div class="header">
@@ -363,9 +364,9 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                     <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
                 </div>
             </div>
-            <div class="col-md-2  col-xs-12" style="color:black;">
-  <?=$menu;?> 
-            </div>
+<!--            <div class="col-md-2  col-xs-12" style="color:black;">-->
+<!--<!--  -->--><?////=$menu;?><!--<!-- -->-->
+<!--            </div>-->
 
         </div>
         <br>
@@ -493,8 +494,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                   </div>
                 <?php foreach ($albums as $album) {
                     ?>
-                   
-                    <a href="<?php echo base_url().'home/albums/'.$album->id;?>"><div class="col-lg-2 col-sm-6 col-xs-3 portfolio-item" style="height: 200px;width: 250px">
+                    <a href="<?php echo base_url().'home/albums/'.$album->album_id;?>"><div class="col-lg-2 col-sm-6 col-xs-3 portfolio-item" style="height: 200px;width: 250px">
                         <div class="card h-100">
                             <img style="height: 120px;width: 90s%" class="card-img-top cell" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
                             <div class="card-body">

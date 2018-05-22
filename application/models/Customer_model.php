@@ -264,7 +264,7 @@ class Customer_model extends CI_Model
             }
 
 
-                return $current;
+            return $current;
 
         }
 
@@ -317,6 +317,7 @@ class Customer_model extends CI_Model
         $this->db->where('user_id',$user_id);
         $this->db->update('cart',$data);
 
+
     }
 
     public function delete_item($id){
@@ -342,17 +343,17 @@ class Customer_model extends CI_Model
 
         $this->db->where('user_id',$user_id);
         $query=$this->db->get('cart1');
-            foreach ($query->result() as $row) {
-                $current = $row->current_total;
-            }
+        foreach ($query->result() as $row) {
+            $current = $row->current_total;
+        }
 
-            $current = $current - $price;
-            $data = array(
-                'current_total' => $current
-            );
+        $current = $current - $price;
+        $data = array(
+            'current_total' => $current
+        );
 
-            $this->db->where('user_id', $user_id);
-            $this->db->update('cart1', $data);
+        $this->db->where('user_id', $user_id);
+        $this->db->update('cart1', $data);
 
         $this->db->where('id',$id);
         $this->db->delete('cart');

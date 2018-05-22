@@ -118,19 +118,27 @@ class Home_model extends CI_Model
 
          }
 
-         $this->db->select('*');
-         $this->db->where('id',$id);
-         $query=$this->db->get('album');
-         foreach ($query->result() as $row)
-         {
-             $album_name= $row->album_name;
 
-         }
 
          $this->db->select('*');
          $this->db->where('user_id',$user_id);
+        $this->db->where('album_id',$id);
          $this->db->from('album_images');
          $query = $this->db->get();
          return $query->result();
+    }
+
+    public function get_album_name($id){
+        $this->db->select('*');
+        $this->db->where('id',$id);
+        $query=$this->db->get('album');
+        foreach ($query->result() as $row)
+        {
+            $album_name= $row->album_name;
+
+        }
+
+        return $album_name;
+
     }
 }
