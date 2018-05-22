@@ -22,8 +22,16 @@ class Home extends CI_Controller{
             $this->load->view('templates/header');
             $this->load->view('home', $data1);
             $this->load->view('templates/footer');
+           
 
    }
+   public function insert_to_db($name)
+        {
+        $Name=urldecode($name);
+        $data1['vendor']=$this->Vendor_model->get_vendor_name();
+        $this->Home_model->insert_to_db($Name);
+
+    }
     public function lookup(){
 
         // process posted form data
@@ -157,4 +165,5 @@ class Home extends CI_Controller{
          $this->load->view('album_images',$data);
          $this->load->view('templates/footer');
      }
+
 }

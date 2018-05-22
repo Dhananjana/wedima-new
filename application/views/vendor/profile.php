@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/sweetalert2/0.4.5/sweetalert2.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/1.3.3/sweetalert2.min.js"></script>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/1.3.3/sweetalert2.min.js"></script>
+<script src="<?php echo base_url().'assets/js/tinymce/jquery.tinymce.min.js';?>"></script>
+<script src="<?php echo base_url().'assets/js/tinymce/tinymce.min.js';?>"></script>
 <br>
 
 <style>
@@ -364,7 +365,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                 </div>
             </div>
             <div class="col-md-2  col-xs-12" style="color:black;">
-  <?=$menu;?> 
+                <?=$menu;?> 
             </div>
 
         </div>
@@ -382,7 +383,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
         </div>
 
             <hr>
-            <br>            <br>
+            <br><br>
             <div class="contact-details">
                 <i class="fa fa-map-marker br-red"></i><div style="margin-left: 8%">&nbsp;&nbsp;Address: <span><?php echo $detail->address; ?></span></div>
                 <br><br>
