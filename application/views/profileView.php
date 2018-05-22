@@ -1,4 +1,5 @@
-
+<script src="<?php echo base_url().'assets/js/tinymce/jquery.tinymce.min.js';?>"></script>
+<script src="<?php echo base_url().'assets/js/tinymce/tinymce.min.js';?>"></script>
 <br>
 
 <style>
@@ -410,42 +411,112 @@ color: #f1d40f;border-color: #f1d40f"></i>
     </div>
 </div>
 
-<div class="container col-lg-12">
+    <div class="container col-lg-12">
 
-    <div class="col-lg-12 card">
-        <div class="row">
-            <div class="col-lg-11">
-                <h1 style="margin-top: 3%">Albums</h1>
+        <div class="col-lg-12 card">
+            <div class="row">
+                <div class="col-lg-11">
+                    <h1 style="margin-top: 3%">Albums</h1>
+                </div>
+                <div class="col-lg-1">
+
+                </div>
             </div>
-            <div class="col-lg-1">
 
-            </div>
-        </div>
+            <div class="contact-details">
+                <div class="row " >
 
-        <div class="contact-details">
-            <div class="row " >
-
-                <?php foreach ($albums as $album) {
-                    ?>
-                    <div class="col-lg-2 col-sm-6 col-xs-3 portfolio-item" style="height: 200px;width: 250px">
-                        <div class="card h-100">
-                            <img style="height: 120px;width: 90s%" class="card-img-top cell" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
-                            <div class="card-body">
-                                <h6 class="card-text"><a href="" style="text-decoration: none"><?php echo $album->album_name;?></a></h6>
+                    <?php foreach ($albums as $album) {
+                        ?>
+                        <div class="col-lg-2 col-sm-6 col-xs-3 portfolio-item" style="height: 200px;width: 250px">
+                            <div class="card h-100">
+                                <img style="height: 120px;width: 90s%" class="card-img-top cell" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
+                                <div class="card-body">
+                                    <h6 class="card-text"><a href="" style="text-decoration: none"><?php echo $album->album_name;?></a></h6>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <?php
-                };?>
+                        <?php
+                    };?>
+                </div>
             </div>
+            <!-- Social media icon -->
+            <br>
         </div>
-        <!-- Social media icon -->
-        <br>
+
     </div>
 
-</div>
+ <div class="container col-lg-12">
 
-<br>
+        <div class="col-lg-12 card">
+                <div class="contact-details">
+                 <div class="row">
+            <h4 style="margin-top: 3%">Feedbacks</h4>
+        </div>
+                <div class="" >
+                    <?php foreach ($feedbacks as $feedback) {
+                        ?>                       
+                            <div class="card h-100">
+                                <div class="card-body row">
+                                    <div class="col-lg-2">
+                                    <h4 class="card-text"><a href="" style="text-decoration: none"><?php echo $feedback->name;?></a></h4>
+                                    </div>
+                                    <p class="card-text"><a href="" style="text-decoration: none;color: black;"><?php echo $feedback->description;?></a></p>
+                                </div>
+                            </div>
+
+                        <?php
+                    };?>
+                </div>
+                <br>
+            </div>      
+        </div>
+       
+    </div>
+     <br>
+               <?php
+                if($this->session->userdata('logged')==1){
+                    ?>
+                    <?php
+                    if($this->session->userdata('utype')=='customer') {
+                        ?>
+
+                        <div class="container col-lg-12">
+
+                            <div class="col-lg-12 card">
+                                <div class="row">
+                                    <h4 style="margin-top: 3%">Add Feedback</h4>
+                                </div>
+                                <br>
+                               <form action="<?php echo base_url().'Home/insert_to_db/'.$this->uri->segment(3);?>" method="post">
+                                <div class="form-group">
+                                    <div class="row">
+                                            <div class="col-lg-1" ></div>
+                                            <div class="col-lg-1" >
+                                                <label for="exampleFormControlFile1"><p>Description:</p></label>
+                                            </div>
+                                            <div class="col-lg-9" >
+                                                <input class="form-control" name="description" type="textarea" id="myTextarea1">
+                                            </div>
+                                            </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                               </form>
+                                </div>
+                        </div>
+
+                        <?php
+                    }
+                    ?>
+                    <?php
+                }
+
+                else{
+
+                    ?>
+                    <?php
+                }
+                ?>
 
 <br>
 
@@ -620,8 +691,23 @@ color: #f1d40f;border-color: #f1d40f"></i>
 
 
     }
-
+    
 </script>
 
+<script>
+    tinymce.init({
+        selector:'#myTextarea1',
+        height:120,
+        theme:'modern',
+        plugins:[
+            'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+            'insertdatetime media nonbreaking save table contextmenu directionality',
+            'emoticons template paste textcolor colorpicker textpattern imagetools',
+        ],
+        toolbar1:'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent | link imag',
+        toolbar2: 'print preview media | forecolor backcolor emoticons',
+        imag_advtab: true
+    });
+</script>
 
 

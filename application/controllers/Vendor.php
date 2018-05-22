@@ -116,7 +116,6 @@ class Vendor extends CI_Controller
     public function add_packages(){
 
         $this->Vendor_model->add_packages();
-
         echo json_encode(array("status" => TRUE));
     }
    
@@ -180,6 +179,7 @@ class Vendor extends CI_Controller
             $data['packages'] = $this->Vendor_model->pacakges($Name);
             $data['albums']=$this->Vendor_model->get_album_details($Name);
             $data['images']=$this->Vendor_model->get_gallery($Name);
+            $data['feedbacks']=$this->Home_model->feedbacks($Name);
 
             $this->load->view('templates/header');
             $this->load->view('profileView', $data);

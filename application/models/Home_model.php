@@ -128,6 +128,49 @@ class Home_model extends CI_Model
          return $query->result();
     }
 
+    public function insert_to_db($Name)
+    {
+        $name=$this->session->userdata('name');
+
+        $this->db->select('*');
+        $this->db->where('vendorName',$Name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $vendor_id=$row->id;
+        }
+        $data=array(
+            
+            'description'=>$this->input->post('description'),
+            'name'=>$name,
+            'vendor_id'=>$vendor_id,
+
+         );
+
+        $this->db->insert('feedback',$data);
+    }
+
+    public function feedbacks($Name){
+        $this->db->select('*');
+        $this->db->where('vendorName',$Name);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $id=$row->id;
+        }
+
+
+        $this->db->select('*');
+        $this->db->where('vendor_id',$id);
+        $query=$this->db->get('feedback');
+        foreach ($query->result() as $row)
+        {
+            $description=$row->description;
+            $name=$row->name;
+        }
+        return $query->result();
+    }
+
     public function get_album_name($id){
         $this->db->select('*');
         $this->db->where('id',$id);
@@ -141,4 +184,5 @@ class Home_model extends CI_Model
         return $album_name;
 
     }
+
 }
