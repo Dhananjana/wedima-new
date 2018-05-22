@@ -179,19 +179,46 @@
     });
 </script>
 <br><br>
+ <div class="wrapper row2">
+     <div id="breadcrumb" class="clear">
+         <ul style="margin-left: 15%">
+             <!--            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
 
+             <li><a href="<?php echo base_url().'home'?>">Home</a></li>
+             <li>Albums</li>
+             <li><a href=""><?php echo $album_name;?></a></li>
+
+         </ul>
+     </div>
+ </div>
+ <br>
 <div class="gallery">
 <div class="container">
-
+    <div id="jzBox" class="jzBox">
+        <div id="jzBoxNextBig"></div>
+        <div id="jzBoxPrevBig"></div>
+        <img src="#" id="jzBoxTargetImg" alt=""/>
+        <div id="jzBoxBottom">
+            <div id="jzBoxTitle"></div>
+            <div id="jzBoxMoreItems">
+                <div id="jzBoxCounter"></div>
+                <i class="arrow-left" id="jzBoxPrev"></i>
+                <i class="arrow-right" id="jzBoxNext"></i>
+            </div>
+            <i class="close" id="jzBoxClose"></i>
+        </div>
+    </div>
+    <h3 style="margin-left: 10%"><?php echo $album_name;?></h3>
     <div class="gallery-grids-row">
         <?php
         if( !empty($images) ) {
         foreach ($images as $image) {
         ?>
+
         <div class="col-md-4 gallery-grid">
             <div class="wpf-demo-4">
-                <a href="<?php echo base_url().'albums/'.$image->album_name.'/'.$image->image_name;?>" class="jzBoxLink item-hover" title="Events Venue">
-                    <img src="<?php echo base_url().'albums/'.$image->album_name.'/'.$image->image_name;?>" alt=" " class="img-responsive" />
+                <a href="<?php echo base_url().'albums/'.$album_name.'/'.$image->image_name;?>" class="jzBoxLink item-hover" title="Events Venue">
+                    <img src="<?php echo base_url().'albums/'.$album_name.'/'.$image->image_name;?>" alt=" " class="img-responsive" />
                     <div class="view-caption">
                         <p>Full View</p>
                     </div>
