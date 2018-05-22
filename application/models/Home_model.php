@@ -129,7 +129,7 @@ class Home_model extends CI_Model
 
          $this->db->select('*');
          $this->db->where('user_id',$user_id);
-         $this->db->from('album-images');
+         $this->db->from('album_images');
          $query = $this->db->get();
          return $query->result();
     }
