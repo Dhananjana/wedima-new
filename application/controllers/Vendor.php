@@ -44,15 +44,7 @@ class Vendor extends CI_Controller
                     'show_next_prev'  => TRUE,
                     'next_prev_url'   => 'http://example.com/index.php/calendar/show/'
             );
-            $this->load->library('calendar',$prefs);
-            $data['x'] = array(
-                    3  => 'http://example.com/news/article/2006/06/03/',
-                    7  => 'http://example.com/news/article/2006/06/07/',
-                    13 => 'http://example.com/news/article/2006/06/13/',
-                    26 => 'http://example.com/news/article/2006/06/26/'
-            );
-
-            $this->calendar->generate();
+           
             $this->load->view('vendor/profile', $data);
             $this->load->view('templates/footer');
 

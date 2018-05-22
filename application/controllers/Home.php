@@ -153,7 +153,6 @@ class Home extends CI_Controller{
      }
      public function albums($id){
          $data['images']=$this->Home_model->album_images($id);
-         var_dump($data['images']);
          $this->load->view('templates/header');
          $this->load->view('album_images',$data);
          $this->load->view('templates/footer');
