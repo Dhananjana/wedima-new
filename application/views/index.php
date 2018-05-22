@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/colorbox.css"/>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.colorbox-min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	
 </head>
 <body>
@@ -37,7 +38,7 @@
 		</div>
 	</div>
 	<script>
-		$(".detail").live('click',function(){
+		$('body').on('click','.detail',function(){
 			$(".s_date").html("Detail Event for "+$(this).attr('val')+" <?php echo "$month $year";?>");
 			var day = $(this).attr('val');
 			var add = '<input type="button" name="add" value="Add Event" val="'+day+'" class="add_event"/>';
@@ -66,7 +67,7 @@
 				} 
 			});
 		});
-		$(".delete").live("click", function() {
+		$("body").on("click",'.delete', function() {
 			if(confirm('Are you sure delete this event ?')){
 				var deleted = $(this).parent().parent();
 				var day =  $(this).attr('day');
@@ -92,7 +93,7 @@
 				});
 			}
 		});
-		$(".add_event").live('click', function(){
+		$("body").on('click','.add_event', function(){
 			$.colorbox({ 
 					overlayClose: false,
 					href: '<?php echo site_url('evencal/add_event');?>',

@@ -40,10 +40,10 @@ class Vendor extends CI_Controller
 
             $data['albums'] = $this->Vendor_model->get_albums();
             $this->load->view('templates/header');
-             $prefs = array(
-                    'show_next_prev'  => TRUE,
-                    'next_prev_url'   => 'http://example.com/index.php/calendar/show/'
-            );
+//            $prefs = array(
+//                    'show_next_prev'  => TRUE,
+//                    'next_prev_url'   => 'http://example.com/index.php/calendar/show/'
+//            );
            
             $this->load->view('vendor/profile', $data);
             $this->load->view('templates/footer');
