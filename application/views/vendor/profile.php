@@ -344,7 +344,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
             <div class="col-md-4 bg_blur "
                  style="background-image:url('<?php echo base_url() . 'uploads/cover/' . $detail->cover ?>');"><button type="button" class="btn btn-info" style="margin-top: 260px;" data-toggle="modal" data-target="#coverModal"><i class=" fa fa-pencil-square-o" aria-hidden="true"></i>change cover</button>
             </div>
-            <div class="col-md-8  col-xs-12">
+            <div class="col-md-6  col-xs-12">
                 <img src="<?php echo base_url() . 'uploads/profile/' . $detail->pp ?>"
                      class="img-responsive img-thumbnail picture hidden-xs"/>
                 <div class="header">
@@ -353,8 +353,6 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                 <div class="row">
                     <span><?php echo $detail->description ?></span>
                      <button type="button" class="btn btn-info" style="margin-top:24px;margin-left: -50px;z-index:999" data-toggle="modal" data-target="#ppModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-
-
                 </div>
 
                 </div>
@@ -365,6 +363,10 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                     <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
                 </div>
             </div>
+            <div class="col-md-2  col-xs-12" style="color:black;">
+  <?=$menu;?> 
+            </div>
+
         </div>
         <br>
     </div>
@@ -399,6 +401,8 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
 <?php
 }
 ?>
+
+
 <div class="container col-lg-9">
  <div class="col-lg-12 card"">
  <div class="row ">
@@ -489,7 +493,8 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                   </div>
                 <?php foreach ($albums as $album) {
                     ?>
-                    <div class="col-lg-2 col-sm-6 col-xs-3 portfolio-item" style="height: 200px;width: 250px">
+                   
+                    <a href="<?php echo base_url().'home/albums/'.$album->id;?>"><div class="col-lg-2 col-sm-6 col-xs-3 portfolio-item" style="height: 200px;width: 250px">
                         <div class="card h-100">
                             <img style="height: 120px;width: 90s%" class="card-img-top cell" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
                             <div class="card-body">
@@ -505,7 +510,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
 
                             </div>
                         </div>
-                    </div>
+                    </div></a>
                     <?php
                 };?>
                 </div>
@@ -767,9 +772,9 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                 </div>
 
              <div class="form-group">
-                 <label class="control-label col-md-4">First Image<small>(only one image)</small></label>
+                 <label class="control-label col-md-4">Add Images To The Album</label>
                  <div class="col-md-8">
-                     <input name="image"  class="form-control" type="file">
+                     <input name="image[]"  class="form-control" type="file" multiple="multiple">
                  </div>
              </div>
           <button type="submit" class="btn btn-success" >Create Album</button>

@@ -107,4 +107,30 @@ class Home_model extends CI_Model
         $query=$this->db->get('gallery');
         return $query->result();
     }
+    public function album_images($id){
+         $username=$this->session->userdata('username');
+         $this->db->select('id');
+         $this->db->where('email',$username);
+         $query=$this->db->get('user');
+         foreach ($query->result() as $row)
+         {
+             $user_id= $row->id;
+
+         }
+
+         $this->db->select('*');
+         $this->db->where('id',$id);
+         $query=$this->db->get('album');
+         foreach ($query->result() as $row)
+         {
+             $album_name= $row->album_name;
+
+         }
+
+         $this->db->select('*');
+         $this->db->where('user_id',$user_id);
+         $this->db->from('album-images');
+         $query = $this->db->get();
+         return $query->result();
+    }
 }

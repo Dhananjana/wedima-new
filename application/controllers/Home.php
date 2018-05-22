@@ -2,12 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: thari
- * Date: 2018-03-28
- * Time: PM 1.56
+ * Date: 2018-05-12
+ * Time: AM 5.44
  */
-
-class home extends CI_Controller
-{
+class Home extends CI_Controller{
     public function __construct()
     {
       parent::__construct();
@@ -20,24 +18,12 @@ class home extends CI_Controller
         $data1['images']=$this->Home_model->get_images();
         $data1['nav1'] = $this->load->view('templates/header1',NULL,TRUE);
         $data1['sli'] = $this->load->view('slider',NULL,TRUE);
+
             $this->load->view('templates/header');
             $this->load->view('home', $data1);
             $this->load->view('templates/footer');
 
-//        if(($this->session->userdata('logged')==1)&& ($this->session->userdata('utype')=='vendor')){
-//            $this->load->view('templates/vheader');
-//            $this->load->view('home',$data1);
-//            $this->load->view('templates/footer');
-//        }
-//
-//        if(($this->session->userdata('logged')==1)&& ($this->session->userdata('utype')=='customer')){
-//            $this->load->view('templates/header');
-//            $this->load->view('home',$data1);
-//            $this->load->view('templates/footer');
-//        }
-
-
-    }
+   }
     public function lookup(){
 
         // process posted form data
@@ -120,7 +106,6 @@ class home extends CI_Controller
          $this->load->view('templates/footer');
      }
 
-
      public function allTestinominals(){
          $config = array();
          $config["base_url"] = base_url() . "home/allTestinominals";
@@ -160,14 +145,17 @@ class home extends CI_Controller
          $this->load->view('templates/footer');
 
      }
-
      public function gallery(){
          $data['images']=$this->Home_model->gallery();
          $this->load->view('templates/header');
          $this->load->view('gallery',$data);
          $this->load->view('templates/footer');
      }
-     
-
-
+     public function albums($id){
+         $data['images']=$this->Home_model->album_images($id);
+         var_dump($data['images']);
+         $this->load->view('templates/header');
+         $this->load->view('album_images',$data);
+         $this->load->view('templates/footer');
+     }
 }

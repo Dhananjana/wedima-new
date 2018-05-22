@@ -562,8 +562,6 @@ class Vendor_model extends CI_Model
 
          }
 
-
-
          $this->db->select('*');
          $this->db->where('album.user_id',$user_id);
          $this->db->from('album');
