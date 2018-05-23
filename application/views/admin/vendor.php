@@ -1,4 +1,10 @@
 <title>The Wedima | Vendor</title>
+	<style>
+	.inp{
+		width: 10%;
+	}
+	</style>
+	
 
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
@@ -46,7 +52,9 @@
 										<td><?php echo $row->vendorName;?></td>
 										<td><?php echo $row->vendorTypeID;?></td>
 										<td><?php echo $row->joinedDate;?></td>
-										<td><input value="<?php echo $row->status;?>" disabled></td>
+										<td><?php echo $row->status;?>
+										<!-- <i style="font-size:24px" class="fa update">&#xf0c7;</i> -->
+										</td>
 									</tr>
 									<?php } ?>
 									</tbody>
@@ -130,5 +138,6 @@
 		});
 	});
 </script>
+
 </body>
 </html>

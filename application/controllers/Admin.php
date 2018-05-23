@@ -9,6 +9,7 @@ class Admin extends CI_Controller
 
 	function login(){
 		$this->load->view('admin/header');
+		$this->load->view('admin/nav');
 		$this->load->view('admin/regAdmin');
 	}
 
@@ -16,6 +17,7 @@ class Admin extends CI_Controller
 		$this->load->view('admin/nav');
 		$this->load->view('admin/header', $data);
 		$this->load->view($path);
+		$this->load->view('admin/footer');
 	}
 	function reg(){
 		$data[]='';
@@ -57,5 +59,22 @@ class Admin extends CI_Controller
 		$this->loadPage('admin/customer', $data);
 	}
 	
+	function vendorAccess(){
+		$result = $this->Admin_model->allvendor();
+		foreach($result as $row){
+			$data = $row->joinedDate;
+		
+			$now = time(); 
+			$your_date = strtotime($data);
+			$datediff = $now - $your_date;
+
+			$cont =  round($datediff / (60 * 60 * 24));
+			if($cont == 84){
+				$name = $row->vendorName;
+				echo $name;
+			}
+	
+		}
+	}
 	
 }

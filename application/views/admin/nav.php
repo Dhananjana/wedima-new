@@ -1,7 +1,6 @@
 
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
 	<!-- Navbar -->
 	<nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
 		<!-- Left navbar links -->
@@ -35,7 +34,7 @@
 			<li class="nav-item dropdown">
 				<a class="nav-link" data-toggle="dropdown" href="#">
 					<i class="fa fa-comments-o"></i>
-					<span class="badge badge-danger navbar-badge">3</span>
+					<span class="badge badge-warning navbar-badge">3</span>
 				</a>
 				<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 					<a href="#" class="dropdown-item">
@@ -93,10 +92,9 @@
 			<li class="nav-item dropdown">
 				<a class="nav-link" data-toggle="dropdown" href="#">
 					<i class="fa fa-bell-o"></i>
-					<span class="badge badge-warning navbar-badge">15</span>
+					<span class="badge badge-danger navbar-badge" id="numOfNot"></span>
 				</a>
 				<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-					<span class="dropdown-header">15 Notifications</span>
 					<div class="dropdown-divider"></div>
 					<a href="#" class="dropdown-item">
 						<i class="fa fa-envelope mr-2"></i> 4 new messages
@@ -123,6 +121,7 @@
 		</ul>
 	</nav>
 	<!-- /.navbar -->
+	
 
 	<!-- Main Sidebar Container -->
 	<aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -197,3 +196,6 @@
 		</div>
 		<!-- /.sidebar -->
 	</aside>
+
+	
+	
