@@ -10,7 +10,7 @@
                     
                     if(res && res.length) {
                         $('#numOfNot').show();
-                        $('#notify').html('<a href="#" class="dropdown-item"><i class="fa fa-file mr-2"></i> '+res.length+' vendors will expire in a week</a>');
+                        $('#notify').html('<a href="<?php echo base_url().'admin/vendorR'?>" class="dropdown-item"><i class="fa fa-file mr-2"></i> '+res.length+' vendors will expire in a week</a>');
                     
                     }
                     else{

@@ -23,6 +23,7 @@ class Admin_model extends CI_Model{
 
     function vendorR($vendorTypeID){
         $this->db->select('vendorType');
+        $this->db->where('id',$vendorTypeID);
         $query = $this->db->get('vendor');
         return $query->result();
     }
@@ -30,7 +31,7 @@ class Admin_model extends CI_Model{
         $this->db->select('*');
         $this->db->where('name',$vendorName);
         $query = $this->db->get($vendorType);
-        return $query;
+        return $query->result();
     }
 
 }
