@@ -41,16 +41,50 @@ class Evencal_model extends CI_Model {
 	
 	// insert event
 	function addEvent($year, $month, $day, $time, $event){	
+		 $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->select('*');
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('allvendor');
+        foreach ($query->result() as $row)
+        {
+            $vendor_id=$row->id;
+
+        }
+
 		$day   = (strlen($day) == 1)? "0$day" : $day;
 		$month = (strlen($month) == 1)? "0$month" : $month;
 		
-		$check = $this->db->get_where('events', array('event_date' => "$year-$month-$day"));
+		$this->db->select('*');
+         $this->db->where('event_date',"$year-$month-$day");
+         $this->db->where('vendor_id',$vendor_id);
+         $check=$this->db->get('events');
+
 		if($check->num_rows() > 0){
-			$this->db->query("UPDATE events SET total_events = total_events + 1 WHERE event_date = ?", array("$year-$month-$day"));
-			$this->db->insert('event_detail', array('event_date' => "$year-$month-$day", 'event_time' => $time, 'event' => $event));
-		}else{
-			$this->db->insert('events', array('event_date' => "$year-$month-$day", 'total_events' => 1));
-		    $this->db->insert('event_detail', array('event_date' => "$year-$month-$day", 'event_time' => $time, 'event' => $event));
+			foreach ($check->result() as $x)
+	        {
+	           $total_events=$x->total_events;
+
+	        }
+	        $data=array('total_events' =>$total_events+1 );
+	        $this->db->where('event_date',"$year-$month-$day");
+	        $this->db->where('vendor_id',$vendor_id);
+	       $this->db->update('events',$data);
+ 
+			$this->db->insert('event_detail', array('vendor_id'=>"$vendor_id",'event_date' => "$year-$month-$day", 'event_time' => $time, 'event' => $event));
+
+		}
+		else{
+			$this->db->insert('events', array('vendor_id'=>"$vendor_id",'event_date' => "$year-$month-$day", 'total_events' => 1));
+		    $this->db->insert('event_detail', array('vendor_id'=>"$vendor_id",'event_date' => "$year-$month-$day", 'event_time' => $time, 'event' => $event));
 		}
 		
 	}

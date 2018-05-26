@@ -32,7 +32,6 @@ class Vendor extends CI_Controller
           
 
             $data['menu'] = $this->load->view('index',$datax, TRUE);
-
             $data['details'] = $this->Vendor_model->get_details();
             $data['nav1'] = $this->load->view('templates/header1', NULL, TRUE);
             $data['packages'] = $this->Vendor_model->get_packages();
@@ -356,7 +355,23 @@ class Vendor extends CI_Controller
       'day'   => $day,
       'events'=> $cur_event
      );
-  $this->load->view('index', $data);
+  
+            $data['menu'] = $this->load->view('index',$data, TRUE);
+            $data['details'] = $this->Vendor_model->get_details();
+            $data['nav1'] = $this->load->view('templates/header1', NULL, TRUE);
+            $data['packages'] = $this->Vendor_model->get_packages();
+            $data['images'] = $this->Vendor_model->vendor_gallery();
+
+            $data['albums'] = $this->Vendor_model->get_albums();
+            $this->load->view('templates/header');
+//            $prefs = array(
+//                    'show_next_prev'  => TRUE,
+//                    'next_prev_url'   => 'http://example.com/index.php/calendar/show/'
+//            );
+           
+            $this->load->view('vendor/profile', $data);
+            $this->load->view('templates/footer');
+
  }
   
  // setting for calendar
@@ -364,7 +379,7 @@ class Vendor extends CI_Controller
   return array(
    'start_day'   => 'monday',
    'show_next_prev'  => true,
-   'next_prev_url'  => site_url('evencal/index'),
+   'next_prev_url'  => site_url('vendor/index'),
    'month_type'     => 'long',
             'day_type'       => 'short',
    'template'    => '{table_open}<table class="date">{/table_open}

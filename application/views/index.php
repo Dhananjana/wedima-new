@@ -1,36 +1,33 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>My Event Calendar (Evencal)</title>
+	<!-- <title>My Event Calendar (Evencal)</title> -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>assets/css/style.css"/>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/colorbox.css"/>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>assets/js/jquery.colorbox-min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 	
 </head>
+
 <body>
-	<div id="evencal">
+	<div >
 		<div class="calendar">
-			<?php echo $notes?>
-			<span>by <a href="http://zawaruddin.blogspot.com"><strong>zawaruddin.blogspot.com</strong></a></span>
-		</div>
-		<div class="event_detail">
-			<h2 class="s_date">Detail Event <?php echo "$day $month $year";?></h2>
-			<div class="detail_event">
+			<?php echo $notes?>			
+			<div class="detail_event col-lg-12" >
+			<!-- <h6 class="s_date">Detail Event <?php echo "$day $month $year";?></h6> -->
 				<?php 
 					if(isset($events)){
 						$i = 1;
 						foreach($events as $e){
 						 if($i % 2 == 0){
-								echo '<div class="info1"><h4>'.$e['time'].'<img src="'.base_url().'css/images/delete.png" class="delete" alt="" title="delete this event" day="'.$day.'" val="'.$e['id'].'" /></h4><p>'.$e['event'].'</p></div>';
+								echo '<div class="info1"><h4>'.$e['time'].'<img src="'.base_url().'assets/images/delete.png" class="delete" alt="" title="delete this event" day="'.$day.'" val="'.$e['id'].'" /></h4><p>'.$e['event'].'</p></div>';
 							}else{
-								echo '<div class="info2"><h4>'.$e['time'].'<img src="'.base_url().'css/images/delete.png" class="delete" alt="" title="delete this event" day="'.$day.'" val="'.$e['id'].'" /></h4><p>'.$e['event'].'</p></div>';
+								echo '<div class="info2"><h4>'.$e['time'].'<img src="'.base_url().'assets/images/delete.png" class="delete" alt="" title="delete this event" day="'.$day.'" val="'.$e['id'].'" /></h4><p>'.$e['event'].'</p></div>';
 							} 
 							$i++;
 						}
 					}else{
-						echo '<div class="message"><h4>No Event</h4><p>There\'s no event in this date</p></div>';
+						
 					}
 				?>
 				<input type="button" name="add" value="Add Event" val="<?php echo $day;?>" class="add_event"/>
@@ -53,14 +50,14 @@
 						var i = 1;
 						$.each(data.data, function(index, value) {
 						    if(i % 2 == 0){
-								html = html+'<div class="info1"><h4>'+value.time+'<img src="<?php echo base_url();?>css/images/delete.png" class="delete" alt="" title="delete this event" day="'+day+'" val="'+value.id+'" /></h4><p>'+value.event+'</p></div>';
+								html = html+'<div class="info1"><h4>'+value.time+'<img src="<?php echo base_url();?>assets/images/delete.png" class="delete" alt="" title="delete this event" day="'+day+'" val="'+value.id+'" /></h4><p>'+value.event+'</p></div>';
 							}else{
-								html = html+'<div class="info2"><h4>'+value.time+'<img src="<?php echo base_url();?>css/images/delete.png" class="delete" alt="" title="delete this event" day="'+day+'" val="'+value.id+'" /></h4><p>'+value.event+'</p></div>';
+								html = html+'<div class="info2"><h4>'+value.time+'<img src="<?php echo base_url();?>assets/images/delete.png" class="delete" alt="" title="delete this event" day="'+day+'" val="'+value.id+'" /></h4><p>'+value.event+'</p></div>';
 							} 
 							i++;
 						});
 					}else{
-						html = '<div class="message"><h4>'+data.title_msg+'</h4><p>'+data.msg+'</p></div>';
+						
 					}
 					html = html+add;
 					$( ".detail_event" ).fadeOut("slow").fadeIn("slow").html(html);
@@ -83,7 +80,7 @@
 								$('.d'+day).html(data.row);
 							}else{
 								$('.d'+day).html('');
-								$( ".detail_event" ).fadeOut("slow").fadeIn("slow").html('<div class="message"><h4>'+data.title_msg+'</h4><p>'+data.msg+'</p></div>'+add);
+								$( ".detail_event" ).fadeOut("slow").fadeIn("slow");
 							}
 							deleted.remove();
 						}else{
