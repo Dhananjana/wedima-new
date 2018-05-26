@@ -35,7 +35,8 @@
 				success: function(data) {
 					if(data.status){
 						//$.fn.colorbox.close(data);
-						window.location = '<?php echo site_url("evencal/detail/$year/$mon/$day")?>';
+						// window.location.assign('<?php echo site_url("vendor/detail/$year/$mon/$day")?>');
+						window.location.assign('<?php echo site_url("vendor")?>');
 					}else{
 						$('.spacer').html(data.message);
 					}
