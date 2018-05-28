@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function() {
-        setInterval("ajaxd()", 30000);
+        setInterval("ajaxd()", 20000);
         });
     
     function ajaxd(){

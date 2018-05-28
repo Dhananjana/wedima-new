@@ -34,4 +34,11 @@ class Admin_model extends CI_Model{
         return $query->result();
     }
 
+    function selectEmail($userID){
+        $this->db->select('*');
+        $this->db->where('id',$userID);
+        $query = $this->db->get('user');
+        return $query->result();
+    }
+
 }

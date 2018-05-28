@@ -41,7 +41,7 @@
                   <div class="col-sm-4 border-right">
                     <div class="description-block">
                       <h5 class="description-header">Email</h5>
-                      <span class="description-text"><button class="btn btn-warning">Send</button></span>
+                      <span class="description-text"><button onclick="myfunction(<?php echo $row["userid"];?>)" class="btn btn-warning">Send</button></span>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -109,5 +109,11 @@
 <script src="<?php echo base_url().'assets/dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js';?>"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url().'assets/dist/js/adminlte.min.js';?>"></script>
+<script>
+function myfunction($id){
+  console.log($id);
+  window.location.replace("<?php echo base_url().'admin/sendMail';?>")  
+}
+</script>
 </body>
 </html>
