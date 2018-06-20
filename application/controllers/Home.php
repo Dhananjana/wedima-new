@@ -1,4 +1,4 @@
-<?php
+g<?php
 /**
  * Created by PhpStorm.
  * User: thari
@@ -24,6 +24,12 @@ class Home extends CI_Controller{
             $this->load->view('templates/footer');
            
    }
+    public function vendorview(){
+            $this->load->view('templates/header');
+            $this->load->view('vendors');
+            $this->load->view('templates/footer');
+       
+    }
    public function insert_to_db($name)
         {
         $Name=urldecode($name);
