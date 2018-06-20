@@ -31,6 +31,7 @@ class Login extends CI_Controller
                 $this->session->set_userdata('username',$email1);
                 $this->session->set_userdata('utype',$data['user']['usertype']);
                 $this->session->set_userdata('name',$data['user']['name']);
+                $this->session->set_flashdata('msg', 'You are succesfully loginto the system!.');
                 redirect(base_url().'home');
             }
             else{
@@ -47,5 +48,12 @@ class Login extends CI_Controller
         $this->session->sess_destroy();
 
         redirect(base_url() .'home');
+    }
+
+    public function register(){
+        $data['register'] = $this->load->view('registerview',NUll, TRUE);
+        $this->load->view('templates/header');
+        $this->load->view('register',$data);
+        $this->load->view('templates/footer');
     }
 }
