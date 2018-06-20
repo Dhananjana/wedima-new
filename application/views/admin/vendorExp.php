@@ -24,41 +24,41 @@
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-        <?php foreach($Picture as $row){;?>
+        <?php foreach($final_array_collection as $row){?>
+
           <div class="col-md-4">
             <!-- Widget: user widget style 1 -->
             <div class="card card-widget widget-user">
               <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white"
-                   <!-- style="background: url('<?php echo base_url().'uploads/gallery/'.$row->cover;?>') center center;">
-                <h3 class="widget-user-username">Elizabeth Pierce</h3>
-                <h5 class="widget-user-desc">Web Designer</h5> -->
+              <div class="widget-user-header text-white" style="background: url('<?php echo base_url();?>/uploads/cover/<?php echo $row["cover"];?>') center center;">
+                <h3 class="widget-user-username"><?php echo $row["vendorName"];?></h3>
+                <h5 class="widget-user-desc"><?php echo $row["vendorType"];?></h5>
               </div>
-              <!-- <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url().'uploads/gallery/'.$row->pp;?>" alt="User Avatar">
-              </div> -->
+              <div class="widget-user-image">
+                <img class="img-circle" src="<?php echo base_url();?>/uploads/profile/<?php echo $row["profile"];?>" alt="User Avatar">
+              </div>
               <div class="card-footer">
                 <div class="row">
                   <div class="col-sm-4 border-right">
                     <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
+                      <h5 class="description-header">Email</h5>
+                      <span class="description-text"><button onclick="myfunction(<?php echo $row["userid"];?>)" class="btn btn-warning">Send</button></span>
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
                   <div class="col-sm-4 border-right">
                     <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
+                      <h5 class="description-header"></h5>
+                      <span class="description-text"></span>
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
                   <div class="col-sm-4">
                     <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
+                      <h5 class="description-header">Cancel</h5>
+                      <span class="description-text"><button class="btn btn-danger">Cancel</button></span>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -70,98 +70,8 @@
             <!-- /.widget-user -->
           </div>
           <!-- /.col --> 
-       <?php } ?>
-          <div class="col-md-4">
-            <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white"
-                   style="background: url('<?php echo base_url();?>/assets/dist/img/photo1.png') center center;">
-                <h3 class="widget-user-username">Elizabeth Pierce</h3>
-                <h5 class="widget-user-desc">Web Designer</h5>
-              </div>
-              <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url();?>/assets/dist/img/user3-128x128.jpg" alt="User Avatar">
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.widget-user -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-4">
-            <!-- Widget: user widget style 1 -->
-            <div class="card card-widget widget-user">
-              <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header text-white"
-                   style="background: url('<?php echo base_url();?>/assets/dist/img/photo1.png') center center;">
-                <h3 class="widget-user-username">Elizabeth Pierce</h3>
-                <h5 class="widget-user-desc">Web Designer</h5>
-              </div>
-              <div class="widget-user-image">
-                <img class="img-circle" src="<?php echo base_url();?>/assets/dist/img/user3-128x128.jpg" alt="User Avatar">
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4 border-right">
-                    <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                  <div class="col-sm-4">
-                    <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
-                    </div>
-                    <!-- /.description-block -->
-                  </div>
-                  <!-- /.col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.widget-user -->
-          </div>
-          <!-- /.col -->
-
+        <?php } ?>
+          
         </div>
         <!-- /.row -->
       </section><!-- /.container-fluid -->
@@ -200,5 +110,11 @@
 <script src="<?php echo base_url().'assets/dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js';?>"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url().'assets/dist/js/adminlte.min.js';?>"></script>
+<script>
+function myfunction($id){
+  console.log($id);
+  window.location.replace("<?php echo base_url().'admin/sendMail';?>")  
+}
+</script>
 </body>
 </html>

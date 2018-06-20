@@ -23,7 +23,6 @@ class Home extends CI_Controller{
             $this->load->view('home', $data1);
             $this->load->view('templates/footer');
            
-
    }
    public function insert_to_db($name)
         {

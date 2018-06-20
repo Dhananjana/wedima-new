@@ -81,39 +81,67 @@ class Admin extends CI_Controller
 		echo json_encode($vendors);
 	}
 
-	// function vendorR(){
-	// 	$result = $this->Admin_model->allvendor();
-	// 	$data=[];
-	// 	$vendorType = '';
-	// 	foreach($result as $row){
-	// 		$data = $row["joinedDate"];  
-	// 		$now = time(); 
-	// 		$your_date = strtotime($data);
-	// 		$datediff = $now - $your_date;
-	
-	// 		$cont =  round($datediff / (60 * 60 * 24));
-	
-	// 		if($cont == 83){
-	// 			$vendorName = $row['vendorName'];
-	// 			$vendorTypeID =  $row['vendorTypeID'];
-	// 			$ven = $this->Admin_model->vendorR($vendorTypeID);
-	// 			foreach($ven as $row1){
-	// 				$vendorType = $ven['vendorType']; 
-	// 				$data['vendorType'] = $vendorType;
-	// 			}
-				
-	// 			$data['vendorName'] = $vendorName;
-	// 			$data['Picture'] = $this->Admin_model->ProfileImage($vendorType, $vendorName);
-	// 		}
-	// 	}
-	// 	$this->loadPage('admin/vendorExp', $data);
-		
-	// }
+	function vendorR(){
+		$vendorName = [];
+		$vendorTypeID = [];
+	 	$result = $this->Admin_model->allvendor();
+	 	$data=[];
+		$vendorType = '';
+		$final_array_collection = array();
+	 	foreach($result as $row){
+			$userid = $row["user_id"]; 
+	 		$data = $row["joinedDate"];  
+	 		$now = time(); 
+	 		$your_date = strtotime($data);
+	 		$datediff = $now - $your_date;
+			$cont =  round($datediff / (60 * 60 * 24));
+			if($cont == 83){
+	 			$vendorName = $row['vendorName'];
+	 			$vendorTypeID =  $row['vendorTypeID'];
+				$vt = $this->Admin_model->vendorR($vendorTypeID);
+				foreach($vt as $v){
+					$vendorType = $v->vendorType;
+				}
+				$photos = $this->Admin_model->ProfileImage($vendorType, $vendorName);
+				foreach($photos as $photo){
+					$profile = $photo->pp;
+					$cover = $photo->cover;
+				}
+				$final_array_collection[] = array("vendorName"=>$vendorName, "vendorType"=>$vendorType, "profile"=>$profile,"cover"=>$cover,"userid"=>$userid);
+			}
+			
+		}
+		$result = compact("final_array_collection");		
+		//$data['Picture'] = $this->Admin_model->ProfileImage($vendorType, $vendorName);
+	 	$this->loadPage('admin/vendorExp', $result);
+		//var_dump($result);
+	}
 
-	// function loadR(){
-	// 	$data = '';
-	// 	$this->loadPage('admin/vendorExp', $data);
-	// }
+	function sendMail(){
+		$result = $this->Admin_model->allvendor();
+		$userID = '';
+		$emails=[];
+		$finalArray = array();
+		foreach($result as $row){
+			$data = $row["joinedDate"];  
+			$now = time(); 
+			$your_date = strtotime($data);
+			$datediff = $now - $your_date;
+	
+			$cont =  round($datediff / (60 * 60 * 24));
+	
+			if($cont == 83){
+				$userID = $row['user_id'];
+				$emails = $this->Admin_model->selectEmail($userID);
+			}
+			//$finalArray[] = array("email"=>$emails);			
+		}
+		//$results = compact($finalArray);
+		$results='';
+		$this->loadPage('admin/vendorEmail', $results);
+	}
+
+
 	
 	
 }
