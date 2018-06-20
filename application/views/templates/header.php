@@ -126,7 +126,7 @@
                     </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                     <li class="nav-item list1">
-                        <a class="nav-link font-clr" href="contact.html">Sign Up</a>
+                        <a class="nav-link font-clr" href="<?php echo base_url() . 'user'; ?>">Sign Up</a>
                     </li>
                     <?php
                 }
