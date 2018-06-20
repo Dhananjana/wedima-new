@@ -1,6 +1,9 @@
 <script>
     $(document).ready(function() {
+        setInterval("ajaxd()", 20000);
+        });
     
+    function ajaxd(){
         $.ajax({
                 url: '<?php echo base_url();?>/Admin/vendorAccess',
                 type: 'GET',
@@ -20,10 +23,10 @@
                 },
                 error: function(){
                     console.log('error loading notifications');
-                },
-                timeout: 3000
-            });    
-        });
-    
+                }
+                
+            });
+    }
+
 </script>
 

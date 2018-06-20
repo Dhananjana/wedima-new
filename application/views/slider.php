@@ -15,9 +15,8 @@
             /*height: 100%;*/
         /*}*/
         .carousel-item {
-            margin-top: 39px;
             height: 75vh;
-            min-height: 300px;
+            min-height: 490px;
             background: no-repeat center center scroll;
             -webkit-background-size: cover;
             -moz-background-size: cover;
@@ -65,7 +64,7 @@
         .wpf-demo-4:hover img {
             height: 100%;
             margin-left: -42px;
-            margin-top: -5px;
+            margin-top: -15px;
             -webkit-transform: translateY(-10%) rotate(-42deg) scale(1.5);
             -moz-transform: translateY(-10%) rotate(-42deg) scale(1.5);
             -o-transform: translateY(-10%) rotate(-42deg) scale(1.5);

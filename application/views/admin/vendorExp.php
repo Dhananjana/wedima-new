@@ -25,6 +25,7 @@
       <div class="container-fluid">
         <div class="row">
         <?php foreach($final_array_collection as $row){?>
+
           <div class="col-md-4">
             <!-- Widget: user widget style 1 -->
             <div class="card card-widget widget-user">
@@ -40,24 +41,24 @@
                 <div class="row">
                   <div class="col-sm-4 border-right">
                     <div class="description-block">
-                      <h5 class="description-header">3,200</h5>
-                      <span class="description-text">SALES</span>
+                      <h5 class="description-header">Email</h5>
+                      <span class="description-text"><button onclick="myfunction(<?php echo $row["userid"];?>)" class="btn btn-warning">Send</button></span>
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
                   <div class="col-sm-4 border-right">
                     <div class="description-block">
-                      <h5 class="description-header">13,000</h5>
-                      <span class="description-text">FOLLOWERS</span>
+                      <h5 class="description-header"></h5>
+                      <span class="description-text"></span>
                     </div>
                     <!-- /.description-block -->
                   </div>
                   <!-- /.col -->
                   <div class="col-sm-4">
                     <div class="description-block">
-                      <h5 class="description-header">35</h5>
-                      <span class="description-text">PRODUCTS</span>
+                      <h5 class="description-header">Cancel</h5>
+                      <span class="description-text"><button class="btn btn-danger">Cancel</button></span>
                     </div>
                     <!-- /.description-block -->
                   </div>
@@ -109,5 +110,11 @@
 <script src="<?php echo base_url().'assets/dist/js/plugins/bootstrap/js/bootstrap.bundle.min.js';?>"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url().'assets/dist/js/adminlte.min.js';?>"></script>
+<script>
+function myfunction($id){
+  console.log($id);
+  window.location.replace("<?php echo base_url().'admin/sendMail';?>")  
+}
+</script>
 </body>
 </html>
