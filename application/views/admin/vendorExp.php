@@ -25,6 +25,7 @@
       <div class="container-fluid">
         <div class="row">
         <?php foreach($final_array_collection as $row){?>
+
           <div class="col-md-4">
             <!-- Widget: user widget style 1 -->
             <div class="card card-widget widget-user">

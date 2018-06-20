@@ -541,6 +541,7 @@ class Vendor_model extends CI_Model
 
         }
 
+
         $data=array(
             'album_name' => $this->input->post('Album_Name'), 
             'user_id' => $user_id, 
@@ -552,7 +553,7 @@ class Vendor_model extends CI_Model
     }
 
      public function get_albums(){
-          $username=$this->session->userdata('username');
+         $username=$this->session->userdata('username');
          $this->db->select('id');
          $this->db->where('email',$username);
          $query=$this->db->get('user');
@@ -564,8 +565,8 @@ class Vendor_model extends CI_Model
 
          $this->db->select('*');
          $this->db->where('album.user_id',$user_id);
-         $this->db->from('album');
-         $this->db->join('album_images', 'album.id = album_images.album_id');
+         $this->db->from('album_images');
+         $this->db->join('album', 'album_images.album_id=album.id');
          $this->db->group_by('album_name');
          $query = $this->db->get();
          return $query->result();
@@ -591,7 +592,7 @@ class Vendor_model extends CI_Model
      }
 
     public function get_vendor_name(){
-        if($this->session->userdata('utype'=='vendor')) {
+        if($this->session->userdata('utype')=='vendor') {
             $username = $this->session->userdata('username');
             $this->db->select('id');
             $this->db->where('email', $username);
@@ -604,11 +605,10 @@ class Vendor_model extends CI_Model
 
                 $this->db->select('*');
                 $this->db->where('user_id', $user_id);
-                $query = $this->db->get('vendor');
+                $query = $this->db->get('allvendor');
                 foreach ($query->result() as $row) {
-                    $name = $row->name;
+                    $name = $row->vendorName;
                 }
-
                 return $name;
             } else {
                 return null;

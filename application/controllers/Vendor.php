@@ -169,8 +169,9 @@ class Vendor extends CI_Controller
         $name= $this->uri->segment(3);
         $Name=urldecode($name);
         $data1['vendor']=$this->Vendor_model->get_vendor_name();
+
         if($data1['vendor']==$Name){
-            redirect('vendor');
+            redirect('vendor/index');
         }
         else {
             $data['isbookmark']=$this->Vendor_model->bookmarkload($Name);

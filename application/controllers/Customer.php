@@ -39,6 +39,7 @@ class Customer extends CI_Controller
             $data['items'] = $this->Customer_model->get_cart_itemes();
             $data['ammount']=$this->Customer_model->get_initial_ammount();
             $data['total']=$this->Customer_model->get_total();
+            $data['current']=$this->Customer_model->get_current();
             $this->load->view('templates/header');
             $this->load->view('cart', $data);
             $this->load->view('templates/footer');
@@ -56,7 +57,7 @@ class Customer extends CI_Controller
 
     public function set_initial(){
         $this->Customer_model->set_initial();
-        echo json_encode(array("data"=>'Sucsses'));
+         echo json_encode(array("data"=>'Sucsses'));
     }
 
     public function total(){

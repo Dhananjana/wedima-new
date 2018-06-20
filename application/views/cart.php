@@ -39,7 +39,7 @@
 <br>
 <div class="container">
     <div class="row">
-    <div class="card col-lg-3" id="form" style="display: block;margin-left: 2px;">
+    <div class="card col-lg-3" id="form1" style="display: block;margin-left: 2px;">
         <form action="" id="form" onsubmit="set_initial()">
             <br>
             <h3>Plan By budget</h3>
@@ -47,7 +47,7 @@
             <div class="form-group">
                 <label class="control-label">Ammount :</label>
                 <div class="col-md-9">
-                    <input type="text" name="ammount"  placeholder="100000" class="form-control" required>
+                    <input id="amnt" type="text" name="ammount"  placeholder="100000" class="form-control" required>
                 </div>
             </div>
             <button type="submit" class="btn btn-success">Start Plan</button>
@@ -100,7 +100,7 @@
             </table>
             <div class="row">
                 <div class="col-lg-4" id="to" style="background-color: transparent"><h6>Current Total - Rs : <?php echo $total;?></h6></div>
-                <div class="col-lg-4"></div>
+                <div class="col-lg-4"><h6>Current Outstanding - Rs : <?php echo $current;?></h6></div>
                 <div class="col-lg-4"> <button class="btn btn-sm btn-success" onclick="book()">Book Now</button></div>
             </div>
             <br>
@@ -113,7 +113,7 @@
 
 <script>
     function ifinitial() {
-        var x = document.getElementById("form");
+        var x = document.getElementById("form1");
         var y = document.getElementById("initial");
         $.ajax({
             url : "<?php echo site_url('Customer/initial')?>",
@@ -137,6 +137,7 @@
 
 
     function set_initial() {
+        
         $.ajax({
             url : '<?php echo site_url('customer/set_initial')?>',
             type: "POST",

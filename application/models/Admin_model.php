@@ -31,6 +31,7 @@ class Admin_model extends CI_Model{
         $this->db->select('*');
         $this->db->where('name',$vendorName);
         $query = $this->db->get($vendorType);
+
         return $query->result();
     }
 

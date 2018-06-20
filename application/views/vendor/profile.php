@@ -339,20 +339,20 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
 
 <?php foreach ($details as $detail) {
     ?>
-    <div class="hed" style="margin-top: 20px; margin-bottom: 20px;">
+   <div class="hed" style="margin-top: 20px; margin-bottom: 20px;">
         <div class="row panel">
-            <div class="col-lg-3 bg_blur " style="background-image:url(' <?php echo base_url() . 'uploads/profile/' . $detail->pp ?>');"><button type="button" class="btn btn-info" style="margin-top: 260px;" data-toggle="modal" data-target="#coverModal"><i class=" fa fa-pencil-square-o" aria-hidden="true"></i>change cover</button>
+            <div class="col-lg-3 bg_blur " style="background-image:url(' <?php echo base_url() . 'uploads/cover/' . $detail->cover ?>');"><button type="button" class="btn btn-info" style="margin-top: 260px;" data-toggle="modal" data-target="#coverModal"><i class=" fa fa-pencil-square-o" aria-hidden="true"></i>change cover</button>
             </div>
               <div class="col-lg-1"></div>
             <div class="col-lg-6" style="margin-left: -50px;">
-                <img src="<?php echo base_url() . 'uploads/cover/' . $detail->cover ?>"
+                <img src="<?php echo base_url() . 'uploads/profile/' . $detail->pp ?>"
                      class="img-responsive img-thumbnail picture hidden-xs"/>
                 <div class="header">
                     <h1><?php echo $detail->name; ?></h1>
 <!--                    <h4>Web Developer</h4>-->
                 <div class="row">
                     <span><?php echo $detail->description ?></span>
-                     <button type="button" class="btn btn-info" style="margin-top:24px;margin-left: -330px;z-index:999" data-toggle="modal" data-target="#ppModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                     <button type="button" class="btn btn-info" style="margin-top:15px;margin-left: -165px;z-index:999" data-toggle="modal" data-target="#ppModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                 </div>
 
                 </div>
@@ -370,7 +370,6 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
         </div>
         <br>
     </div>
-
     <div class="row">
     <div class="container col-lg-3">
     <div class="col-lg-12 card">
@@ -403,12 +402,15 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
 ?>
 
 
-<div class="ol-lg-9">
+
+<div class="col-lg-9">
  <div class="col-lg-12 card"">
  <div class="row ">
      <h2 class="col-lg-10 ">Package Details</h2>
+
      <h1><i style="margin-top: 3%; margin-left:40px"  class="fa fa-plus-circle pointer" aria-hidden="true" data-toggle="modal" data-target="#packageModel" style="margin-top:38%" aria-hidden="true"></i></h1>
 </div>
+ <hr>
     <div class="row">
             <?php foreach ($packages as $package) {
                     ?>
@@ -493,7 +495,6 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                   </div>
                 <?php foreach ($albums as $album) {
                     ?>
-                   
                     <a href="<?php echo base_url().'home/albums/'.$album->id;?>"><div class="col-lg-2 col-sm-6 col-xs-3 portfolio-item" style="height: 200px;width: 250px">
                         <div class="card h-100">
                             <img style="height: 120px;width: 90s%" class="card-img-top cell" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
@@ -666,7 +667,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
             </div>
             <div class="modal-body">
                 <div id="content">
-                    <div id="my-dropzone1" class="dropzone">
+                    <div id="my-dropzone" class="dropzone">
                         <div class="dz-message">
                             <h3>Drop files here</h3> or <strong>click</strong> to upload
                         </div>
@@ -692,7 +693,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
             </div>
             <div class="modal-body">
                 <div id="content">
-                    <div id="my-dropzone" class="dropzone">
+                    <div id="my-dropzone1" class="dropzone">
                         <div class="dz-message">
                             <h3>Drop files here</h3> or <strong>click</strong> to upload
                         </div>
