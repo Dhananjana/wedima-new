@@ -43,11 +43,10 @@
     *{
         font-family: 'Open Sans', sans-serif;
     }
-
-    .well {
+  .well {
         margin-top:-20px;
-        background-color:#007FBD;
-        border:2px solid #0077B2;
+        background-color:#333333;
+        border:2px solid #888888;
         text-align:center;
         cursor:pointer;
         font-size: 25px;
@@ -56,19 +55,7 @@
         width:20%;
 
     }
-
-    .well:hover {
-        margin-top:-20px;
-        background-color:#0077B2;
-        border:2px solid #0077B2;
-        text-align:center;
-        cursor:pointer;
-        font-size: 25px;
-        padding: 5px;
-        border-radius: 0px !important;
-        border-bottom : 2px solid rgba(97, 203, 255, 0.65);
-    }
-
+  
     .hed {
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 14px;
@@ -239,7 +226,12 @@
     #breadcrumb li:last-child a{margin:0; padding:0;}
     #breadcrumb li:last-child a::after{display:none;}
 
-
+.btn-clr1{
+    background-color: #cccccc;
+}
+.btn-clr2{
+    background-color: #cccccc;
+}
 
 </style>
 <br>
@@ -302,7 +294,7 @@ color: #f1d40f;border-color: #f1d40f"></i>
 
                 else{
                     ?>
-                    <div class="col-lg-12 col-md-12 col-xs-12 well"><i class="fa fa-star-o"></i> 14</div>
+                    <div class="col-lg-12 col-md-12 col-xs-12 well" style="cursor:context-menu"><i class="fa fa-star-o"></i> 14</div>
                     <?php
                 }
                 ?>
@@ -358,7 +350,7 @@ color: #f1d40f;border-color: #f1d40f"></i>
                                 ?>
                                 <button type="button"
                                         onclick="addCart(<?php echo $package->id; ?>)"
-                                        class="btn btn-info"><i class="fa fa-shopping-cart" aria-hidden="true"></i> |
+                                        class="btn btn-clr1"><i class="fa fa-shopping-cart" aria-hidden="true"></i> |
                                     Add to Cart
                                 </button>
                                 <?php
@@ -461,7 +453,9 @@ color: #f1d40f;border-color: #f1d40f"></i>
                                     <div class="col-lg-2">
                                     <h4 class="card-text"><a href="" style="text-decoration: none"><?php echo $feedback->name;?></a></h4>
                                     </div>
+                                     <div class="col-lg-10">
                                     <p class="card-text"><a href="" style="text-decoration: none;color: black;"><?php echo $feedback->description;?></a></p>
+                                    </div>
                                 </div>
                             </div>
 

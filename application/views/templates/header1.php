@@ -54,7 +54,7 @@
 
 </head>
 <body>
-<ul class=" sticky top-nav" style="margin-top: 43px;z-index: 500; background-color: #222; margin-bottom:0px;">
+<ul class=" sticky top-nav" style="margin-top: 20px;z-index: 500; background-color: #222; margin-bottom:0px;">
               <li class="list lis"> <a class="nav-link font-clr" href="<?php echo base_url().'home';?>#Services">Services</a></li>
               <li class="list lis"><a class="nav-link font-clr" href="<?php echo base_url().'home';?>#Gallery">Gallery</a></li>
               <li class="list lis"><a class="nav-link font-clr" href="<?php echo base_url().'home';?>#Testinomials">Testinomials</a></li>

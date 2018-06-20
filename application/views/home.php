@@ -203,14 +203,14 @@
 
 .btn-round{
     border-radius: 17px;
-    background-color: rgba(255, 180,00, 0.7);
-    border-color: #FAC606;
+    background-color:#333333;
+    border-color: #333333;
     margin-left: 4%;
 }
 .btn-round:hover{
     background-color: white;
-    border-color: #FAC606;
-    color:#FAC606 ;
+    border-color:#333333;
+    color:#333333 ;
 }
 
     .btn-round a{
@@ -219,7 +219,12 @@
     }
 
     .btn-round a:hover{
-        color: #FAC606 ;
+        color: #333333 ;
+    }
+    .btn-clr3{
+        background-color: #333333;
+        color: white;
+        border-color: white;
     }
 
 
@@ -303,7 +308,7 @@
                         </div>
                     </div>
                     <div  style="padding-top: 10px">
-                        <button type="submit" id="sub1" class="btn btn-outline-info btnw"> Search </button>
+                        <button type="submit" id="sub1" class="btn btn-clr3 btnw"> Search </button>
                     </div>
                 </div>
             </div>
@@ -335,7 +340,7 @@
             <h2>Locations</h2>
             <hr />
             <h6>1.Locations <br>2.Hotels <br>3.Honeymoon <br>4.Destinations</h6>
-            <a href="<?php echo base_url().'home/vendorList/1';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/1';?>">See More</a>
         </div>
 
     </div>
@@ -344,7 +349,7 @@
             <h2>Bridal Boutique</h2>
             <hr />
             <h6>1.Bridal Dress<br>2.bridesmaid Dress<br>2.Dress Designers </h6>
-            <a href="<?php echo base_url().'home/vendorList/2';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/2';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-15 wow animated fadeInLeft">
@@ -353,7 +358,7 @@
 
             <hr />
             <h6>1.Grooms Dress<br>2.groomsmaid Dress<br>2.Dress Designers </h6>
-            <a href="<?php echo base_url().'home/vendorList/3';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/3';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-4 wow animated fadeInLeft">
@@ -362,7 +367,7 @@
 
             <hr />
             <h6>1.Bridal <br>2.Groom<br>3.Hair & Beauty care</h6>
-            <a href="<?php echo base_url().'home/vendorList/4';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/4';?>">See More</a>
         </div>
     </div>
 
@@ -373,7 +378,7 @@
             <h2>Jwellaries</h2>
             <hr />
             <h6>1.Earings <br>2.Necklace<br>3.Bangle<br>4.Bracelet<br>5.Wedding & Engagement Rings</h6>
-            <a href="<?php echo base_url().'home/vendorList/5';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/5';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-5 wow animated animated5 fadeInLeft">
@@ -382,7 +387,7 @@
 
             <hr />
             <h6>1.Wedding photography<br>2.Pre-Wedding/Post-wedding Shoots<br>3.Videography</h6>
-            <a href="<?php echo base_url().'home/vendorList/6';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/6';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-6 wow animated animated3 fadeInLeft">
@@ -390,7 +395,7 @@
                 <h2>Cars</h2>
             <hr />
            <h6>1.wedding cars<br>2.guests cars</h6>
-            <a href="<?php echo base_url().'home/vendorList/7';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/7';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-7 wow animated animated2 fadeInLeft">
@@ -398,7 +403,7 @@
             <h2>Wedding Cakes</h2>
             <hr />
             <h6>1.Cake Structures<br>2.Cake Pieces</h6>
-            <a href="<?php echo base_url().'home/vendorList/8';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/8';?>">See More</a>
         </div>
     </div>
 
@@ -408,7 +413,7 @@
             <h2>Stationaries</h2>
             <hr />
        <h6>1.Invitation Cards<br>2.Cake Boxes</h6>
-            <a href="<?php echo base_url().'home/vendorList/9';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/9';?>">See More</a>
         </div>
     </div>
 
@@ -417,7 +422,7 @@
             <h2>Flower Works</h2>
             <hr />
             <h6>1.Florists<br>2.Flower Boquets</h6>
-            <a href="<?php echo base_url().'home/vendorList/10';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/10';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-11 wow animated animated2 fadeInLeft">
@@ -425,7 +430,7 @@
             <h2>Traditional Terms</h2>
             <hr />
            <h6>1.Ashtaka<br>2.Jayamangala Gatha<br>3.Welcome Songs<br>4.Kandyan dance</h6>
-            <a href="<?php echo base_url().'home/vendorList/11';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/11';?>">See More</a>
         </div>
     </div>
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project project-12 wow animated fadeInLeft">
@@ -433,7 +438,7 @@
             <h2>Entertainment</h2>
             <hr />
            <h6>1.DJ<br>2.Musical Groups<br>3.Dancing Groups</h6>
-            <a href="<?php echo base_url().'home/vendorList/12';?>">See More</a>
+            <a style="text-decoration: none" class="btn-round" href="<?php echo base_url().'home/vendorList/12';?>">See More</a>
         </div>
     </div>
     <br>
@@ -469,9 +474,11 @@
 
     </div>
     <!-- /.container -->
+    <br>
     <div class="row">
         <div class="col-lg-5"></div>
         <button  type="button" class="btn btn-primary btn-round" > <i class="fa fa-angle-double-right" aria-hidden="true"></i><a href="<?php echo base_url().'home/gallery'?>" >View All</a></button >
+
     </div>
 </div>
 <hr>
