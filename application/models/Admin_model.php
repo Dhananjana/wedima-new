@@ -11,13 +11,26 @@ class Admin_model extends CI_Model{
     function allvendor(){
         $this->db->select('*');
         $query = $this->db->get('allvendor');
-        return $query->result();
+        $response = $query->result_array();
+        return $response;
     }
     function customer(){
         $this->db->select('*');
         $this->db->where('usertype', 'customer');
         $query = $this->db->get('user');
         return $query->result();
+    }
+
+    function vendorR($vendorTypeID){
+        $this->db->select('vendorType');
+        $query = $this->db->get('vendor');
+        return $query->result();
+    }
+    function ProfileImage($vendorType, $vendorName){
+        $this->db->select('*');
+        $this->db->where('name',$vendorName);
+        $query = $this->db->get($vendorType);
+        return $query;
     }
 
 }

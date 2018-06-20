@@ -1,23 +1,29 @@
-<!-- REQUIRED SCRIPTS -->
+<script>
+    $(document).ready(function() {
+    
+        $.ajax({
+                url: '<?php echo base_url();?>/Admin/vendorAccess',
+                type: 'GET',
+                dataType:'json',
+                async: true,
+                success: function(res) {
+                    
+                    if(res && res.length) {
+                        $('#numOfNot').show();
+                        $('#notify').html('<a href="#" class="dropdown-item"><i class="fa fa-file mr-2"></i> '+res.length+' vendors will expire in a week</a>');
+                    
+                    }
+                    else{
+                        $('#numOfNot').hide();
+                        $('#notify').html('<div class="dropdown-item">No notifications</div>');
+                    }
+                },
+                error: function(){
+                    console.log('error loading notifications');
+                },
+                timeout: 3000
+            });    
+        });
+    
+</script>
 
-<!-- jQuery -->
-<script src="<?php echo base_url().'assets/dist/js/plugins/jquery/node_modules/jquery/dist/jquery.min.js';?>"></script>
-<!-- Bootstrap 4 -->
-<script src="<?php echo base_url().'assets/dist/js/plugins/bootstrap/js/bootstrap.bundle.js';?>"></script>
-<!-- DataTables -->
-<script src="<?php echo base_url().'assets/dist/js/plugins/datatables/jquery.dataTables.min.js';?>"></script>
-<script src="<?php echo base_url().'assets/dist/js/plugins/datatables/dataTables.bootstrap4.min.js';?>"></script>
-<!-- SlimScroll -->
-<script src="<?php echo base_url().'assets/dist/js/plugins/slimScroll/jquery.slimscroll.min.js';?>"></script>
-<!-- FastClick -->
-<script src="<?php echo base_url().'assets/dist/js/plugins/fastclick/fastclick.js';?>"></script>
-<!-- AdminLTE App -->
-<script src="<?php echo base_url().'assets/dist/js/adminlte.min.js';?>"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url().'assets/dist/js/demo.js';?>"></script>
-<!-- iCheck -->
-<script src="<?php echo base_url().'assets/dist/js/plugins/iCheck/icheck.min.js';?>"></script>
-<!-- page script -->
-
-</body>
-</html>

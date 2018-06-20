@@ -70,8 +70,10 @@ class Customer_model extends CI_Model
             }
             if($initial!='0') {
                 $current = $current + $price;
+                $current_outstanding=$initial-$current;
                 $data = array(
                     'current_total' => $current,
+                    'current_outstanding' => $current_outstanding
                 );
                 $this->db->where('user_id', $user_id);
                 $this->db->update('cart1', $data);
@@ -102,8 +104,10 @@ class Customer_model extends CI_Model
                     $current = $row->current_total;
                 }
                 $current = $current + $price;
+                $current_outstanding = 
                 $data = array(
                     'current_total' => $current,
+                    
                 );
                 $this->db->where('id', $insertId);
                 $this->db->update('cart1', $data);
@@ -359,5 +363,33 @@ class Customer_model extends CI_Model
         $this->db->delete('cart');
 
 
+    }
+
+    public function get_current(){
+        $username=$this->session->userdata('username');
+        $this->db->select('id');
+        $this->db->where('email',$username);
+        $query=$this->db->get('user');
+        foreach ($query->result() as $row)
+        {
+            $user_id= $row->id;
+
+        }
+
+        $this->db->where('user_id',$user_id);
+        $query=$this->db->get('cart1');
+        if($query->num_rows()>0) {
+            foreach ($query->result() as $row) {
+                $current = $row->current_outstanding;
+            }
+
+
+            return $current;
+
+        }
+
+        else{
+            return '0';
+        }
     }
 }

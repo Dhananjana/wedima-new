@@ -1,6 +1,5 @@
 
 <?=$nav1?>
-<br><br>
 <?=$sli?>
 <style type="text/css">
 .space{
@@ -47,7 +46,7 @@
     }
         .title-arch {
             text-align: center;
-            margin: 50px 0;
+            margin: 30px 0;
             font-size: 22px;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -57,7 +56,7 @@
 
     .project {
         width: 100%;
-        height: 500px;
+        height: 330px;
         background-image: url(<?php echo base_url().'assets/images/images/hotel.jpg';?>);
         background-size: cover;
         background-position: center;
@@ -68,7 +67,7 @@
 
 
     .project-2 {
-       background-image: url(<?php echo base_url().'assets/images/images/bride1.jpg';?>);
+       background-image: url(<?php echo base_url().'assets/images/images/bride1.png';?>);
     }
 
 
@@ -198,7 +197,7 @@
 
 .sticky1 {
   position: fixed;
-  top:83px;
+  top:42px;
   width: 100%;
 }
 
@@ -316,17 +315,16 @@
 
 <div class="container-fluid">
 <div class="title-arch">The Wedima<p> “If you can’t stop dreaming about it, don’t stop planing  for it.”</p></div>
-
+<div class="row"></div>
 </div>
 
 <div id="Services" class="container-fluid" style="z-index:499;">
     <div class="">
-        <div class="space"></div>
-         <div class="space"></div>
         <!-- Page Heading/Breadcrumbs -->
+        <div class="container">
         <h1 class="mt-4 mb-3">Services
         </h1>
-
+        </div>
 
 <!--         Project One-->
     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 project wow animated animated4 fadeInLeft">
@@ -440,10 +438,7 @@
     </div>
     <br>
    <div class="clearfix"></div>
-
-
   </div>
-
     <!-- /.container -->
 
 </div>
@@ -453,7 +448,7 @@
 <div id="Gallery" class="container-fluid">
     <div class="container">
         <div class="space"></div>
-          <div class="space"></div>
+       
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">Gallery
         </h1>
@@ -484,7 +479,6 @@
 <div id="Testinomials" class="container-fluid" >
     <div class="container" >
         <div class="space"></div>
-          <div class="space"></div>
         <!-- Page Heading/Breadcrumbs -->
         <h1 class="mt-4 mb-3">Testinominals
         </h1>
@@ -534,7 +528,6 @@
     <div class="welcome">
         <div class="container" >
             <div class="space"></div>
-              <div class="space"></div>
             <!-- Page Heading/Breadcrumbs -->
             <h1 class="mt-4 mb-3" >About us
             </h1>

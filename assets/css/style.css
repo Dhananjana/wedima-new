@@ -1,3 +1,23 @@
+table {
+margin: 1px;
+}
+
+th {
+font-family: Arial, Helvetica, sans-serif;
+font-size: .2em;
+background: #666;
+color: #FFF;
+padding: 2px 4px;
+border-collapse: separate;
+border: 1px solid #000;
+}
+
+td {
+font-family: Arial, Helvetica, sans-serif;
+font-size: .4em;
+border: 1px solid #DDD;
+}
+
 #evencal{
 	width:900px;
 	margin: 0 auto;
@@ -21,11 +41,12 @@ table.date {
 	border: 1px solid #999;
 	border-collapse: collapse;
 	font-family: Georgia, Times, serif;
+	
 }
 .date th {
 	border: 1px solid #000;
 	text-transform: uppercase;
-	background-color: #9E3DFF;
+	background-color:#212529;
 	font-size: 80%;
 	color:#F2FFFF;
 	height: 2.5em;
@@ -33,13 +54,14 @@ table.date {
 .date td {
 	border: 1px solid #999;
 	height: 3em;
-	width: 3em;
+	width: 4em;
 	vertical-align: top;
 }
 caption {
-	font-size: 200%;
+	font-size: 125%;
 	font-style: italic;
-	margin-bottom:5px;
+	margin-bottom:-15px;
+	margin-left: 30px;
 }
 
 a{
@@ -47,7 +69,8 @@ a{
 }
 
 a.prev_date, a.next_date{
-	font-size:50%;
+
+	font-size:70%;
 }
 
 div.active_date_event, div.date_event,
@@ -67,7 +90,7 @@ div.active_date_event{
 }
 
 div.active_no_event{
-	background-color: #80FFBF;
+	background-color:#007FBD;
 }
 
 span.date{
@@ -78,14 +101,17 @@ span.date{
 	height: 1em;
 	display:block;
 }
+
 span.event{
 	font-family: Arial;
-	font-size: 22px;
+	font-size: 20px;
 	font-weight:bold;
 	text-align:center;
-	padding-top:5px;
+	margin-top:-19px;
+	margin-left: 15px;
 	display:block;
 	color:blue;
+
 }
 
 .weekend_sat {
@@ -117,11 +143,11 @@ span.event{
 	font-size: 14px;
 	color: #ffffff;
 	padding: 3px 8px 3px 25px;
-	background: #01b9ec url('images/add.png') no-repeat 5px center;
+	background: #007FBD url('images/add.png') no-repeat 5px center;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
-	border: 1px solid #01b9ec;
+	border: 1px solid #007FBD;
 	-moz-box-shadow:
 		0px 1px 3px rgba(000,000,000,0.5),
 		inset 0px 0px 2px rgba(255,255,255,1);
@@ -134,15 +160,15 @@ span.event{
 	text-shadow:
 		0px -1px 0px rgba(000,000,000,0.4),
 		0px 1px 0px rgba(255,255,255,0.3);
-	margin: 10px 0 0 22px;
+	margin: 10px 0 0 52px;
 }
 
 /* from : http://www.paulund.co.uk/ */
 .info1,.info2,.message{margin:5px 20px 5px 20px; padding:3px;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;-moz-box-shadow: 4px 4px #dfe1d8;-webkit-box-shadow: 4px 4px #dfe1d8;box-shadow: 4px 4px #dfe1d8;}
-
+/*
 h4 { margin:5px 5px 5px 50px;padding:0; font-size:16px; }
 h4 img.edit, h4 img.delete{float:right; padding: 2px 5px 0 5px; cursor:pointer;}
-p { font-size:12px; color:#000; margin:5px 5px 5px 50px; }
+p { font-size:12px; color:#000; margin:5px 5px 5px 50px; }*/
 
 .info1{border:1px solid #9d9c49;color:#9d9c49;background:#fdfdcb url('images/warning.png') no-repeat; background-position:10px center;}
 .info2{border:1px solid #0e7fad;color:#0e7fad;background:#c0e9fa url('images/info.png') no-repeat; background-position:10px center;}
