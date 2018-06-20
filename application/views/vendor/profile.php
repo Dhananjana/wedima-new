@@ -358,9 +358,9 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                 </div>
                 <br>
                 <div class="row " style="margin-top: 2.8%">
-                    <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
-                    <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
-                    <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
+                    <div class="col-lg-6 col-md-6 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
+                    <div class="col-lg-6 col-md-6 col-xs-4 well"><i class="fa fa-star-o"></i> 14</div>
+                   
                 </div>
             </div>
             <div class="col-lg-2 " style="color:black;">

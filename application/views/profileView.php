@@ -277,20 +277,20 @@
 
             </div>
             <br>
-            <div class="row " style="margin-top: 7.4%">
-                <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
+            <div class="row " style="margin-top:10px;">
+               
                 <?php
                 if ($this->session->userdata('utype') == 'customer') {
                     if($isbookmark=="no") {
                         ?>
-                        <div id="bookmark" style="display: inline" class="col-lg-3 col-md-3 col-xs-4 well"
+                        <div id="bookmark" style="display: inline" class="col-lg-12 col-md-12 col-xs-12 well"
                              onclick="bookmark('<?php echo $detail->name; ?>');"><i class="fa fa-star-o" aria-hidden="true" ></i>
                         </div>
                         <?php
                     }
                     else {
                         ?>
-                        <div id="bookmark" style="display: inline" class="col-lg-3 col-md-3 col-xs-4 well"
+                        <div id="bookmark" style="display: inline" class="col-lg-12 col-md-12 col-xs-12 well"
                              onclick="unbookmark('<?php echo $detail->name; ?>');"><i class="fa fa-star" aria-hidden="true" style="
 color: #f1d40f;border-color: #f1d40f"></i>
                         </div>
@@ -302,12 +302,12 @@ color: #f1d40f;border-color: #f1d40f"></i>
 
                 else{
                     ?>
-                    <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
+                    <div class="col-lg-12 col-md-12 col-xs-12 well"><i class="fa fa-star-o"></i> 14</div>
                     <?php
                 }
                 ?>
 
-                <div class="col-lg-4 col-md-3 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
+               
             </div>
         </div>
     </div>
