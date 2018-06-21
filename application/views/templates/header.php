@@ -60,7 +60,7 @@
                     <a class="nav-link font-clr" href="<?php echo base_url().'home';?>" id="navbarDropdownPortfolio">Home</a>
                 </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li class="nav-item list1" >
-                    <a href="<?php echo base_url() . 'Home/vendorview'; ?>" style="text-decoration: none">Vendors</a>
+                    <a class="nav-link font-clr" href="contact.html">Vendors</a>
                 </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <li class="nav-item list1">
@@ -126,7 +126,7 @@
                     </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                     <li class="nav-item list1">
-                        <a class="nav-link font-clr" href="<?php echo base_url() . 'user'; ?>">Sign Up</a>
+                        <a class="nav-link font-clr" href="<?php echo base_url() . 'Register'; ?>">Sign Up</a>
                     </li>
                     <?php
                 }

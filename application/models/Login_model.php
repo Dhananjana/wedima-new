@@ -21,4 +21,57 @@ class Login_model extends CI_Model
             return NULL;
         }
     }
+
+
+    function  register_customer(){
+        $data=array(
+            'name' => $this->input->post('name'),
+            'password'=>$this->input->post('password'),
+            'email'=>$this->input->post('email'),
+            'usertype'=>'customer'
+
+        );
+        $this->db->insert('user',$data);
+    }
+
+    function  register_vendor(){
+        $data=array(
+            'name' => $this->input->post('name'),
+            'password'=>$this->input->post('password'),
+            'email'=>$this->input->post('email'),
+            'usertype'=>'vendor'
+        );
+
+        $this->db->insert('user',$data);
+        $user_id =$this->db->insert_id();
+
+
+        $category =$this->input->post('category');
+
+        $this->db->select('*');
+        $this->db->where('id',$category);
+        $query=$this->db->get('vendor');
+        foreach ($query->result() as $row)
+        {
+            $table=$row->vendorType;
+            $vendorTypeID=$row->id;
+        }
+
+        $data1=array(
+            'vendorName' => $this->input->post('company'),
+            'vendorTypeID' => $vendorTypeID,
+            'user_id' => $user_id
+        );
+
+        $this->db->insert('allvendor',$data1);
+        $allvendor_id =$this->db->insert_id();
+
+        $data2=array(
+            'name' => $this->input->post('company'),
+            'serviceArea' => $this->input->post('service'),
+        );
+
+        $this->db->insert($table,$data2);
+
+    }
 }

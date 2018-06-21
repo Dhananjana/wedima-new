@@ -56,7 +56,7 @@
 
     .project {
         width: 100%;
-        height: 350px;
+        height: 330px;
         background-image: url(<?php echo base_url().'assets/images/images/hotel.jpg';?>);
         background-size: cover;
         background-position: center;
@@ -389,7 +389,7 @@
         <div class="project-hover">
                 <h2>Cars</h2>
             <hr />
-           <h6>1.wedding cars<br>2.guests cars</h6>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pulvinar ex pulvinar est laoreet ullamcorper.</p>
             <a href="<?php echo base_url().'home/vendorList/7';?>">See More</a>
         </div>
     </div>
