@@ -41,13 +41,13 @@
 
 
                 <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" type="submit">
+                    <button style="background-color: #333333;" class="login100-form-btn" type="submit">
                         Login
                     </button>
                 </div>
             </form>
 
-            <div class="login100-more" style="background-image: url(<?php echo base_url().'assets/images/bg-01.jpg';?>); height: 800px;">
+            <div class="login100-more" style="background-image: url(<?php echo base_url().'assets/images/bg-08.jpg';?>); height: 880px;">
             </div>
         </div>
     </div>

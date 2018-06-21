@@ -46,6 +46,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+
 }
 
 .dropdown-content a {
@@ -104,8 +105,8 @@
 
     .well {
         margin-top:-20px;
-        background-color:#007FBD;
-        border:2px solid #0077B2;
+        background-color:#333333;
+        border:2px solid #888888;
         text-align:center;
         cursor:pointer;
         font-size: 25px;
@@ -115,18 +116,7 @@
 
     }
 
-    .well:hover {
-        margin-top:-20px;
-        background-color:#0077B2;
-        border:2px solid #0077B2;
-        text-align:center;
-        cursor:pointer;
-        font-size: 25px;
-        padding: 5px;
-        border-radius: 0px !important;
-        border-bottom : 2px solid rgba(97, 203, 255, 0.65);
-    }
-
+   
     .hed {
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 14px;
@@ -335,13 +325,22 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
 .cursors > div:hover {
   background: #eee;
 }
+.btn-clr1{
+    background-color: #cccccc;
+}
+.btn-clr2{
+    background-color: #cccccc;
+}
+.album{
+    cursor: pointer;
+}
 </style>
 
 <?php foreach ($details as $detail) {
     ?>
    <div class="hed" style="margin-top: 20px; margin-bottom: 20px;">
         <div class="row panel">
-            <div class="col-lg-3 bg_blur " style="background-image:url(' <?php echo base_url() . 'uploads/cover/' . $detail->cover ?>');"><button type="button" class="btn btn-info" style="margin-top: 260px;" data-toggle="modal" data-target="#coverModal"><i class=" fa fa-pencil-square-o" aria-hidden="true"></i>change cover</button>
+            <div class="col-lg-3 bg_blur " style="background-image:url(' <?php echo base_url() . 'uploads/cover/' . $detail->cover ?>');"><button type="button" class="btn btn-clr1" style="margin-top: 260px;" data-toggle="modal" data-target="#coverModal"><i class=" fa fa-pencil-square-o" aria-hidden="true"></i>change cover</button>
             </div>
               <div class="col-lg-1"></div>
             <div class="col-lg-6" style="margin-left: -50px;">
@@ -352,15 +351,15 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
 <!--                    <h4>Web Developer</h4>-->
                 <div class="row">
                     <span><?php echo $detail->description ?></span>
-                     <button type="button" class="btn btn-info" style="margin-top:15px;margin-left: -165px;z-index:999" data-toggle="modal" data-target="#ppModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                     <button type="button" class="btn btn-clr2" style="margin-top:15px;margin-left: -165px;z-index:999" data-toggle="modal" data-target="#ppModal"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                 </div>
 
                 </div>
                 <br>
                 <div class="row " style="margin-top: 2.8%">
-                    <div class="col-lg-6 col-md-6 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
-                    <div class="col-lg-6 col-md-6 col-xs-4 well"><i class="fa fa-star-o"></i> 14</div>
-                   
+                    <div class="col-lg-12 col-md-12 col-xs-4 well " style="cursor:context-menu"><i class="fa fa-weixin fa-lg"></i> 16</div>
+                   <!--  <div class="col-lg-6 col-md-6 col-xs-4 well" style="cursor:context-menu"><i class="fa fa-star-o"></i> 14</div>
+                    -->
                 </div>
             </div>
             <div class="col-lg-2 " style="color:black;">
@@ -376,7 +375,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
         <div class="footer-widget">
 
         <div class="row ">
-             <h4 style="margin-left: 30%;margin-top: 10%"><i class="fa fa-globe br-blue" aria-hidden="true"></i>&nbsp; Intro</h4>
+             <h4 style="margin-left: 35%;margin-top: 10%"><i class="fa fa-globe br-blue" aria-hidden="true"></i>&nbsp; Intro</h4>
              <h3><i style="margin-top: 3%; margin-left:40px"  class="fa fa-pencil-square-o pointer" aria-hidden="true" onclick="edit_mobiledetail()" style="margin-top:38%" aria-hidden="true"></i></h3>
         </div>
 
@@ -406,7 +405,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
 <div class="col-lg-9">
  <div class="col-lg-12 card"">
  <div class="row ">
-     <h2 class="col-lg-10 ">Package Details</h2>
+     <h2 class="col-lg-10 ">Service Details</h2>
 
      <h1><i style="margin-top: 3%; margin-left:40px"  class="fa fa-plus-circle pointer" aria-hidden="true" data-toggle="modal" data-target="#packageModel" style="margin-top:38%" aria-hidden="true"></i></h1>
 </div>
@@ -455,7 +454,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
     <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:520px;height:170px;overflow:hidden;visibility:hidden;">
             <!-- Loading Screen -->
             
-            <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1000px;height:150px;overflow:hidden;">
+            <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:1000px;height:130px;overflow:hidden;">
              <?php
             if( !empty($images) ) {
             foreach ($images as $image) {
@@ -500,7 +499,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                             <img style="height: 120px;width: 90s%" class="card-img-top cell" src="<?php echo base_url().'albums/'.$album->album_name.'/'.$album->image_name?>" alt="Card image cap">
                             <div class="card-body">
                                 <h6 class="card-text"><a href="" style="text-decoration: none"><?php echo $album->album_name;?></a></h6>
-                              <div class="dropdown" style="float:right;margin-top:-20px;color: gray">
+                              <div class="dropdown album" style="float:right;margin-top:-20px;color: gray">
                               <h1>...</h1>
                                 <div class="dropdown-content">
                                 <div class="square"></div>
@@ -544,7 +543,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
             <div class="form-group">
               <label class="control-label col-md-3">Descripton</label>
               <div class="col-md-9">
-                <input name="description" placeholder="description" class="form-control" type="text">
+                <textarea name="description" placeholder="description" class="form-control" type="text"></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -578,7 +577,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
           <div class="form-group">
               <label class="control-label col-md-3">Description</label>
               <div class="col-md-9">
-                <input  name="description" placeholder="description" class="form-control" type="text">
+                <textarea name="description" placeholder="description" class="form-control" type="text"></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -634,7 +633,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
             <div class="form-group">
               <label class="control-label col-md-3">Descripton</label>
               <div class="col-md-9">
-                <input name="description" placeholder="description" class="form-control" type="text">
+                <textarea name="description" placeholder="description" class="form-control" type="text"></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -778,14 +777,26 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
                      <input name="image[]"  class="form-control" type="file" multiple="multiple">
                  </div>
              </div>
-          <button type="submit" class="btn btn-success" >Create Album</button>
-        <?php echo form_close()?>
+             <div class="row">
+             <div class="col-lg-1"></div>
+                 <div class="col-lg-4">
+                      <button type="submit" class="btn btn-default" >Create Album</button>
+                    <?php echo form_close()?>
+                </div>
+                <div class="col-lg-4"></div>
+                <div class="col-lg-2">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     <br> <br>
+                </div>
 
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
       </div>
 
     </div>
+
+
+ 
 <!--     dfghjkl. -->
   </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

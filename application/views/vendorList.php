@@ -18,14 +18,15 @@
 
     .btn-round{
         border-radius: 17px;
-        background-color: rgba(255, 180,00, 0.7);
-        border-color: #FAC606;
+       background-color:#333333;
+    border-color: #333333;
+    color: white;
         margin-left: 4%;
     }
     .btn-round:hover{
-        background-color: white;
-        border-color: #FAC606;
-        color:#FAC606 ;
+        background-color:white;
+        border-color: #333333;
+        color:#333333 ;
     }
 
 </style>
@@ -93,7 +94,7 @@
         <?php foreach($vendors as $vendor){?>
         <div class="col-lg-4 col-sm-6 col-xs-3 portfolio-item">
             <div class="card h-100">
-                <img class="card-img-top" src="<?php echo base_url().'uploads/profile/'.$vendor->pp?>" alt="Card image cap" style="max-height: 350px;max-width: 350px">
+                <img class="card-img-top" src="<?php echo base_url().'uploads/profile/'.$vendor->pp?>" alt="Card image cap" style="max-height: 360px;max-width: 350px">
                 <div class="card-body">
                     <h4 class="card-title">
                         <?php echo  $vendor->name?></p>
@@ -103,7 +104,7 @@
                         echo $limited_word;
 
                         ?></p>
-                    <a href="<?php echo base_url().'vendor/profileView/'.urlencode($vendor->name)?>" class="btn btn-primary btn-round">>>Look In</a>
+                    <a href="<?php echo base_url().'vendor/profileView/'.urlencode($vendor->name)?>" class="btn btn-clr2 btn-round">>>Look In</a>
                 </div>
             </div>
         </div>

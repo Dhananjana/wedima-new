@@ -10,19 +10,20 @@
 	$h .= '</select>';
 	$m .= '</select>';
 ?>
-<div style="width:500px; height:135px; overflow:auto; color:#000000; margin-bottom:20px;" align="center">
-	<h4>Adding event for <?php echo "$day $month $year"?></h4>
+<div style="width:500px; height:150px;  color:#000000; " align="center">
+	<h2>Adding event for <?php echo "$day $month $year"?></h2>
 	<div class="spacer"></div>
-	<table>
-		<tr><td>Time <span class="require">*</span></td><td>:</td><td><?php echo "$h&nbsp;:&nbsp;$m";?>&nbsp;:&nbsp;<select name="second" disabled><option value="00">00</option></select></td></tr>
-		<tr><td>Event <span class="require">*</span></td><td>:</td><td><input type="text" name="event" id="event" maxlength="50" size="50" /></td></tr>
-		<tr><td colspan="2"></td><td><input type="button" name="cancel" value="Cancel" class="cancel">&nbsp;&nbsp;
-									 <input type="button" name="save" value="Save" class="save"></td></tr>
-	</table>
+
+		Time <span class="require">*</span>:<?php echo "$h&nbsp;:&nbsp;$m";?>&nbsp;:&nbsp;<select name="second" disabled><option value="00">00</option></select><br>
+		Event <span class="require">*</span></td><td>:</td><td><input type="text" name="event" id="event" maxlength="50" size="50" /><br>
+		<td colspan="2"></td><td><input type="button" name="cancel" value="Cancel" class="cancel">&nbsp;&nbsp;
+									 <input type="button" name="save" value="Save" class="save"></td>
+
 	<script>	
 	$('.cancel').click(function(){
 		var data = false;
 		$.fn.colorbox.close(data);
+		
 	});
 	
 	$('.save').click(function(){
