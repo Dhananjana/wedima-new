@@ -36,7 +36,7 @@ class Vendor extends CI_Controller
             $data['nav1'] = $this->load->view('templates/header1', NULL, TRUE);
             $data['packages'] = $this->Vendor_model->get_packages();
             $data['images'] = $this->Vendor_model->vendor_gallery();
-
+            $data['feedbacks']=$this->Vendor_model->get_feedbacks();
             $data['albums'] = $this->Vendor_model->get_albums();
             $this->load->view('templates/header');
 //            $prefs = array(

@@ -520,6 +520,34 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, A
     </div>
 
 </div>
+
+<div class="container col-lg-12">
+
+    <div class="col-lg-12 card">
+        <div class="contact-details">
+            <div class="row">
+                <h4 style="margin-top: 3%">Feedbacks</h4>
+            </div>
+            <div class="" >
+                <?php foreach ($feedbacks as $feedback) {
+                    ?>
+                    <div class="card h-100">
+                        <div class="card-body row">
+                            <div class="col-lg-2">
+                                <h4 class="card-text"><a href="" style="text-decoration: none"><?php echo $feedback->name;?></a></h4>
+                            </div>
+                            <p class="card-text"><a href="" style="text-decoration: none;color: black;"><?php echo $feedback->description;?></a></p>
+                        </div>
+                    </div>
+
+                    <?php
+                };?>
+            </div>
+            <br>
+        </div>
+    </div>
+
+</div>
 <br>
 
 
